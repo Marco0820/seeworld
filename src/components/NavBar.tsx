@@ -45,9 +45,6 @@ export default function NavBar() {
             <Link href="/credits" className={linkCls('/credits')}>
               Credits
             </Link>
-            <Link href="/account" className={linkCls('/account')}>
-              Account
-            </Link>
           </div>
           
           {/* Google Sign-In */}
