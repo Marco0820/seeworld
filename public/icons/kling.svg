@@ -1,0 +1,14 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="24" height="24" rx="6" fill="#000000"/>
+  <path d="M6 12C6 8.5 8.5 6 12 6C15.5 6 18 8.5 18 12C18 15.5 15.5 18 12 18C8.5 18 6 15.5 6 12Z" fill="url(#kling-gradient)"/>
+  <ellipse cx="12" cy="12" rx="3" ry="3" fill="#000000"/>
+  <defs>
+    <linearGradient id="kling-gradient" x1="6" y1="6" x2="18" y2="18">
+      <stop offset="0%" stop-color="#00FFFF"/>
+      <stop offset="25%" stop-color="#0080FF"/>
+      <stop offset="50%" stop-color="#8000FF"/>
+      <stop offset="75%" stop-color="#00FF80"/>
+      <stop offset="100%" stop-color="#80FF00"/>
+    </linearGradient>
+  </defs>
+</svg>

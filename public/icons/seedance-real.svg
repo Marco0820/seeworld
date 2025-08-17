@@ -1,0 +1,22 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="24" height="24" rx="5" fill="#000000"/>
+  <g transform="translate(2, 2)">
+    <path d="M10 0L16 6L13 9L16 12L10 18L4 12L7 9L4 6L10 0Z" fill="url(#seedance-main)"/>
+    <path d="M10 4L13 7L10 10L7 7L10 4Z" fill="url(#seedance-center)"/>
+    <circle cx="10" cy="7" r="1" fill="white" opacity="0.9"/>
+  </g>
+  <defs>
+    <linearGradient id="seedance-main" x1="4" y1="0" x2="16" y2="18">
+      <stop offset="0%" stop-color="#FFFF00"/>
+      <stop offset="25%" stop-color="#00FFFF"/>
+      <stop offset="50%" stop-color="#0080FF"/>
+      <stop offset="75%" stop-color="#8000FF"/>
+      <stop offset="100%" stop-color="#00FF80"/>
+    </linearGradient>
+    <radialGradient id="seedance-center" cx="10" cy="7" r="3">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="50%" stop-color="#80FF00"/>
+      <stop offset="100%" stop-color="#00FFFF"/>
+    </radialGradient>
+  </defs>
+</svg>

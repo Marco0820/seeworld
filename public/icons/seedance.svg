@@ -1,0 +1,19 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="24" height="24" rx="6" fill="#000000"/>
+  <path d="M12 3L18 9L15 12L18 15L12 21L6 15L9 12L6 9L12 3Z" fill="url(#seedance-gradient)"/>
+  <path d="M12 7L15 10L12 13L9 10L12 7Z" fill="url(#seedance-inner)"/>
+  <defs>
+    <linearGradient id="seedance-gradient" x1="6" y1="3" x2="18" y2="21">
+      <stop offset="0%" stop-color="#FFFF00"/>
+      <stop offset="25%" stop-color="#00FFFF"/>
+      <stop offset="50%" stop-color="#0080FF"/>
+      <stop offset="75%" stop-color="#8000FF"/>
+      <stop offset="100%" stop-color="#00FF80"/>
+    </linearGradient>
+    <linearGradient id="seedance-inner" x1="9" y1="7" x2="15" y2="13">
+      <stop offset="0%" stop-color="#80FF00"/>
+      <stop offset="50%" stop-color="#00FF80"/>
+      <stop offset="100%" stop-color="#00FFFF"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,0 +1,25 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="24" height="24" rx="5" fill="#000000"/>
+  <g transform="translate(2, 2)">
+    <path d="M10 0C15.5 0 20 4.5 20 10C20 15.5 15.5 20 10 20C4.5 20 0 15.5 0 10C0 4.5 4.5 0 10 0Z" fill="url(#kling-outer)"/>
+    <ellipse cx="10" cy="10" rx="4" ry="4" fill="#000000"/>
+    <path d="M5 5C8 2 12 2 15 5C12 8 8 8 5 5Z" fill="url(#kling-inner1)"/>
+    <path d="M15 15C12 18 8 18 5 15C8 12 12 12 15 15Z" fill="url(#kling-inner2)"/>
+  </g>
+  <defs>
+    <linearGradient id="kling-outer" x1="0" y1="0" x2="20" y2="20">
+      <stop offset="0%" stop-color="#00FFFF"/>
+      <stop offset="30%" stop-color="#0080FF"/>
+      <stop offset="70%" stop-color="#80FF00"/>
+      <stop offset="100%" stop-color="#FFFF00"/>
+    </linearGradient>
+    <linearGradient id="kling-inner1" x1="5" y1="2" x2="15" y2="8">
+      <stop offset="0%" stop-color="#00FFFF"/>
+      <stop offset="100%" stop-color="#0080FF"/>
+    </linearGradient>
+    <linearGradient id="kling-inner2" x1="5" y1="12" x2="15" y2="18">
+      <stop offset="0%" stop-color="#80FF00"/>
+      <stop offset="100%" stop-color="#FFFF00"/>
+    </linearGradient>
+  </defs>
+</svg>
