@@ -1,235 +1,202 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { Play, Pause } from "lucide-react";
+import { useState } from "react";
+import { Play, ArrowRight, Sparkles, Video, Image as ImageIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function Hero() {
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [userInteracted, setUserInteracted] = useState(false);
-  const [selectedFeature, setSelectedFeature] = useState<number | null>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      // Ensure video is muted to allow autoplay
-      video.muted = true;
-      video.volume = 0;
-      
-      // Try to play the video
-      const playPromise = video.play();
-      
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => {
-            // Autoplay successful
-            setIsPlaying(true);
-          })
-          .catch(() => {
-            // Autoplay blocked, set to paused state
-            setIsPlaying(false);
-          });
-      }
-    }
-  }, []);
-
-  const togglePlayPause = () => {
-    const video = videoRef.current;
-    if (video) {
-      if (isPlaying) {
-        video.pause();
-      } else {
-        video.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
-
-  const handleVideoLoad = () => {
-    setIsLoaded(true);
-    // Try to play again after video loads
-    const video = videoRef.current;
-    if (video && !isPlaying) {
-      video.play().catch(() => {
-        // If still unable to play, keep paused state
-        setIsPlaying(false);
-      });
-    }
-  };
-
-  // Handle user interaction to start video
-  const handleUserInteraction = () => {
-    if (!userInteracted) {
-      setUserInteracted(true);
-      const video = videoRef.current;
-      if (video && !isPlaying) {
-        video.play().then(() => {
-          setIsPlaying(true);
-        }).catch(() => {
-          setIsPlaying(false);
-        });
-      }
-    }
-  };
+  const [selectedTab, setSelectedTab] = useState<'video' | 'image'>('video');
 
   return (
-    <section 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      onClick={handleUserInteraction}
-    >
+    <section className="relative min-h-screen overflow-hidden">
       {/* Video Background */}
-      <div className="absolute inset-0 z-0">
-        <video
-          ref={videoRef}
-          className={`video-background ${isLoaded ? 'opacity-100' : 'opacity-0'} video-container`}
-          autoPlay
-          muted
-          loop
+      <div className="video-container absolute inset-0 z-0">
+        <video 
+          className="video-background"
+          autoPlay 
+          muted 
+          loop 
           playsInline
-          preload="metadata"
-          controls={false}
-          onLoadedData={handleVideoLoad}
-          onCanPlay={() => {
-            // Try to play when video is ready
-            const video = videoRef.current;
-            if (video) {
-              video.play().catch(() => {
-                setIsPlaying(false);
-              });
-            }
-          }}
-          style={{
-            willChange: 'transform',
-            imageRendering: 'crisp-edges'
-          }}
         >
           <source src="/videos/hero-background.mp4" type="video/mp4" />
-          <source src="/videos/hero-background.webm" type="video/webm" />
-          Your browser does not support the video tag.
         </video>
-        
-        {/* Video Overlay - Full Coverage */}
-        <div className="absolute inset-0 bg-black/40 bg-gradient-to-b from-black/25 via-black/40 to-black/60 video-overlay z-2" />
+        {/* Video Overlay */}
+        <div className="video-overlay absolute inset-0 bg-black/40 z-10"></div>
       </div>
-
-      {/* Video Control Button */}
-      <button
-        onClick={togglePlayPause}
-        className="absolute top-6 right-6 z-20 p-3 bg-black/30 hover:bg-black/50 backdrop-blur-sm rounded-full border border-white/20 transition-all duration-300 group"
-        aria-label={isPlaying ? "Pause video" : "Play video"}
-      >
-        {isPlaying ? (
-          <Pause className="w-5 h-5 text-white group-hover:text-white transition-colors" />
-        ) : (
-          <Play className="w-5 h-5 text-white group-hover:text-white transition-colors" />
-        )}
-      </button>
-
-      {/* Hero Content */}
-      <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
-        <div className="space-y-8">
+      
+      <div className="relative z-20 max-w-7xl mx-auto px-6 pt-24 pb-20">
+        <div className="text-center space-y-8">
           {/* Main Headline */}
-          <div className="space-y-4">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight">
-              <span className="text-white video-text-shadow">
-                See the World
+          <div className="space-y-6">
+            <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">
+              <Sparkles className="w-4 h-4" />
+              <span>全球首个完全免费的AI视频生成平台 | World's First Free AI Video Platform</span>
+            </div>
+            
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight video-text-shadow">
+              <span className="bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 bg-clip-text text-transparent">
+                免费AI视频生成
               </span>
               <br />
-              <span className="text-white video-text-shadow">
-                Through AI
+              <span className="text-white">
+                Free AI Video Creation
               </span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto leading-relaxed video-text-shadow">
-              Transform your imagination into stunning videos with the power of artificial intelligence. 
-              Create, edit, and enhance videos like never before.
+            <p className="text-xl md:text-2xl text-gray-100 max-w-4xl mx-auto leading-relaxed video-text-shadow">
+              全球首个完全免费的AI视频生成平台，集成Kling AI、Runway、Hailuo AI等顶级模型。
+              无需付费即可体验专业级AI视频创作，让创意瞬间成真！
             </p>
+          </div>
+
+          {/* Tab Navigation */}
+          <div className="flex justify-center">
+            <div className="bg-white/10 backdrop-blur-md rounded-full p-1 shadow-lg border border-white/20">
+              <div className="flex space-x-1">
+                <button
+                  onClick={() => setSelectedTab('video')}
+                  className={`flex items-center space-x-2 px-6 py-3 rounded-full transition-all duration-200 ${
+                    selectedTab === 'video'
+                      ? 'bg-blue-600 text-white shadow-md'
+                      : 'text-white/80 hover:text-white hover:bg-white/10'
+                  }`}
+                >
+                  <Video className="w-4 h-4" />
+                  <span className="font-medium">Create Video</span>
+                </button>
+                <button
+                  onClick={() => setSelectedTab('image')}
+                  className={`flex items-center space-x-2 px-6 py-3 rounded-full transition-all duration-200 ${
+                    selectedTab === 'image'
+                      ? 'bg-purple-600 text-white shadow-md'
+                      : 'text-white/80 hover:text-white hover:bg-white/10'
+                  }`}
+                >
+                  <ImageIcon className="w-4 h-4" />
+                  <span className="font-medium">Create Image</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Feature Content */}
+          <div className="max-w-5xl mx-auto">
+            {selectedTab === 'video' && (
+              <div className="space-y-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+                  <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 shadow-lg border border-white/20 hover:bg-white/20 transition-all duration-300">
+                    <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4">
+                      <span className="text-2xl">📝</span>
+                    </div>
+                    <h3 className="font-semibold text-white mb-2">Text to Video</h3>
+                    <p className="text-sm text-gray-200">Enter text description, AI generates stunning videos</p>
+                  </div>
+                  
+                  <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 shadow-lg border border-white/20 hover:bg-white/20 transition-all duration-300">
+                    <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mb-4">
+                      <span className="text-2xl">🖼️</span>
+                    </div>
+                    <h3 className="font-semibold text-white mb-2">Image to Video</h3>
+                    <p className="text-sm text-gray-200">Transform static images into dynamic videos</p>
+                  </div>
+                  
+                  <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 shadow-lg border border-white/20 hover:bg-white/20 transition-all duration-300">
+                    <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-4">
+                      <span className="text-2xl">👤</span>
+                    </div>
+                    <h3 className="font-semibold text-white mb-2">Consistent Character</h3>
+                    <p className="text-sm text-gray-200">Maintain character consistency in video generation</p>
+                  </div>
+                  
+                  <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 shadow-lg border border-white/20 hover:bg-white/20 transition-all duration-300">
+                    <div className="w-12 h-12 bg-yellow-500/20 rounded-lg flex items-center justify-center mb-4">
+                      <span className="text-2xl">🎬</span>
+                    </div>
+                    <h3 className="font-semibold text-white mb-2">Video to Video</h3>
+                    <p className="text-sm text-gray-200">Video style transformation and editing</p>
+                  </div>
+                  
+                  <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 shadow-lg border border-white/20 hover:bg-white/20 transition-all duration-300">
+                    <div className="w-12 h-12 bg-pink-500/20 rounded-lg flex items-center justify-center mb-4">
+                      <span className="text-2xl">✨</span>
+                    </div>
+                    <h3 className="font-semibold text-white mb-2">AI Animation</h3>
+                    <p className="text-sm text-gray-200">Professional animation effects generation</p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {selectedTab === 'image' && (
+              <div className="space-y-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                  <div className="bg-white/10 backdrop-blur-md rounded-xl p-8 shadow-lg border border-white/20 hover:bg-white/20 transition-all duration-300">
+                    <div className="w-16 h-16 bg-purple-500/20 rounded-lg flex items-center justify-center mb-6">
+                      <span className="text-3xl">📝</span>
+                    </div>
+                    <h3 className="text-xl font-semibold text-white mb-3">Text to Image</h3>
+                    <p className="text-gray-200">Generate high-quality images through text descriptions</p>
+                  </div>
+                  
+                  <div className="bg-white/10 backdrop-blur-md rounded-xl p-8 shadow-lg border border-white/20 hover:bg-white/20 transition-all duration-300">
+                    <div className="w-16 h-16 bg-blue-500/20 rounded-lg flex items-center justify-center mb-6">
+                      <span className="text-3xl">🎨</span>
+                    </div>
+                    <h3 className="text-xl font-semibold text-white mb-3">Image to Image</h3>
+                    <p className="text-gray-200">Generate new creative works based on existing images</p>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a 
-              href="/generate" 
-              className="px-8 py-4 bg-white hover:bg-white/90 text-black font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-white/25 min-w-[200px] text-center inline-block"
+            <Button 
+              size="lg"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             >
-              Get Started
-            </a>
+              Start Creating for Free
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
             
-            <button className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 backdrop-blur-sm transition-all duration-300 transform hover:scale-105 min-w-[200px]">
-              Learn More
-            </button>
+            <Button 
+              variant="outline"
+              size="lg"
+              className="border-2 border-gray-300 hover:border-blue-600 text-gray-700 hover:text-blue-600 px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300 transform hover:scale-105"
+            >
+              <Play className="mr-2 w-5 h-5" />
+              Watch Demo
+            </Button>
           </div>
 
-          {/* Feature Highlights */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 max-w-4xl mx-auto">
-            <button 
-              className={`text-center space-y-2 p-4 rounded-lg transition-all duration-300 cursor-pointer hover:scale-105 ${
-                selectedFeature === 0 ? 'bg-blue-500 shadow-lg shadow-blue-500/25' : 'bg-transparent hover:bg-white/10'
-              }`}
-              onClick={() => setSelectedFeature(selectedFeature === 0 ? null : 0)}
-            >
-              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                <span className="text-white text-xl">🎬</span>
+          {/* AI Models Showcase */}
+          <div className="mt-16">
+            <p className="text-sm text-gray-300 mb-6">Integrated Leading AI Models</p>
+            <div className="flex flex-wrap justify-center items-center gap-8 opacity-80">
+              <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg shadow-sm border border-white/20">
+                <span className="text-sm font-medium text-white">Kling AI</span>
               </div>
-              <h3 className={`font-semibold text-lg ${
-                selectedFeature === 0 ? 'text-white video-text-shadow' : 'text-black'
-              }`}>AI Video Generation</h3>
-              <p className={`text-sm ${
-                selectedFeature === 0 ? 'text-white/80 video-text-shadow' : 'text-gray-700'
-              }`}>
-                Generate high-quality videos directly from text descriptions
-              </p>
-            </button>
-            
-            <button 
-              className={`text-center space-y-2 p-4 rounded-lg transition-all duration-300 cursor-pointer hover:scale-105 ${
-                selectedFeature === 1 ? 'bg-blue-500 shadow-lg shadow-blue-500/25' : 'bg-transparent hover:bg-white/10'
-              }`}
-              onClick={() => setSelectedFeature(selectedFeature === 1 ? null : 1)}
-            >
-              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                <span className="text-white text-xl">⚡</span>
+              <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg shadow-sm border border-white/20">
+                <span className="text-sm font-medium text-white">Runway</span>
               </div>
-              <h3 className="text-white font-semibold text-lg video-text-shadow">Lightning Fast</h3>
-              <p className="text-white/80 text-sm video-text-shadow">
-                Advanced AI algorithms ensure rapid and efficient video processing
-              </p>
-            </button>
-            
-            <button 
-              className={`text-center space-y-2 p-4 rounded-lg transition-all duration-300 cursor-pointer hover:scale-105 ${
-                selectedFeature === 2 ? 'bg-blue-500 shadow-lg shadow-blue-500/25' : 'bg-transparent hover:bg-white/10'
-              }`}
-              onClick={() => setSelectedFeature(selectedFeature === 2 ? null : 2)}
-            >
-              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                <span className="text-white text-xl">🎨</span>
+              <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg shadow-sm border border-white/20">
+                <span className="text-sm font-medium text-white">Hailuo AI</span>
               </div>
-              <h3 className="text-white font-semibold text-lg video-text-shadow">Unlimited Creativity</h3>
-              <p className="text-white/80 text-sm video-text-shadow">
-                Multiple styles and effects to unleash your creativity
-              </p>
-            </button>
+              <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg shadow-sm border border-white/20">
+                <span className="text-sm font-medium text-white">Vidu AI</span>
+              </div>
+              <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg shadow-sm border border-white/20">
+                <span className="text-sm font-medium text-white">Recraft</span>
+              </div>
+              <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg shadow-sm border border-white/20">
+                <span className="text-sm font-medium text-white">Ideogram</span>
+              </div>
+              <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg shadow-sm border border-white/20">
+                <span className="text-sm font-medium text-white">Stable Diffusion</span>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-
-      {/* Video Play Hint */}
-      {!isPlaying && isLoaded && (
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 text-center">
-          <div className="bg-black/70 backdrop-blur-sm rounded-lg p-6 text-white">
-            <Play className="w-12 h-12 mx-auto mb-3" />
-            <p className="text-lg font-medium mb-2">Click to play video</p>
-            <p className="text-sm text-white/70">Click anywhere to start the background video</p>
-          </div>
-        </div>
-      )}
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-        <div className="w-6 h-10 border-2 border-white/40 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-bounce"></div>
         </div>
       </div>
     </section>

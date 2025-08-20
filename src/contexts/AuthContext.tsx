@@ -69,7 +69,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   }, []);
 
-  const handleGoogleSignIn = (response: any) => {
+  const handleGoogleSignIn = (response: { credential: string }) => {
     try {
       const decoded = JSON.parse(atob(response.credential.split('.')[1]));
       const userData: GoogleUser = {

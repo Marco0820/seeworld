@@ -1,78 +1,129 @@
 "use client";
 
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
-import { Play, Eye } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Play, Eye, Clock, Star, ArrowRight } from "lucide-react";
 import Image from "next/image";
 
-const useCases = [
+const videoExamples = [
   {
-    title: "A quick story about Jesus' life in one minute",
-    image: "https://ext.same-assets.com/1560300687/135780542.jpeg",
-    category: "Religious Content"
+    id: 1,
+    title: "Jesus Life One-Minute Quick Story",
+    image: "https://images.unsplash.com/photo-1507692049790-de58290a4334?w=400&h=300&fit=crop",
+    category: "Religious Content",
+    duration: "1:02",
+    views: 15420,
+    rating: 4.8,
+    description: "AI-generated religious themed short video showcasing important moments in Jesus' life"
   },
   {
-    title: "Humorous and creative Starbucks advertisement",
-    image: "https://ext.same-assets.com/1560300687/2560346949.jpeg",
-    category: "Advertisement"
+    id: 2,
+    title: "Starbucks Creative Humor Ad",
+    image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=300&fit=crop",
+    category: "Commercial Ad",
+    duration: "0:45",
+    views: 23890,
+    rating: 4.9,
+    description: "Creative advertisement made for Starbucks, combining humor elements and brand characteristics"
   },
   {
-    title: "The Fishing Vlog of a Gorilla Adventurer",
-    image: "https://ext.same-assets.com/1560300687/3139446703.jpeg",
-    category: "Entertainment"
+    id: 3,
+    title: "Gorilla Adventurer's Fishing Diary",
+    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&h=300&fit=crop",
+    category: "Entertainment Content",
+    duration: "2:15",
+    views: 34567,
+    rating: 4.7,
+    description: "Interesting animal-themed video showcasing gorilla's fishing adventure journey"
   },
   {
-    title: "Working Diary of a Cute Pink Pig",
-    image: "https://ext.same-assets.com/1560300687/2005767087.jpeg",
-    category: "Animation"
+    id: 4,
+    title: "Cute Pink Pig's Work Diary",
+    image: "https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=400&h=300&fit=crop",
+    category: "Animation Content",
+    duration: "1:30",
+    views: 18943,
+    rating: 4.6,
+    description: "Warm and cute animated short film recording pig's daily work life"
   },
   {
-    title: "A pixel art style short video of a Japanese girl working at a convenience store",
-    image: "https://ext.same-assets.com/1560300687/1543299049.jpeg",
-    category: "Pixel Art"
+    id: 5,
+    title: "Japanese Convenience Store Girl Pixel Style Short Film",
+    image: "https://images.unsplash.com/photo-1555992336-03a23c5a2d1c?w=400&h=300&fit=crop",
+    category: "Pixel Art",
+    duration: "1:45",
+    views: 27651,
+    rating: 4.8,
+    description: "Retro pixel-style Japanese short film showcasing daily life in convenience stores"
   },
   {
-    title: "Funny commercial for Estée Lauder's Advanced Night Repair (Little Brown Bottle)",
-    image: "https://ext.same-assets.com/1560300687/3226886278.jpeg",
-    category: "Beauty Commercial"
+    id: 6,
+    title: "Estee Lauder Little Brown Bottle Funny Ad",
+    image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=300&fit=crop",
+    category: "Beauty Ad",
+    duration: "0:52",
+    views: 41238,
+    rating: 4.9,
+    description: "Creative advertisement made for Estee Lauder Little Brown Bottle"
   },
   {
-    title: "Bond between technology and emotion",
-    image: "https://ext.same-assets.com/1560300687/390608527.jpeg",
-    category: "Conceptual"
+    id: 7,
+    title: "The Bond Between Technology and Emotion",
+    image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop",
+    category: "Concept Film",
+    duration: "3:20",
+    views: 19876,
+    rating: 4.5,
+    description: "Deep concept short film exploring the relationship between technology and human emotions"
   },
   {
-    title: "A suspenseful short drama about cosmetic surgery",
-    image: "https://ext.same-assets.com/1560300687/596805921.jpeg",
-    category: "Drama"
+    id: 8,
+    title: "Plastic Surgery Suspense Short Drama",
+    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop",
+    category: "Suspense Drama",
+    duration: "4:15",
+    views: 32109,
+    rating: 4.4,
+    description: "Thrilling suspense short drama centered around plastic surgery"
   }
 ];
 
 export default function UseCases() {
+  const [selectedVideo, setSelectedVideo] = useState<number | null>(null);
+
   return (
-    <section id="use-cases" className="px-6 py-16 md:py-24">
+    <section id="use-cases" className="px-6 py-16 md:py-24 bg-gray-900">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
+          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-100 to-purple-100 text-purple-600 px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <Play className="w-4 h-4" />
+            <span>Featured AI Creation Cases</span>
+          </div>
+          
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Use Cases
+            Creative Case Showcase
           </h2>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto">
-            By viewing replays of cases, you can understand the tasks that SeeWorld can currently help you accomplish.
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            By watching these featured cases, learn about the various creative tasks Pollo AI can accomplish for you,
+            from commercial ads to entertainment content, from animation production to concept short films.
           </p>
         </div>
 
-        {/* Cases Grid */}
+        {/* Video Examples Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {useCases.map((useCase, index) => (
+          {videoExamples.map((video) => (
             <Card
-              key={index}
-              className="group relative overflow-hidden bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 cursor-pointer"
+              key={video.id}
+              className="group relative overflow-hidden bg-gray-800 border border-gray-600 hover:border-blue-400 hover:shadow-xl transition-all duration-300 cursor-pointer"
+              onClick={() => setSelectedVideo(selectedVideo === video.id ? null : video.id)}
             >
-              {/* Image */}
+              {/* Thumbnail */}
               <div className="relative aspect-video overflow-hidden">
                 <Image
-                  src={useCase.image}
-                  alt={useCase.title}
+                  src={video.image}
+                  alt={video.title}
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
                 />
@@ -81,44 +132,62 @@ export default function UseCases() {
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300" />
 
                 {/* Play Button */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-3 hover:bg-white/30 transition-colors">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-4 hover:bg-white/30 transition-colors group-hover:scale-110">
                     <Play className="w-6 h-6 text-white" fill="currentColor" />
                   </div>
                 </div>
 
                 {/* Category Badge */}
                 <div className="absolute top-3 left-3">
-                  <span className="px-2 py-1 bg-black/60 backdrop-blur-sm rounded text-white text-xs">
-                    {useCase.category}
+                  <span className="px-2 py-1 bg-black/60 backdrop-blur-sm rounded-full text-white text-xs font-medium">
+                    {video.category}
                   </span>
                 </div>
 
-                {/* View Count */}
-                <div className="absolute top-3 right-3 flex items-center space-x-1 bg-black/60 backdrop-blur-sm rounded px-2 py-1">
-                  <Eye className="w-3 h-3 text-white" />
-                  <span className="text-white text-xs">{100 + (index * 47) + 23}</span>
+                {/* Duration */}
+                <div className="absolute top-3 right-3 flex items-center space-x-1 bg-black/60 backdrop-blur-sm rounded-full px-2 py-1">
+                  <Clock className="w-3 h-3 text-white" />
+                  <span className="text-white text-xs">{video.duration}</span>
+                </div>
+
+                {/* Stats */}
+                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                  <div className="flex items-center space-x-1 bg-black/60 backdrop-blur-sm rounded-full px-2 py-1">
+                    <Eye className="w-3 h-3 text-white" />
+                    <span className="text-white text-xs">{video.views.toLocaleString()}</span>
+                  </div>
+                  
+                  <div className="flex items-center space-x-1 bg-black/60 backdrop-blur-sm rounded-full px-2 py-1">
+                    <Star className="w-3 h-3 text-yellow-400 fill-current" />
+                    <span className="text-white text-xs">{video.rating}</span>
+                  </div>
                 </div>
               </div>
 
               {/* Content */}
-              <div className="p-4">
-                <h3 className="text-white font-medium text-sm leading-tight line-clamp-3">
-                  {useCase.title}
+              <div className="p-4 space-y-3">
+                <h3 className="font-semibold text-white text-sm leading-tight line-clamp-2">
+                  {video.title}
                 </h3>
 
-                {/* Progress bar */}
-                <div className="mt-3 w-full bg-white/10 rounded-full h-1">
-                  <div
-                    className="bg-gradient-to-r from-cyan-400 to-blue-500 h-1 rounded-full"
-                    style={{ width: `${30 + (index * 7) % 60}%` }}
-                  />
-                </div>
+                <p className="text-xs text-gray-300 line-clamp-2">
+                  {video.description}
+                </p>
 
-                <div className="mt-2 flex items-center justify-between text-xs text-white/60">
-                  <span>AI Generated</span>
-                  <span>{30 + (index * 13) % 90}s</span>
-                </div>
+                {/* Expanded Content */}
+                {selectedVideo === video.id && (
+                  <div className="space-y-3 pt-3 border-t border-gray-600">
+                    <div className="flex items-center justify-between text-xs text-gray-400">
+                      <span>AI Generation Time: 2-5 minutes</span>
+                      <span>Quality: HD</span>
+                    </div>
+                    
+                    <Button size="sm" className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+                      Create Similar Video Now
+                    </Button>
+                  </div>
+                )}
               </div>
             </Card>
           ))}
@@ -126,9 +195,34 @@ export default function UseCases() {
 
         {/* View More Button */}
         <div className="text-center mt-12">
-          <button className="px-8 py-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full text-white font-medium transition-all duration-300 backdrop-blur-sm">
-            View More Examples
-          </button>
+          <Button 
+            size="lg"
+            variant="outline"
+            className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-3 text-lg font-semibold rounded-xl transition-all duration-300 transform hover:scale-105"
+          >
+            View More Cases
+            <ArrowRight className="ml-2 w-5 h-5" />
+          </Button>
+        </div>
+
+        {/* Stats */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-20 pt-16 border-t border-gray-600">
+          <div className="text-center">
+            <div className="text-3xl font-bold text-blue-400 mb-2">1000+</div>
+            <p className="text-gray-300 text-sm">Success Cases</p>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl font-bold text-purple-400 mb-2">50万+</div>
+            <p className="text-gray-300 text-sm">User Views</p>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl font-bold text-pink-400 mb-2">4.8</div>
+            <p className="text-gray-300 text-sm">Average Rating</p>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl font-bold text-green-400 mb-2">98%</div>
+            <p className="text-gray-300 text-sm">Satisfaction</p>
+          </div>
         </div>
       </div>
     </section>

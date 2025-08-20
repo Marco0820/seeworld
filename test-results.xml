@@ -1,0 +1,822 @@
+<testsuites id="" name="" tests="190" failures="0" skipped="190" errors="0" time="0.26713300000000006">
+<testsuite name="accessibility\a11y.spec.ts" timestamp="2025-08-19T15:27:50.623Z" hostname="chromium" tests="7" failures="0" skipped="7" time="0" errors="0">
+<testcase name="Crepal.ai 可访问性和用户体验测试 › 键盘导航测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 可访问性和用户体验测试 › ARIA标签和语义化测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 可访问性和用户体验测试 › 颜色对比度和视觉测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 可访问性和用户体验测试 › 屏幕阅读器友好性测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 可访问性和用户体验测试 › 移动端可访问性测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 可访问性和用户体验测试 › 错误处理和用户反馈测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 可访问性和用户体验测试 › 国际化和本地化测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="functionality\forms.spec.ts" timestamp="2025-08-19T15:27:50.623Z" hostname="chromium" tests="7" failures="0" skipped="7" time="0" errors="0">
+<testcase name="Crepal.ai 表单和交互功能测试 › 注册/登录表单测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 表单和交互功能测试 › 联系表单测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 表单和交互功能测试 › 视频生成表单测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 表单和交互功能测试 › 搜索和筛选功能测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 表单和交互功能测试 › 下拉菜单和选择器测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 表单和交互功能测试 › 按钮交互测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 表单和交互功能测试 › 模态框和弹窗测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="functionality\video-generation.spec.ts" timestamp="2025-08-19T15:27:50.623Z" hostname="chromium" tests="3" failures="0" skipped="3" time="0" errors="0">
+<testcase name="Crepal.ai 视频生成功能深度测试 › 视频生成工作流程完整测试" classname="functionality\video-generation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 视频生成功能深度测试 › 视频生成历史记录测试" classname="functionality\video-generation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 视频生成功能深度测试 › 视频生成配额和限制测试" classname="functionality\video-generation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="pages\homepage.spec.ts" timestamp="2025-08-19T15:27:50.623Z" hostname="chromium" tests="8" failures="0" skipped="8" time="0" errors="0">
+<testcase name="Crepal.ai 首页测试 › 首页基本加载测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 导航栏功能测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 主要内容区域测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 响应式设计测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 链接有效性测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 图片加载测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 性能测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 用户交互模拟测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="pages\navigation.spec.ts" timestamp="2025-08-19T15:27:50.623Z" hostname="chromium" tests="6" failures="0" skipped="6" time="0" errors="0">
+<testcase name="Crepal.ai 导航和页面跳转测试 › 主要页面导航测试" classname="pages\navigation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 导航和页面跳转测试 › 面包屑导航测试" classname="pages\navigation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 导航和页面跳转测试 › 页脚链接测试" classname="pages\navigation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 导航和页面跳转测试 › 搜索功能测试" classname="pages\navigation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 导航和页面跳转测试 › 移动端菜单测试" classname="pages\navigation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 导航和页面跳转测试 › 页面历史导航测试" classname="pages\navigation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="performance\performance.spec.ts" timestamp="2025-08-19T15:27:50.623Z" hostname="chromium" tests="7" failures="0" skipped="7" time="0" errors="0">
+<testcase name="Crepal.ai 性能和优化测试 › 页面加载性能测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 性能和优化测试 › 资源加载性能测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 性能和优化测试 › Core Web Vitals测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 性能和优化测试 › 内存使用测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 性能和优化测试 › 网络连接性能测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 性能和优化测试 › 缓存策略测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 性能和优化测试 › JavaScript性能测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="accessibility\a11y.spec.ts" timestamp="2025-08-19T15:27:50.623Z" hostname="firefox" tests="7" failures="0" skipped="7" time="0" errors="0">
+<testcase name="Crepal.ai 可访问性和用户体验测试 › 键盘导航测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 可访问性和用户体验测试 › ARIA标签和语义化测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 可访问性和用户体验测试 › 颜色对比度和视觉测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 可访问性和用户体验测试 › 屏幕阅读器友好性测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 可访问性和用户体验测试 › 移动端可访问性测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 可访问性和用户体验测试 › 错误处理和用户反馈测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 可访问性和用户体验测试 › 国际化和本地化测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="functionality\forms.spec.ts" timestamp="2025-08-19T15:27:50.623Z" hostname="firefox" tests="7" failures="0" skipped="7" time="0" errors="0">
+<testcase name="Crepal.ai 表单和交互功能测试 › 注册/登录表单测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 表单和交互功能测试 › 联系表单测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 表单和交互功能测试 › 视频生成表单测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 表单和交互功能测试 › 搜索和筛选功能测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 表单和交互功能测试 › 下拉菜单和选择器测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 表单和交互功能测试 › 按钮交互测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 表单和交互功能测试 › 模态框和弹窗测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="functionality\video-generation.spec.ts" timestamp="2025-08-19T15:27:50.623Z" hostname="firefox" tests="3" failures="0" skipped="3" time="0" errors="0">
+<testcase name="Crepal.ai 视频生成功能深度测试 › 视频生成工作流程完整测试" classname="functionality\video-generation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 视频生成功能深度测试 › 视频生成历史记录测试" classname="functionality\video-generation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 视频生成功能深度测试 › 视频生成配额和限制测试" classname="functionality\video-generation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="pages\homepage.spec.ts" timestamp="2025-08-19T15:27:50.623Z" hostname="firefox" tests="8" failures="0" skipped="8" time="0" errors="0">
+<testcase name="Crepal.ai 首页测试 › 首页基本加载测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 导航栏功能测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 主要内容区域测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 响应式设计测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 链接有效性测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 图片加载测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 性能测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 用户交互模拟测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="pages\navigation.spec.ts" timestamp="2025-08-19T15:27:50.623Z" hostname="firefox" tests="6" failures="0" skipped="6" time="0" errors="0">
+<testcase name="Crepal.ai 导航和页面跳转测试 › 主要页面导航测试" classname="pages\navigation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 导航和页面跳转测试 › 面包屑导航测试" classname="pages\navigation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 导航和页面跳转测试 › 页脚链接测试" classname="pages\navigation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 导航和页面跳转测试 › 搜索功能测试" classname="pages\navigation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 导航和页面跳转测试 › 移动端菜单测试" classname="pages\navigation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 导航和页面跳转测试 › 页面历史导航测试" classname="pages\navigation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="performance\performance.spec.ts" timestamp="2025-08-19T15:27:50.623Z" hostname="firefox" tests="7" failures="0" skipped="7" time="0" errors="0">
+<testcase name="Crepal.ai 性能和优化测试 › 页面加载性能测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 性能和优化测试 › 资源加载性能测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 性能和优化测试 › Core Web Vitals测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 性能和优化测试 › 内存使用测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 性能和优化测试 › 网络连接性能测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 性能和优化测试 › 缓存策略测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 性能和优化测试 › JavaScript性能测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="accessibility\a11y.spec.ts" timestamp="2025-08-19T15:27:50.623Z" hostname="webkit" tests="7" failures="0" skipped="7" time="0" errors="0">
+<testcase name="Crepal.ai 可访问性和用户体验测试 › 键盘导航测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 可访问性和用户体验测试 › ARIA标签和语义化测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 可访问性和用户体验测试 › 颜色对比度和视觉测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 可访问性和用户体验测试 › 屏幕阅读器友好性测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 可访问性和用户体验测试 › 移动端可访问性测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 可访问性和用户体验测试 › 错误处理和用户反馈测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 可访问性和用户体验测试 › 国际化和本地化测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="functionality\forms.spec.ts" timestamp="2025-08-19T15:27:50.623Z" hostname="webkit" tests="7" failures="0" skipped="7" time="0" errors="0">
+<testcase name="Crepal.ai 表单和交互功能测试 › 注册/登录表单测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 表单和交互功能测试 › 联系表单测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 表单和交互功能测试 › 视频生成表单测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 表单和交互功能测试 › 搜索和筛选功能测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 表单和交互功能测试 › 下拉菜单和选择器测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 表单和交互功能测试 › 按钮交互测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 表单和交互功能测试 › 模态框和弹窗测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="functionality\video-generation.spec.ts" timestamp="2025-08-19T15:27:50.623Z" hostname="webkit" tests="3" failures="0" skipped="3" time="0" errors="0">
+<testcase name="Crepal.ai 视频生成功能深度测试 › 视频生成工作流程完整测试" classname="functionality\video-generation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 视频生成功能深度测试 › 视频生成历史记录测试" classname="functionality\video-generation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 视频生成功能深度测试 › 视频生成配额和限制测试" classname="functionality\video-generation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="pages\homepage.spec.ts" timestamp="2025-08-19T15:27:50.623Z" hostname="webkit" tests="8" failures="0" skipped="8" time="0" errors="0">
+<testcase name="Crepal.ai 首页测试 › 首页基本加载测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 导航栏功能测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 主要内容区域测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 响应式设计测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 链接有效性测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 图片加载测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 性能测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 用户交互模拟测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="pages\navigation.spec.ts" timestamp="2025-08-19T15:27:50.623Z" hostname="webkit" tests="6" failures="0" skipped="6" time="0" errors="0">
+<testcase name="Crepal.ai 导航和页面跳转测试 › 主要页面导航测试" classname="pages\navigation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 导航和页面跳转测试 › 面包屑导航测试" classname="pages\navigation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 导航和页面跳转测试 › 页脚链接测试" classname="pages\navigation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 导航和页面跳转测试 › 搜索功能测试" classname="pages\navigation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 导航和页面跳转测试 › 移动端菜单测试" classname="pages\navigation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 导航和页面跳转测试 › 页面历史导航测试" classname="pages\navigation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="performance\performance.spec.ts" timestamp="2025-08-19T15:27:50.623Z" hostname="webkit" tests="7" failures="0" skipped="7" time="0" errors="0">
+<testcase name="Crepal.ai 性能和优化测试 › 页面加载性能测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 性能和优化测试 › 资源加载性能测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 性能和优化测试 › Core Web Vitals测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 性能和优化测试 › 内存使用测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 性能和优化测试 › 网络连接性能测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 性能和优化测试 › 缓存策略测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 性能和优化测试 › JavaScript性能测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="accessibility\a11y.spec.ts" timestamp="2025-08-19T15:27:50.623Z" hostname="Mobile Chrome" tests="7" failures="0" skipped="7" time="0" errors="0">
+<testcase name="Crepal.ai 可访问性和用户体验测试 › 键盘导航测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 可访问性和用户体验测试 › ARIA标签和语义化测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 可访问性和用户体验测试 › 颜色对比度和视觉测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 可访问性和用户体验测试 › 屏幕阅读器友好性测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 可访问性和用户体验测试 › 移动端可访问性测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 可访问性和用户体验测试 › 错误处理和用户反馈测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 可访问性和用户体验测试 › 国际化和本地化测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="functionality\forms.spec.ts" timestamp="2025-08-19T15:27:50.623Z" hostname="Mobile Chrome" tests="7" failures="0" skipped="7" time="0" errors="0">
+<testcase name="Crepal.ai 表单和交互功能测试 › 注册/登录表单测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 表单和交互功能测试 › 联系表单测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 表单和交互功能测试 › 视频生成表单测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 表单和交互功能测试 › 搜索和筛选功能测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 表单和交互功能测试 › 下拉菜单和选择器测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 表单和交互功能测试 › 按钮交互测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 表单和交互功能测试 › 模态框和弹窗测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="functionality\video-generation.spec.ts" timestamp="2025-08-19T15:27:50.623Z" hostname="Mobile Chrome" tests="3" failures="0" skipped="3" time="0" errors="0">
+<testcase name="Crepal.ai 视频生成功能深度测试 › 视频生成工作流程完整测试" classname="functionality\video-generation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 视频生成功能深度测试 › 视频生成历史记录测试" classname="functionality\video-generation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 视频生成功能深度测试 › 视频生成配额和限制测试" classname="functionality\video-generation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="pages\homepage.spec.ts" timestamp="2025-08-19T15:27:50.623Z" hostname="Mobile Chrome" tests="8" failures="0" skipped="8" time="0" errors="0">
+<testcase name="Crepal.ai 首页测试 › 首页基本加载测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 导航栏功能测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 主要内容区域测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 响应式设计测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 链接有效性测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 图片加载测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 性能测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 用户交互模拟测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="pages\navigation.spec.ts" timestamp="2025-08-19T15:27:50.623Z" hostname="Mobile Chrome" tests="6" failures="0" skipped="6" time="0" errors="0">
+<testcase name="Crepal.ai 导航和页面跳转测试 › 主要页面导航测试" classname="pages\navigation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 导航和页面跳转测试 › 面包屑导航测试" classname="pages\navigation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 导航和页面跳转测试 › 页脚链接测试" classname="pages\navigation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 导航和页面跳转测试 › 搜索功能测试" classname="pages\navigation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 导航和页面跳转测试 › 移动端菜单测试" classname="pages\navigation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 导航和页面跳转测试 › 页面历史导航测试" classname="pages\navigation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="performance\performance.spec.ts" timestamp="2025-08-19T15:27:50.623Z" hostname="Mobile Chrome" tests="7" failures="0" skipped="7" time="0" errors="0">
+<testcase name="Crepal.ai 性能和优化测试 › 页面加载性能测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 性能和优化测试 › 资源加载性能测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 性能和优化测试 › Core Web Vitals测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 性能和优化测试 › 内存使用测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 性能和优化测试 › 网络连接性能测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 性能和优化测试 › 缓存策略测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 性能和优化测试 › JavaScript性能测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="accessibility\a11y.spec.ts" timestamp="2025-08-19T15:27:50.623Z" hostname="Mobile Safari" tests="7" failures="0" skipped="7" time="0" errors="0">
+<testcase name="Crepal.ai 可访问性和用户体验测试 › 键盘导航测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 可访问性和用户体验测试 › ARIA标签和语义化测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 可访问性和用户体验测试 › 颜色对比度和视觉测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 可访问性和用户体验测试 › 屏幕阅读器友好性测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 可访问性和用户体验测试 › 移动端可访问性测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 可访问性和用户体验测试 › 错误处理和用户反馈测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 可访问性和用户体验测试 › 国际化和本地化测试" classname="accessibility\a11y.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="functionality\forms.spec.ts" timestamp="2025-08-19T15:27:50.623Z" hostname="Mobile Safari" tests="7" failures="0" skipped="7" time="0" errors="0">
+<testcase name="Crepal.ai 表单和交互功能测试 › 注册/登录表单测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 表单和交互功能测试 › 联系表单测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 表单和交互功能测试 › 视频生成表单测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 表单和交互功能测试 › 搜索和筛选功能测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 表单和交互功能测试 › 下拉菜单和选择器测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 表单和交互功能测试 › 按钮交互测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 表单和交互功能测试 › 模态框和弹窗测试" classname="functionality\forms.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="functionality\video-generation.spec.ts" timestamp="2025-08-19T15:27:50.623Z" hostname="Mobile Safari" tests="3" failures="0" skipped="3" time="0" errors="0">
+<testcase name="Crepal.ai 视频生成功能深度测试 › 视频生成工作流程完整测试" classname="functionality\video-generation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 视频生成功能深度测试 › 视频生成历史记录测试" classname="functionality\video-generation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 视频生成功能深度测试 › 视频生成配额和限制测试" classname="functionality\video-generation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="pages\homepage.spec.ts" timestamp="2025-08-19T15:27:50.623Z" hostname="Mobile Safari" tests="8" failures="0" skipped="8" time="0" errors="0">
+<testcase name="Crepal.ai 首页测试 › 首页基本加载测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 导航栏功能测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 主要内容区域测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 响应式设计测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 链接有效性测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 图片加载测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 性能测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 首页测试 › 用户交互模拟测试" classname="pages\homepage.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="pages\navigation.spec.ts" timestamp="2025-08-19T15:27:50.623Z" hostname="Mobile Safari" tests="6" failures="0" skipped="6" time="0" errors="0">
+<testcase name="Crepal.ai 导航和页面跳转测试 › 主要页面导航测试" classname="pages\navigation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 导航和页面跳转测试 › 面包屑导航测试" classname="pages\navigation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 导航和页面跳转测试 › 页脚链接测试" classname="pages\navigation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 导航和页面跳转测试 › 搜索功能测试" classname="pages\navigation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 导航和页面跳转测试 › 移动端菜单测试" classname="pages\navigation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 导航和页面跳转测试 › 页面历史导航测试" classname="pages\navigation.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="performance\performance.spec.ts" timestamp="2025-08-19T15:27:50.623Z" hostname="Mobile Safari" tests="7" failures="0" skipped="7" time="0" errors="0">
+<testcase name="Crepal.ai 性能和优化测试 › 页面加载性能测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 性能和优化测试 › 资源加载性能测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 性能和优化测试 › Core Web Vitals测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 性能和优化测试 › 内存使用测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 性能和优化测试 › 网络连接性能测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 性能和优化测试 › 缓存策略测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Crepal.ai 性能和优化测试 › JavaScript性能测试" classname="performance\performance.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+</testsuites>

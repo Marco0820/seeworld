@@ -8,19 +8,33 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: "SeeWorld - The World's First AI Video Creation Agent",
-    template: "%s | SeeWorld"
+    default: "SeeWorld - 全球首个免费AI视频生成平台 | Free AI Video Generator",
+    template: "%s | SeeWorld - 免费AI视频生成"
   },
-  description: "SeeWorld integrates the most advanced AI models for image and video generation on the market. It intelligently selects the best model combination based on your creative needs to help you get the job done.",
+  description: "SeeWorld是全球首个完全免费的AI视频生成平台，集成Kling AI、Runway、Hailuo AI等顶级模型。无需付费即可体验专业级AI视频创作，让创意瞬间成真。World's first completely free AI video generation platform.",
   keywords: [
+    "免费AI视频生成",
+    "free AI video generator",
+    "AI视频制作",
     "AI video creation",
+    "视频生成器",
     "video generation",
-    "artificial intelligence",
-    "content creation",
-    "video editing",
-    "AI agent",
-    "video production",
-    "creative tools"
+    "人工智能视频",
+    "artificial intelligence video",
+    "免费视频制作",
+    "free video creation",
+    "AI视频工具",
+    "AI video tools",
+    "在线视频生成",
+    "online video generation",
+    "Kling AI",
+    "Runway AI",
+    "Hailuo AI",
+    "Vidu AI",
+    "文本生成视频",
+    "text to video",
+    "创意视频制作",
+    "creative video production"
   ],
   authors: [{ name: "SeeWorld" }],
   creator: "SeeWorld",
@@ -38,9 +52,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://seeworld.app",
-    title: "SeeWorld - The World's First AI Video Creation Agent",
-    description: "SeeWorld integrates the most advanced AI models for image and video generation on the market.",
-    siteName: "SeeWorld",
+    title: "SeeWorld - 全球首个免费AI视频生成平台 | Free AI Video Generator",
+    description: "全球首个完全免费的AI视频生成平台，集成多个顶级AI模型，无需付费即可创作专业视频。World's first completely free AI video generation platform.",
+    siteName: "SeeWorld - 免费AI视频生成",
     images: [
       {
         url: "/og-image.jpg",
@@ -52,8 +66,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SeeWorld - The World's First AI Video Creation Agent",
-    description: "SeeWorld integrates the most advanced AI models for image and video generation on the market.",
+    title: "SeeWorld - 全球首个免费AI视频生成平台",
+    description: "全球首个完全免费的AI视频生成平台，集成Kling AI、Runway等顶级模型，无需付费即可创作专业视频。",
     images: ["/og-image.jpg"],
     creator: "@seeworld",
   },
@@ -92,11 +106,12 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "SoftwareApplication",
-              "name": "SeeWorld",
-              "description": "The World's First AI Video Creation Agent",
+              "name": "SeeWorld - 全球首个免费AI视频生成平台",
+              "description": "全球首个完全免费的AI视频生成平台，集成Kling AI、Runway、Hailuo AI等顶级模型，支持文本生成视频、AI视频制作等功能。World's first completely free AI video generation platform.",
               "url": "https://seeworld.app",
               "applicationCategory": "MultimediaApplication",
               "operatingSystem": "Web",
+              "keywords": "免费AI视频生成,AI视频制作,视频生成器,人工智能视频,在线视频生成,文本生成视频",
               "offers": [
                 {
                   "@type": "Offer",

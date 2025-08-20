@@ -5,7 +5,7 @@ declare global {
         id: {
           initialize: (config: {
             client_id: string;
-            callback: (response: any) => void;
+            callback: (response: { credential: string }) => void;
           }) => void;
           prompt: () => void;
           disableAutoSelect: () => void;

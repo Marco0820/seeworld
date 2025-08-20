@@ -1,0 +1,4030 @@
+{
+  "config": {
+    "configFile": "E:\\AI workspace\\workspace\\cursor\\seeworld-ai\\playwright.config.ts",
+    "rootDir": "E:/AI workspace/workspace/cursor/seeworld-ai/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "test-results.xml"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "E:/AI workspace/workspace/cursor/seeworld-ai/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "E:/AI workspace/workspace/cursor/seeworld-ai/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "E:/AI workspace/workspace/cursor/seeworld-ai/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "E:/AI workspace/workspace/cursor/seeworld-ai/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "E:/AI workspace/workspace/cursor/seeworld-ai/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "E:/AI workspace/workspace/cursor/seeworld-ai/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "E:/AI workspace/workspace/cursor/seeworld-ai/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "Mobile Chrome",
+        "name": "Mobile Chrome",
+        "testDir": "E:/AI workspace/workspace/cursor/seeworld-ai/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "E:/AI workspace/workspace/cursor/seeworld-ai/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "Mobile Safari",
+        "name": "Mobile Safari",
+        "testDir": "E:/AI workspace/workspace/cursor/seeworld-ai/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.54.2",
+    "workers": 6,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "accessibility\\a11y.spec.ts",
+      "file": "accessibility/a11y.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Crepal.ai 可访问性和用户体验测试",
+          "file": "accessibility/a11y.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "键盘导航测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-0d084a8b5e0793b08b29",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "ARIA标签和语义化测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-2619f38ec64df864ed42",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 49,
+              "column": 7
+            },
+            {
+              "title": "颜色对比度和视觉测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-3e3a866c9c7ef0047363",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 98,
+              "column": 7
+            },
+            {
+              "title": "屏幕阅读器友好性测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-9252584ee70fabed7d95",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 137,
+              "column": 7
+            },
+            {
+              "title": "移动端可访问性测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-5106e6801b4e5322d0aa",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 171,
+              "column": 7
+            },
+            {
+              "title": "错误处理和用户反馈测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-a82657a271874a805750",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 213,
+              "column": 7
+            },
+            {
+              "title": "国际化和本地化测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-fc00936da18824a52a2e",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 259,
+              "column": 7
+            },
+            {
+              "title": "键盘导航测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-34e396d8eba5bbc02596",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "ARIA标签和语义化测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-c0c78782a94dd547118b",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 49,
+              "column": 7
+            },
+            {
+              "title": "颜色对比度和视觉测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-417811b50f0ff7ceb6bb",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 98,
+              "column": 7
+            },
+            {
+              "title": "屏幕阅读器友好性测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-449cdf1b0ac9f7797ac1",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 137,
+              "column": 7
+            },
+            {
+              "title": "移动端可访问性测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-eccfc993ce2043c4840d",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 171,
+              "column": 7
+            },
+            {
+              "title": "错误处理和用户反馈测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-fb31d5941ce3c4d9edff",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 213,
+              "column": 7
+            },
+            {
+              "title": "国际化和本地化测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-147949d05962d6aeb9b1",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 259,
+              "column": 7
+            },
+            {
+              "title": "键盘导航测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-d4a477d56cdff4fe5472",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "ARIA标签和语义化测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-1fc9c0742e80a0c846f7",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 49,
+              "column": 7
+            },
+            {
+              "title": "颜色对比度和视觉测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-ccda153540303e0d77ce",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 98,
+              "column": 7
+            },
+            {
+              "title": "屏幕阅读器友好性测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-ac04b8fd6a30aefefac0",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 137,
+              "column": 7
+            },
+            {
+              "title": "移动端可访问性测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-5a82ebe03a71c1541910",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 171,
+              "column": 7
+            },
+            {
+              "title": "错误处理和用户反馈测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-3bc71559e7babc3844a5",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 213,
+              "column": 7
+            },
+            {
+              "title": "国际化和本地化测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-2f711d8aefe156181ba3",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 259,
+              "column": 7
+            },
+            {
+              "title": "键盘导航测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-edb13b3132673607f8d3",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "ARIA标签和语义化测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-64b1cf2d378e1f6be87a",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 49,
+              "column": 7
+            },
+            {
+              "title": "颜色对比度和视觉测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-65c0634c51917ead292e",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 98,
+              "column": 7
+            },
+            {
+              "title": "屏幕阅读器友好性测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-f929fff62b7f32f962dd",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 137,
+              "column": 7
+            },
+            {
+              "title": "移动端可访问性测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-40f98713e14e755b7f9a",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 171,
+              "column": 7
+            },
+            {
+              "title": "错误处理和用户反馈测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-33b2c9ae54f75aa6349d",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 213,
+              "column": 7
+            },
+            {
+              "title": "国际化和本地化测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-18e4b37119a80f8a9d80",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 259,
+              "column": 7
+            },
+            {
+              "title": "键盘导航测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-09120272761dbecff7e3",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "ARIA标签和语义化测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-a02b3a49521aa72e8a69",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 49,
+              "column": 7
+            },
+            {
+              "title": "颜色对比度和视觉测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-f088d04d6795d258270d",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 98,
+              "column": 7
+            },
+            {
+              "title": "屏幕阅读器友好性测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-4ff0a56be378a3d97c44",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 137,
+              "column": 7
+            },
+            {
+              "title": "移动端可访问性测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-311b49cd7178a0389594",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 171,
+              "column": 7
+            },
+            {
+              "title": "错误处理和用户反馈测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-25c81b3bb2fc88a1bee4",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 213,
+              "column": 7
+            },
+            {
+              "title": "国际化和本地化测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d68f0cd72f843bb174ec-147284ee97d47877f574",
+              "file": "accessibility/a11y.spec.ts",
+              "line": 259,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "functionality\\forms.spec.ts",
+      "file": "functionality/forms.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Crepal.ai 表单和交互功能测试",
+          "file": "functionality/forms.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "注册/登录表单测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-d18a93f03d6bb6a64153",
+              "file": "functionality/forms.spec.ts",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "联系表单测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-761ce0d39db073680b61",
+              "file": "functionality/forms.spec.ts",
+              "line": 50,
+              "column": 7
+            },
+            {
+              "title": "视频生成表单测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-5fafa2687ae3aeec1633",
+              "file": "functionality/forms.spec.ts",
+              "line": 92,
+              "column": 7
+            },
+            {
+              "title": "搜索和筛选功能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-f65de5693a541ad7505c",
+              "file": "functionality/forms.spec.ts",
+              "line": 141,
+              "column": 7
+            },
+            {
+              "title": "下拉菜单和选择器测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-c54d8478f9fd75c34ed3",
+              "file": "functionality/forms.spec.ts",
+              "line": 169,
+              "column": 7
+            },
+            {
+              "title": "按钮交互测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-36aa71ffac58e3463736",
+              "file": "functionality/forms.spec.ts",
+              "line": 199,
+              "column": 7
+            },
+            {
+              "title": "模态框和弹窗测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-e608285efd550cb584bf",
+              "file": "functionality/forms.spec.ts",
+              "line": 242,
+              "column": 7
+            },
+            {
+              "title": "注册/登录表单测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-305968046254b0d4b5fe",
+              "file": "functionality/forms.spec.ts",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "联系表单测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-d31c674c2f6efffd6422",
+              "file": "functionality/forms.spec.ts",
+              "line": 50,
+              "column": 7
+            },
+            {
+              "title": "视频生成表单测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-ba6858ee208b46a6a820",
+              "file": "functionality/forms.spec.ts",
+              "line": 92,
+              "column": 7
+            },
+            {
+              "title": "搜索和筛选功能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-842bcf5f536d576f8128",
+              "file": "functionality/forms.spec.ts",
+              "line": 141,
+              "column": 7
+            },
+            {
+              "title": "下拉菜单和选择器测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-988c4229de1437a74637",
+              "file": "functionality/forms.spec.ts",
+              "line": 169,
+              "column": 7
+            },
+            {
+              "title": "按钮交互测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-0bbf9213ee4841bc9e5e",
+              "file": "functionality/forms.spec.ts",
+              "line": 199,
+              "column": 7
+            },
+            {
+              "title": "模态框和弹窗测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-68a8784989b48f488deb",
+              "file": "functionality/forms.spec.ts",
+              "line": 242,
+              "column": 7
+            },
+            {
+              "title": "注册/登录表单测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-54cec4458145f065bd00",
+              "file": "functionality/forms.spec.ts",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "联系表单测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-ac4e0009f61a8b701756",
+              "file": "functionality/forms.spec.ts",
+              "line": 50,
+              "column": 7
+            },
+            {
+              "title": "视频生成表单测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-95cc9bdc3846f000d5d9",
+              "file": "functionality/forms.spec.ts",
+              "line": 92,
+              "column": 7
+            },
+            {
+              "title": "搜索和筛选功能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-bb35764644e2a31985df",
+              "file": "functionality/forms.spec.ts",
+              "line": 141,
+              "column": 7
+            },
+            {
+              "title": "下拉菜单和选择器测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-0e8e270ff192008705b6",
+              "file": "functionality/forms.spec.ts",
+              "line": 169,
+              "column": 7
+            },
+            {
+              "title": "按钮交互测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-b949a3e5daeaaf02a496",
+              "file": "functionality/forms.spec.ts",
+              "line": 199,
+              "column": 7
+            },
+            {
+              "title": "模态框和弹窗测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-ec66a499a4e949d59abe",
+              "file": "functionality/forms.spec.ts",
+              "line": 242,
+              "column": 7
+            },
+            {
+              "title": "注册/登录表单测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-3ea29161a27ef34fedd7",
+              "file": "functionality/forms.spec.ts",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "联系表单测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-da00819b1095932046e7",
+              "file": "functionality/forms.spec.ts",
+              "line": 50,
+              "column": 7
+            },
+            {
+              "title": "视频生成表单测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-0be61695b67d29c28fde",
+              "file": "functionality/forms.spec.ts",
+              "line": 92,
+              "column": 7
+            },
+            {
+              "title": "搜索和筛选功能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-77556c8f79a6627f526d",
+              "file": "functionality/forms.spec.ts",
+              "line": 141,
+              "column": 7
+            },
+            {
+              "title": "下拉菜单和选择器测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-7308d57a5760707ea916",
+              "file": "functionality/forms.spec.ts",
+              "line": 169,
+              "column": 7
+            },
+            {
+              "title": "按钮交互测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-b0738ee330a2fbd7818a",
+              "file": "functionality/forms.spec.ts",
+              "line": 199,
+              "column": 7
+            },
+            {
+              "title": "模态框和弹窗测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-a10df86ca1466a928567",
+              "file": "functionality/forms.spec.ts",
+              "line": 242,
+              "column": 7
+            },
+            {
+              "title": "注册/登录表单测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-50145cb8136fe4a1767b",
+              "file": "functionality/forms.spec.ts",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "联系表单测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-c6dcd9b315aec86e3ae2",
+              "file": "functionality/forms.spec.ts",
+              "line": 50,
+              "column": 7
+            },
+            {
+              "title": "视频生成表单测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-0f7e01e90c94429d9b48",
+              "file": "functionality/forms.spec.ts",
+              "line": 92,
+              "column": 7
+            },
+            {
+              "title": "搜索和筛选功能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-73d452d8aa42c73e43d4",
+              "file": "functionality/forms.spec.ts",
+              "line": 141,
+              "column": 7
+            },
+            {
+              "title": "下拉菜单和选择器测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-5fb5cd92ce58beb62c1e",
+              "file": "functionality/forms.spec.ts",
+              "line": 169,
+              "column": 7
+            },
+            {
+              "title": "按钮交互测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-8b9b504c92f44a0fdc51",
+              "file": "functionality/forms.spec.ts",
+              "line": 199,
+              "column": 7
+            },
+            {
+              "title": "模态框和弹窗测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "ba7ad3061df86038b55b-62d83473d06de741ac1d",
+              "file": "functionality/forms.spec.ts",
+              "line": 242,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "functionality\\video-generation.spec.ts",
+      "file": "functionality/video-generation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Crepal.ai 视频生成功能深度测试",
+          "file": "functionality/video-generation.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "视频生成工作流程完整测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6ada330907c52ee0e41e-2f73110dd6251176391e",
+              "file": "functionality/video-generation.spec.ts",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "视频生成历史记录测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6ada330907c52ee0e41e-a6e40ed14de1a98c80a0",
+              "file": "functionality/video-generation.spec.ts",
+              "line": 42,
+              "column": 7
+            },
+            {
+              "title": "视频生成配额和限制测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6ada330907c52ee0e41e-ee4f836e1f52d13028e7",
+              "file": "functionality/video-generation.spec.ts",
+              "line": 72,
+              "column": 7
+            },
+            {
+              "title": "视频生成工作流程完整测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6ada330907c52ee0e41e-2ddf83a280e5c7588672",
+              "file": "functionality/video-generation.spec.ts",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "视频生成历史记录测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6ada330907c52ee0e41e-a87dcc83c2e34035bd1b",
+              "file": "functionality/video-generation.spec.ts",
+              "line": 42,
+              "column": 7
+            },
+            {
+              "title": "视频生成配额和限制测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6ada330907c52ee0e41e-08e89fe5cacf7010da82",
+              "file": "functionality/video-generation.spec.ts",
+              "line": 72,
+              "column": 7
+            },
+            {
+              "title": "视频生成工作流程完整测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6ada330907c52ee0e41e-150b6eb94d3eaa914485",
+              "file": "functionality/video-generation.spec.ts",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "视频生成历史记录测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6ada330907c52ee0e41e-ccb5d5a1c3194b893565",
+              "file": "functionality/video-generation.spec.ts",
+              "line": 42,
+              "column": 7
+            },
+            {
+              "title": "视频生成配额和限制测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6ada330907c52ee0e41e-82b0a2c9c94cfd63974a",
+              "file": "functionality/video-generation.spec.ts",
+              "line": 72,
+              "column": 7
+            },
+            {
+              "title": "视频生成工作流程完整测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6ada330907c52ee0e41e-83865d19faffffc3f5a0",
+              "file": "functionality/video-generation.spec.ts",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "视频生成历史记录测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6ada330907c52ee0e41e-b36a95aff3f5a00d637f",
+              "file": "functionality/video-generation.spec.ts",
+              "line": 42,
+              "column": 7
+            },
+            {
+              "title": "视频生成配额和限制测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6ada330907c52ee0e41e-7ef67c9a5e3d13e92013",
+              "file": "functionality/video-generation.spec.ts",
+              "line": 72,
+              "column": 7
+            },
+            {
+              "title": "视频生成工作流程完整测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6ada330907c52ee0e41e-655fdec752bb964083ba",
+              "file": "functionality/video-generation.spec.ts",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "视频生成历史记录测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6ada330907c52ee0e41e-ee0e82961362af026496",
+              "file": "functionality/video-generation.spec.ts",
+              "line": 42,
+              "column": 7
+            },
+            {
+              "title": "视频生成配额和限制测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6ada330907c52ee0e41e-223f6988dd5e92176979",
+              "file": "functionality/video-generation.spec.ts",
+              "line": 72,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "pages\\homepage.spec.ts",
+      "file": "pages/homepage.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Crepal.ai 首页测试",
+          "file": "pages/homepage.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "首页基本加载测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-ff54e7dd7ed7ea17acab",
+              "file": "pages/homepage.spec.ts",
+              "line": 13,
+              "column": 7
+            },
+            {
+              "title": "导航栏功能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-ca3478a284a638d184f7",
+              "file": "pages/homepage.spec.ts",
+              "line": 24,
+              "column": 7
+            },
+            {
+              "title": "主要内容区域测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-c7e92d3e5bf20edb8d7f",
+              "file": "pages/homepage.spec.ts",
+              "line": 46,
+              "column": 7
+            },
+            {
+              "title": "响应式设计测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-9657fdef69a3b774c0db",
+              "file": "pages/homepage.spec.ts",
+              "line": 71,
+              "column": 7
+            },
+            {
+              "title": "链接有效性测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-c229c35f90712643eaed",
+              "file": "pages/homepage.spec.ts",
+              "line": 75,
+              "column": 7
+            },
+            {
+              "title": "图片加载测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-ed3a35927faf3e584bab",
+              "file": "pages/homepage.spec.ts",
+              "line": 90,
+              "column": 7
+            },
+            {
+              "title": "性能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-f2e443cf3e89c2789b22",
+              "file": "pages/homepage.spec.ts",
+              "line": 102,
+              "column": 7
+            },
+            {
+              "title": "用户交互模拟测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-d9b321145f594d76a35c",
+              "file": "pages/homepage.spec.ts",
+              "line": 113,
+              "column": 7
+            },
+            {
+              "title": "首页基本加载测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-24cd3e3f4d35084aa405",
+              "file": "pages/homepage.spec.ts",
+              "line": 13,
+              "column": 7
+            },
+            {
+              "title": "导航栏功能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-7fe9e395e63a8102e83f",
+              "file": "pages/homepage.spec.ts",
+              "line": 24,
+              "column": 7
+            },
+            {
+              "title": "主要内容区域测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-7465afb2cc0c2658236e",
+              "file": "pages/homepage.spec.ts",
+              "line": 46,
+              "column": 7
+            },
+            {
+              "title": "响应式设计测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-0ee49ec3ec659477997b",
+              "file": "pages/homepage.spec.ts",
+              "line": 71,
+              "column": 7
+            },
+            {
+              "title": "链接有效性测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-6b169d81fb975fee6974",
+              "file": "pages/homepage.spec.ts",
+              "line": 75,
+              "column": 7
+            },
+            {
+              "title": "图片加载测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-456c8e5f67549e5b81f4",
+              "file": "pages/homepage.spec.ts",
+              "line": 90,
+              "column": 7
+            },
+            {
+              "title": "性能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-d3ec96933aed3cb62a64",
+              "file": "pages/homepage.spec.ts",
+              "line": 102,
+              "column": 7
+            },
+            {
+              "title": "用户交互模拟测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-eb06ca9bc89264725571",
+              "file": "pages/homepage.spec.ts",
+              "line": 113,
+              "column": 7
+            },
+            {
+              "title": "首页基本加载测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-e880c206554b1ce4badc",
+              "file": "pages/homepage.spec.ts",
+              "line": 13,
+              "column": 7
+            },
+            {
+              "title": "导航栏功能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-f3b7d055ee30a277a797",
+              "file": "pages/homepage.spec.ts",
+              "line": 24,
+              "column": 7
+            },
+            {
+              "title": "主要内容区域测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-b02052fcf8d5d94a6ed0",
+              "file": "pages/homepage.spec.ts",
+              "line": 46,
+              "column": 7
+            },
+            {
+              "title": "响应式设计测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-105c9933df306ac0ce75",
+              "file": "pages/homepage.spec.ts",
+              "line": 71,
+              "column": 7
+            },
+            {
+              "title": "链接有效性测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-3b3341b8d71d198f445e",
+              "file": "pages/homepage.spec.ts",
+              "line": 75,
+              "column": 7
+            },
+            {
+              "title": "图片加载测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-d4cfb79bda22f4339e96",
+              "file": "pages/homepage.spec.ts",
+              "line": 90,
+              "column": 7
+            },
+            {
+              "title": "性能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-bef09f4443c331dfb8eb",
+              "file": "pages/homepage.spec.ts",
+              "line": 102,
+              "column": 7
+            },
+            {
+              "title": "用户交互模拟测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-3d0552c97e1c4593fc1b",
+              "file": "pages/homepage.spec.ts",
+              "line": 113,
+              "column": 7
+            },
+            {
+              "title": "首页基本加载测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-23caccdad98460551b8a",
+              "file": "pages/homepage.spec.ts",
+              "line": 13,
+              "column": 7
+            },
+            {
+              "title": "导航栏功能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-a50a5d5901c3736fee76",
+              "file": "pages/homepage.spec.ts",
+              "line": 24,
+              "column": 7
+            },
+            {
+              "title": "主要内容区域测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-786941645211c2020844",
+              "file": "pages/homepage.spec.ts",
+              "line": 46,
+              "column": 7
+            },
+            {
+              "title": "响应式设计测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-84b90eb32d37b7515b60",
+              "file": "pages/homepage.spec.ts",
+              "line": 71,
+              "column": 7
+            },
+            {
+              "title": "链接有效性测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-51e459ff876ad2982af3",
+              "file": "pages/homepage.spec.ts",
+              "line": 75,
+              "column": 7
+            },
+            {
+              "title": "图片加载测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-b4aee4149f0db4bb9763",
+              "file": "pages/homepage.spec.ts",
+              "line": 90,
+              "column": 7
+            },
+            {
+              "title": "性能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-b6da42917c0391ae1705",
+              "file": "pages/homepage.spec.ts",
+              "line": 102,
+              "column": 7
+            },
+            {
+              "title": "用户交互模拟测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-d9a537e9598560483e67",
+              "file": "pages/homepage.spec.ts",
+              "line": 113,
+              "column": 7
+            },
+            {
+              "title": "首页基本加载测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-6a6496b327e808a999b1",
+              "file": "pages/homepage.spec.ts",
+              "line": 13,
+              "column": 7
+            },
+            {
+              "title": "导航栏功能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-a77d1da3c16c2ed30daf",
+              "file": "pages/homepage.spec.ts",
+              "line": 24,
+              "column": 7
+            },
+            {
+              "title": "主要内容区域测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-b083013c3f3ffd0ed875",
+              "file": "pages/homepage.spec.ts",
+              "line": 46,
+              "column": 7
+            },
+            {
+              "title": "响应式设计测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-8b977abe7ee940757c83",
+              "file": "pages/homepage.spec.ts",
+              "line": 71,
+              "column": 7
+            },
+            {
+              "title": "链接有效性测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-4d3a4ef9f716f32f6828",
+              "file": "pages/homepage.spec.ts",
+              "line": 75,
+              "column": 7
+            },
+            {
+              "title": "图片加载测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-21cc3d5acbfc30c9be0c",
+              "file": "pages/homepage.spec.ts",
+              "line": 90,
+              "column": 7
+            },
+            {
+              "title": "性能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-0c2a12cce9e2734293f7",
+              "file": "pages/homepage.spec.ts",
+              "line": 102,
+              "column": 7
+            },
+            {
+              "title": "用户交互模拟测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87efe16c146cd0d1fd8c-a8ee91573c4d430f1c91",
+              "file": "pages/homepage.spec.ts",
+              "line": 113,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "pages\\navigation.spec.ts",
+      "file": "pages/navigation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Crepal.ai 导航和页面跳转测试",
+          "file": "pages/navigation.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "主要页面导航测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d4c157313c3d1f88acdb-efa5ce33dc964368774f",
+              "file": "pages/navigation.spec.ts",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "面包屑导航测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d4c157313c3d1f88acdb-8ef2d9ca32b6867a41ac",
+              "file": "pages/navigation.spec.ts",
+              "line": 50,
+              "column": 7
+            },
+            {
+              "title": "页脚链接测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d4c157313c3d1f88acdb-1d344508e83ab3de6deb",
+              "file": "pages/navigation.spec.ts",
+              "line": 71,
+              "column": 7
+            },
+            {
+              "title": "搜索功能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d4c157313c3d1f88acdb-757160c40cb7f0eb4e42",
+              "file": "pages/navigation.spec.ts",
+              "line": 114,
+              "column": 7
+            },
+            {
+              "title": "移动端菜单测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d4c157313c3d1f88acdb-a6b2142cd5350835d915",
+              "file": "pages/navigation.spec.ts",
+              "line": 135,
+              "column": 7
+            },
+            {
+              "title": "页面历史导航测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d4c157313c3d1f88acdb-e41c4c37e8d3c53cd7bb",
+              "file": "pages/navigation.spec.ts",
+              "line": 167,
+              "column": 7
+            },
+            {
+              "title": "主要页面导航测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d4c157313c3d1f88acdb-9de0613dadfe020637dc",
+              "file": "pages/navigation.spec.ts",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "面包屑导航测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d4c157313c3d1f88acdb-04ee00570c0a95d885f9",
+              "file": "pages/navigation.spec.ts",
+              "line": 50,
+              "column": 7
+            },
+            {
+              "title": "页脚链接测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d4c157313c3d1f88acdb-4225137310a66075c840",
+              "file": "pages/navigation.spec.ts",
+              "line": 71,
+              "column": 7
+            },
+            {
+              "title": "搜索功能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d4c157313c3d1f88acdb-2489dc1597eafda8322a",
+              "file": "pages/navigation.spec.ts",
+              "line": 114,
+              "column": 7
+            },
+            {
+              "title": "移动端菜单测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d4c157313c3d1f88acdb-6fb2a15d4c13df15487c",
+              "file": "pages/navigation.spec.ts",
+              "line": 135,
+              "column": 7
+            },
+            {
+              "title": "页面历史导航测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d4c157313c3d1f88acdb-f3d9f8d78b1f473c552e",
+              "file": "pages/navigation.spec.ts",
+              "line": 167,
+              "column": 7
+            },
+            {
+              "title": "主要页面导航测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d4c157313c3d1f88acdb-cfff6aa7c49e64b3212b",
+              "file": "pages/navigation.spec.ts",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "面包屑导航测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d4c157313c3d1f88acdb-b71616886e77ed1caa35",
+              "file": "pages/navigation.spec.ts",
+              "line": 50,
+              "column": 7
+            },
+            {
+              "title": "页脚链接测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d4c157313c3d1f88acdb-c08032068270fe86207c",
+              "file": "pages/navigation.spec.ts",
+              "line": 71,
+              "column": 7
+            },
+            {
+              "title": "搜索功能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d4c157313c3d1f88acdb-5a3d050d3e59f9ca46ab",
+              "file": "pages/navigation.spec.ts",
+              "line": 114,
+              "column": 7
+            },
+            {
+              "title": "移动端菜单测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d4c157313c3d1f88acdb-29ab722f28088b359936",
+              "file": "pages/navigation.spec.ts",
+              "line": 135,
+              "column": 7
+            },
+            {
+              "title": "页面历史导航测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d4c157313c3d1f88acdb-91ab2d3f3f78cca55532",
+              "file": "pages/navigation.spec.ts",
+              "line": 167,
+              "column": 7
+            },
+            {
+              "title": "主要页面导航测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d4c157313c3d1f88acdb-3238b84936b3118931fd",
+              "file": "pages/navigation.spec.ts",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "面包屑导航测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d4c157313c3d1f88acdb-09bd37fe655ce5cd0caf",
+              "file": "pages/navigation.spec.ts",
+              "line": 50,
+              "column": 7
+            },
+            {
+              "title": "页脚链接测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d4c157313c3d1f88acdb-fd84b0440db323662e4d",
+              "file": "pages/navigation.spec.ts",
+              "line": 71,
+              "column": 7
+            },
+            {
+              "title": "搜索功能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d4c157313c3d1f88acdb-6c6b26ff2923a05f70a4",
+              "file": "pages/navigation.spec.ts",
+              "line": 114,
+              "column": 7
+            },
+            {
+              "title": "移动端菜单测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d4c157313c3d1f88acdb-ad28482303e528febee0",
+              "file": "pages/navigation.spec.ts",
+              "line": 135,
+              "column": 7
+            },
+            {
+              "title": "页面历史导航测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d4c157313c3d1f88acdb-52b208b420d7add6ceb8",
+              "file": "pages/navigation.spec.ts",
+              "line": 167,
+              "column": 7
+            },
+            {
+              "title": "主要页面导航测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d4c157313c3d1f88acdb-aaa2ecb8c2ef436d1e51",
+              "file": "pages/navigation.spec.ts",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "面包屑导航测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d4c157313c3d1f88acdb-e7f6f21bff186efff04a",
+              "file": "pages/navigation.spec.ts",
+              "line": 50,
+              "column": 7
+            },
+            {
+              "title": "页脚链接测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d4c157313c3d1f88acdb-b9632ae3cb8dd55949d7",
+              "file": "pages/navigation.spec.ts",
+              "line": 71,
+              "column": 7
+            },
+            {
+              "title": "搜索功能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d4c157313c3d1f88acdb-1f2bf17b4a6b08724d04",
+              "file": "pages/navigation.spec.ts",
+              "line": 114,
+              "column": 7
+            },
+            {
+              "title": "移动端菜单测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d4c157313c3d1f88acdb-bf0f6b0121e13ae8d451",
+              "file": "pages/navigation.spec.ts",
+              "line": 135,
+              "column": 7
+            },
+            {
+              "title": "页面历史导航测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d4c157313c3d1f88acdb-7a30787188bba469e5c0",
+              "file": "pages/navigation.spec.ts",
+              "line": 167,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "performance\\performance.spec.ts",
+      "file": "performance/performance.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Crepal.ai 性能和优化测试",
+          "file": "performance/performance.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "页面加载性能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-65409b031173fa6b7e9d",
+              "file": "performance/performance.spec.ts",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "资源加载性能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-0e90b2b2058fee9b14ae",
+              "file": "performance/performance.spec.ts",
+              "line": 50,
+              "column": 7
+            },
+            {
+              "title": "Core Web Vitals测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-1a945b43f2ae65bc0193",
+              "file": "performance/performance.spec.ts",
+              "line": 107,
+              "column": 7
+            },
+            {
+              "title": "内存使用测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-e6e4d516276458568446",
+              "file": "performance/performance.spec.ts",
+              "line": 160,
+              "column": 7
+            },
+            {
+              "title": "网络连接性能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-7f6edd0aba07e9052f20",
+              "file": "performance/performance.spec.ts",
+              "line": 220,
+              "column": 7
+            },
+            {
+              "title": "缓存策略测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-a7d8ca4354b8d076a219",
+              "file": "performance/performance.spec.ts",
+              "line": 241,
+              "column": 7
+            },
+            {
+              "title": "JavaScript性能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-329f2c8e201a47a9ffc2",
+              "file": "performance/performance.spec.ts",
+              "line": 286,
+              "column": 7
+            },
+            {
+              "title": "页面加载性能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-33518f3da4dea8c93e6b",
+              "file": "performance/performance.spec.ts",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "资源加载性能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-93455664150c04c0c1bc",
+              "file": "performance/performance.spec.ts",
+              "line": 50,
+              "column": 7
+            },
+            {
+              "title": "Core Web Vitals测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-17ac790b0fb4d43ac4ee",
+              "file": "performance/performance.spec.ts",
+              "line": 107,
+              "column": 7
+            },
+            {
+              "title": "内存使用测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-72d4f675d118741bb255",
+              "file": "performance/performance.spec.ts",
+              "line": 160,
+              "column": 7
+            },
+            {
+              "title": "网络连接性能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-cbe0736efd80add4b4ec",
+              "file": "performance/performance.spec.ts",
+              "line": 220,
+              "column": 7
+            },
+            {
+              "title": "缓存策略测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-f21c4c75b478f48837bb",
+              "file": "performance/performance.spec.ts",
+              "line": 241,
+              "column": 7
+            },
+            {
+              "title": "JavaScript性能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-f4608a1580eed14ce662",
+              "file": "performance/performance.spec.ts",
+              "line": 286,
+              "column": 7
+            },
+            {
+              "title": "页面加载性能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-1fb1abe1f7f5b2c97ed2",
+              "file": "performance/performance.spec.ts",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "资源加载性能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-99b83a6ec44739564285",
+              "file": "performance/performance.spec.ts",
+              "line": 50,
+              "column": 7
+            },
+            {
+              "title": "Core Web Vitals测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-ea1982295d9d7642a7ea",
+              "file": "performance/performance.spec.ts",
+              "line": 107,
+              "column": 7
+            },
+            {
+              "title": "内存使用测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-4c8a5b50a1041f22e439",
+              "file": "performance/performance.spec.ts",
+              "line": 160,
+              "column": 7
+            },
+            {
+              "title": "网络连接性能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-660c8dbdb423fea92f43",
+              "file": "performance/performance.spec.ts",
+              "line": 220,
+              "column": 7
+            },
+            {
+              "title": "缓存策略测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-5a55b0d95ff594431d5e",
+              "file": "performance/performance.spec.ts",
+              "line": 241,
+              "column": 7
+            },
+            {
+              "title": "JavaScript性能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-5387db3ea2cc01e50cff",
+              "file": "performance/performance.spec.ts",
+              "line": 286,
+              "column": 7
+            },
+            {
+              "title": "页面加载性能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-5cbda954ae78579a20db",
+              "file": "performance/performance.spec.ts",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "资源加载性能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-b125d586e65ff23bb3f4",
+              "file": "performance/performance.spec.ts",
+              "line": 50,
+              "column": 7
+            },
+            {
+              "title": "Core Web Vitals测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-adc83d432bf29a514e17",
+              "file": "performance/performance.spec.ts",
+              "line": 107,
+              "column": 7
+            },
+            {
+              "title": "内存使用测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-f0af8f903619e33e2786",
+              "file": "performance/performance.spec.ts",
+              "line": 160,
+              "column": 7
+            },
+            {
+              "title": "网络连接性能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-0558e4bc669e366e8299",
+              "file": "performance/performance.spec.ts",
+              "line": 220,
+              "column": 7
+            },
+            {
+              "title": "缓存策略测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-9ee71aac5ad55bc68f50",
+              "file": "performance/performance.spec.ts",
+              "line": 241,
+              "column": 7
+            },
+            {
+              "title": "JavaScript性能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-064c22b9bd2f461d18ba",
+              "file": "performance/performance.spec.ts",
+              "line": 286,
+              "column": 7
+            },
+            {
+              "title": "页面加载性能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-58e83f726537fd4160cc",
+              "file": "performance/performance.spec.ts",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "资源加载性能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-cf638327292aa37a3a57",
+              "file": "performance/performance.spec.ts",
+              "line": 50,
+              "column": 7
+            },
+            {
+              "title": "Core Web Vitals测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-794e09b5fcf5b3c777d8",
+              "file": "performance/performance.spec.ts",
+              "line": 107,
+              "column": 7
+            },
+            {
+              "title": "内存使用测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-dec885be36d7dd8ed0b6",
+              "file": "performance/performance.spec.ts",
+              "line": 160,
+              "column": 7
+            },
+            {
+              "title": "网络连接性能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-63e427d2210efcec33db",
+              "file": "performance/performance.spec.ts",
+              "line": 220,
+              "column": 7
+            },
+            {
+              "title": "缓存策略测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-82827510703ca404fa0f",
+              "file": "performance/performance.spec.ts",
+              "line": 241,
+              "column": 7
+            },
+            {
+              "title": "JavaScript性能测试",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "0418d4e48bf14d23f495-1cfeb79a73248554282d",
+              "file": "performance/performance.spec.ts",
+              "line": 286,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-08-19T15:27:50.357Z",
+    "duration": 267.13300000000004,
+    "expected": 0,
+    "skipped": 190,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
