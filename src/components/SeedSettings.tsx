@@ -55,7 +55,7 @@ export default function SeedSettings({
   const [showHistory, setShowHistory] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
 
-  // 从localStorage加载历史记录
+  // Load history from localStorage
   useEffect(() => {
     const saved = localStorage.getItem('seedHistory');
     if (saved) {
@@ -71,7 +71,7 @@ export default function SeedSettings({
     }
   }, []);
 
-  // 保存历史记录到localStorage
+  // Save history to localStorage
   const saveHistory = (history: SeedHistoryItem[]) => {
     try {
       localStorage.setItem('seedHistory', JSON.stringify(history));
@@ -81,12 +81,12 @@ export default function SeedSettings({
     }
   };
 
-  // 生成随机种子
+  // Generate random seed
   const generateRandomSeed = (): number => {
     return Math.floor(Math.random() * 2147483647);
   };
 
-  // 处理随机生成
+  // Handle random generation
   const handleRandomGenerate = () => {
     if (disabled) return;
     
@@ -94,13 +94,13 @@ export default function SeedSettings({
     onChange(newSeed);
     setInputValue(newSeed.toString());
     
-    // 添加到历史记录
+    // Add to history
     if (currentPrompt.trim()) {
       addToHistory(newSeed, currentPrompt);
     }
   };
 
-  // 处理输入变化
+  // Handle input changes
   const handleInputChange = (inputValue: string) => {
     setInputValue(inputValue);
     
@@ -114,7 +114,7 @@ export default function SeedSettings({
     }
   };
 
-  // 添加到历史记录
+  // Add to history
   const addToHistory = (seed: number, prompt: string) => {
     const newItem: SeedHistoryItem = {
       id: `${seed}-${Date.now()}`,
@@ -124,13 +124,13 @@ export default function SeedSettings({
       favorite: false
     };
     
-    const updatedHistory = [newItem, ...seedHistory.slice(0, 19)]; // 保持最多20条记录
+    const updatedHistory = [newItem, ...seedHistory.slice(0, 19)]; // Keep maximum 20 records
     saveHistory(updatedHistory);
   };
 
 
 
-  // 切换收藏状态
+  // Toggle favorite status
   const toggleFavorite = (id: string) => {
     const updatedHistory = seedHistory.map(item =>
       item.id === id ? { ...item, favorite: !item.favorite } : item
@@ -138,50 +138,50 @@ export default function SeedSettings({
     saveHistory(updatedHistory);
   };
 
-  // 删除历史记录
+  // Delete history record
   const deleteHistoryItem = (id: string) => {
     const updatedHistory = seedHistory.filter(item => item.id !== id);
     saveHistory(updatedHistory);
   };
 
-  // 清空历史记录
+  // Clear all history
   const clearHistory = () => {
     saveHistory([]);
   };
 
-  // 复制种子值
+  // Copy seed value
   const copySeed = (seed: number) => {
     navigator.clipboard.writeText(seed.toString());
   };
 
-  // 获取随机骰子图标
+  // Get random dice icon
   const getRandomDiceIcon = () => {
     const diceIcons = [Dice1, Dice2, Dice3, Dice4, Dice5, Dice6];
     const DiceIcon = diceIcons[Math.floor(Math.random() * diceIcons.length)];
     return <DiceIcon className="w-4 h-4" />;
   };
 
-  // 格式化时间
+  // Format time
   const formatTime = (date: Date): string => {
     const now = new Date();
     const diffInMinutes = Math.floor((now.getTime() - date.getTime()) / (1000 * 60));
     
-    if (diffInMinutes < 1) return '刚刚';
-    if (diffInMinutes < 60) return `${diffInMinutes}分钟前`;
-    if (diffInMinutes < 1440) return `${Math.floor(diffInMinutes / 60)}小时前`;
+    if (diffInMinutes < 1) return 'Just now';
+    if (diffInMinutes < 60) return `${diffInMinutes} minutes ago`;
+    if (diffInMinutes < 1440) return `${Math.floor(diffInMinutes / 60)} hours ago`;
     return date.toLocaleDateString();
   };
 
-  // 获取种子说明
+  // Get seed explanation
   const getSeedExplanation = () => {
     return {
-      title: "什么是种子 (Seed)?",
+      title: "What is a Seed?",
       content: [
-        "种子是控制AI生成随机性的数字参数",
-        "相同的种子 + 相同的提示词 = 相同的结果",
-        "不同的种子会产生不同的变化效果",
-        "种子范围: 0 - 2,147,483,647",
-        "留空将使用随机种子"
+        "Seed is a numeric parameter that controls AI generation randomness",
+        "Same seed + same prompt = same result",
+        "Different seeds produce different variations",
+        "Seed range: 0 - 2,147,483,647",
+        "Leave empty to use random seed"
       ]
     };
   };
@@ -200,7 +200,7 @@ export default function SeedSettings({
               <div className="text-purple-600">
                 {getRandomDiceIcon()}
               </div>
-              <h4 className="font-medium text-gray-900 dark:text-white">种子设置</h4>
+              <h4 className="font-medium text-gray-900 dark:text-white">Seed Settings</h4>
               <Button
                 variant="ghost"
                 size="sm"
@@ -223,7 +223,7 @@ export default function SeedSettings({
                 }`}
               >
                 {isLocked ? <Lock className="w-4 h-4" /> : <Unlock className="w-4 h-4" />}
-                {isLocked ? '已锁定' : '未锁定'}
+                {isLocked ? 'Locked' : 'Unlocked'}
               </Button>
               
               <Button
@@ -233,7 +233,7 @@ export default function SeedSettings({
                 className="text-blue-600 border-blue-300 hover:bg-blue-50"
               >
                 <History className="w-4 h-4 mr-1" />
-                历史记录
+                History
               </Button>
             </div>
           </div>
@@ -241,13 +241,13 @@ export default function SeedSettings({
           <div className="flex gap-3">
             <div className="flex-1">
               <Label htmlFor="seed-input" className="text-sm font-medium">
-                种子值 (可选)
+                Seed Value (Optional)
               </Label>
               <div className="flex gap-2 mt-1">
                 <Input
                   id="seed-input"
                   type="number"
-                  placeholder="留空使用随机种子"
+                  placeholder="Leave empty for random seed"
                   value={inputValue}
                   onChange={(e) => handleInputChange(e.target.value)}
                   min="0"
@@ -275,7 +275,7 @@ export default function SeedSettings({
                 className="bg-purple-500 hover:bg-purple-600 text-white"
               >
                 <RefreshCw className="w-4 h-4 mr-2" />
-                随机生成
+                Random Generate
               </Button>
             </div>
           </div>
@@ -284,18 +284,18 @@ export default function SeedSettings({
           <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
             <div className="flex items-center gap-2">
               <Badge variant={value ? "default" : "secondary"} className="bg-purple-100 text-purple-800">
-                {value ? `种子: ${value}` : '随机种子'}
+                {value ? `Seed: ${value}` : 'Random Seed'}
               </Badge>
               {isLocked && (
                 <Badge variant="secondary" className="bg-orange-100 text-orange-800">
                   <Lock className="w-3 h-3 mr-1" />
-                  锁定
+                  Locked
                 </Badge>
               )}
             </div>
             
             <div className="text-sm text-gray-600 dark:text-gray-300">
-              {value ? '固定生成' : '随机变化'}
+              {value ? 'Fixed Generation' : 'Random Variation'}
             </div>
           </div>
         </div>
@@ -326,7 +326,7 @@ export default function SeedSettings({
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <h5 className="font-medium text-gray-900 dark:text-white">
-                种子历史记录 ({seedHistory.length})
+                Seed History ({seedHistory.length})
               </h5>
               {seedHistory.length > 0 && (
                 <Button
@@ -336,7 +336,7 @@ export default function SeedSettings({
                   className="text-red-600 border-red-300 hover:bg-red-50"
                 >
                   <Trash2 className="w-4 h-4 mr-1" />
-                  清空
+                  Clear
                 </Button>
               )}
             </div>
@@ -344,8 +344,8 @@ export default function SeedSettings({
             {seedHistory.length === 0 ? (
               <div className="text-center py-8 text-gray-500 dark:text-gray-400">
                 <History className="w-12 h-12 mx-auto mb-3 opacity-50" />
-                <p>暂无历史记录</p>
-                <p className="text-sm">生成视频时会自动保存种子记录</p>
+                <p>No history records yet</p>
+                <p className="text-sm">Seed records will be automatically saved when generating videos</p>
               </div>
             ) : (
               <div className="space-y-4">
@@ -354,7 +354,7 @@ export default function SeedSettings({
                   <div className="space-y-2">
                     <h6 className="text-sm font-medium text-gray-700 dark:text-gray-300 flex items-center gap-1">
                       <Star className="w-4 h-4 text-yellow-500" />
-                      收藏的种子
+                      Favorite Seeds
                     </h6>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                       {favoriteHistory.map((item) => (
@@ -406,7 +406,7 @@ export default function SeedSettings({
                 {recentHistory.length > 0 && (
                   <div className="space-y-2">
                     <h6 className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                      最近使用
+                      Recently Used
                     </h6>
                     <div className="space-y-2 max-h-64 overflow-y-auto">
                       {recentHistory.map((item) => (
@@ -471,8 +471,8 @@ export default function SeedSettings({
 
       {/* 快速操作提示 */}
       <div className="text-sm text-gray-500 dark:text-gray-400 space-y-1">
-        <p>💡 <strong>提示:</strong> 锁定种子可确保每次生成相同的结果</p>
-        <p>🎲 <strong>建议:</strong> 找到满意的效果后，可收藏该种子以便复用</p>
+        <p>💡 <strong>Tip:</strong> Locking the seed ensures the same result every time</p>
+        <p>🎲 <strong>Suggestion:</strong> After finding satisfactory results, you can favorite the seed for reuse</p>
       </div>
     </div>
   );

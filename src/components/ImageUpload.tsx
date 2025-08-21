@@ -72,7 +72,7 @@ export default function ImageUpload({
       if (!supportedFormats.includes(file.type)) {
         resolve({ 
           valid: false, 
-          error: `不支持的文件格式: ${file.type}。支持的格式: ${supportedFormats.join(', ')}` 
+          error: `Unsupported file format: ${file.type}. Supported formats: ${supportedFormats.join(', ')}` 
         });
         return;
       }
@@ -81,7 +81,7 @@ export default function ImageUpload({
       if (file.size > maxSizePerFile * 1024 * 1024) {
         resolve({ 
           valid: false, 
-          error: `文件大小超过限制 (${(file.size / 1024 / 1024).toFixed(1)}MB > ${maxSizePerFile}MB)` 
+          error: `File size exceeds limit (${(file.size / 1024 / 1024).toFixed(1)}MB > ${maxSizePerFile}MB)` 
         });
         return;
       }
@@ -92,7 +92,7 @@ export default function ImageUpload({
         if (img.width < minDimensions.width || img.height < minDimensions.height) {
           resolve({ 
             valid: false, 
-            error: `图像尺寸过小 (${img.width}x${img.height} < ${minDimensions.width}x${minDimensions.height})` 
+            error: `Image dimensions too small (${img.width}x${img.height} < ${minDimensions.width}x${minDimensions.height})` 
           });
         } else {
           resolve({ 
@@ -102,7 +102,7 @@ export default function ImageUpload({
         }
       };
       img.onerror = () => {
-        resolve({ valid: false, error: '无法读取图像文件' });
+        resolve({ valid: false, error: 'Unable to read image file' });
       };
       img.src = URL.createObjectURL(file);
     });
@@ -117,7 +117,7 @@ export default function ImageUpload({
 
     // Check total file limit
     if (uploadedImages.length + files.length > maxFiles) {
-      newErrors.push(`最多只能上传 ${maxFiles} 个文件`);
+      newErrors.push(`Maximum ${maxFiles} files can be uploaded`);
       setErrors(newErrors);
       setUploading(false);
       return;
@@ -145,7 +145,7 @@ export default function ImageUpload({
           newErrors.push(`${file.name}: ${validation.error}`);
         }
       } catch (error) {
-        newErrors.push(`${file.name}: 处理文件时出错`);
+        newErrors.push(`${file.name}: Error processing file`);
       }
     }
 
@@ -212,11 +212,11 @@ export default function ImageUpload({
 
   const getAspectRatioRecommendation = (aspectRatio: string): string => {
     switch (aspectRatio) {
-      case '16:9': return '适合横向视频 (YouTube, 电视)';
-      case '9:16': return '适合竖向视频 (TikTok, Instagram Stories)';
-      case '1:1': return '适合方形视频 (Instagram Post)';
-      case '4:3': return '适合标准视频格式';
-      default: return '自定义比例';
+      case '16:9': return 'Suitable for landscape videos (YouTube, TV)';
+      case '9:16': return 'Suitable for portrait videos (TikTok, Instagram Stories)';
+      case '1:1': return 'Suitable for square videos (Instagram Post)';
+      case '4:3': return 'Suitable for standard video format';
+      default: return 'Custom ratio';
     }
   };
 
@@ -246,18 +246,18 @@ export default function ImageUpload({
           </div>
           
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-            上传图像文件
+            Upload Image Files
           </h3>
           
           <p className="text-gray-600 dark:text-gray-300 mb-4">
-            拖拽文件到此处，或点击选择文件
+            Drag files here, or click to select files
           </p>
 
           <div className="space-y-2 text-sm text-gray-500 dark:text-gray-400 mb-6">
-            <p>支持格式: JPG, PNG, WEBP</p>
-            <p>最大文件大小: {maxSizePerFile}MB</p>
-            <p>最小尺寸: {minDimensions.width}×{minDimensions.height}px</p>
-            <p>最多上传: {maxFiles} 个文件</p>
+            <p>Supported formats: JPG, PNG, WEBP</p>
+            <p>Max file size: {maxSizePerFile}MB</p>
+            <p>Min dimensions: {minDimensions.width}×{minDimensions.height}px</p>
+            <p>Max upload: {maxFiles} files</p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -267,7 +267,7 @@ export default function ImageUpload({
               className="bg-blue-500 hover:bg-blue-600 text-white"
             >
               <Upload className="w-4 h-4 mr-2" />
-              选择文件
+              Select Files
             </Button>
             
             {uploadedImages.length > 0 && (
@@ -277,7 +277,7 @@ export default function ImageUpload({
                 className="text-red-600 border-red-300 hover:bg-red-50 dark:hover:bg-red-900/20"
               >
                 <X className="w-4 h-4 mr-2" />
-                清空所有
+                Clear All
               </Button>
             )}
           </div>
@@ -298,7 +298,7 @@ export default function ImageUpload({
         <Alert className="bg-blue-50 border-blue-200 dark:bg-blue-900/20 dark:border-blue-800">
           <AlertCircle className="h-4 w-4 text-blue-500" />
           <AlertDescription className="text-blue-700 dark:text-blue-300">
-            正在处理文件，请稍候...
+            Processing files, please wait...
           </AlertDescription>
         </Alert>
       )}
@@ -309,7 +309,7 @@ export default function ImageUpload({
           <AlertCircle className="h-4 w-4 text-red-500" />
           <AlertDescription>
             <div className="text-red-700 dark:text-red-300">
-              <p className="font-medium mb-2">上传失败的文件:</p>
+              <p className="font-medium mb-2">Failed uploads:</p>
               <ul className="list-disc list-inside space-y-1 text-sm">
                 {errors.map((error, index) => (
                   <li key={index}>{error}</li>
@@ -325,11 +325,11 @@ export default function ImageUpload({
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <h4 className="text-lg font-semibold text-gray-900 dark:text-white">
-              已上传的图像 ({uploadedImages.length}/{maxFiles})
+              Uploaded Images ({uploadedImages.length}/{maxFiles})
             </h4>
             <Badge variant="secondary" className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">
               <CheckCircle className="w-3 h-3 mr-1" />
-              就绪
+              Ready
             </Badge>
           </div>
 
@@ -340,7 +340,7 @@ export default function ImageUpload({
                   <div className="aspect-video bg-gray-100 dark:bg-gray-800">
                     <img
                       src={image.preview}
-                      alt={`上传的图像 ${image.id}`}
+                      alt={`Uploaded image ${image.id}`}
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -390,11 +390,11 @@ export default function ImageUpload({
                   
                   <div className="text-sm text-gray-600 dark:text-gray-300 space-y-1">
                     <div className="flex justify-between">
-                      <span>尺寸:</span>
+                      <span>Dimensions:</span>
                       <span>{image.dimensions.width}×{image.dimensions.height}px</span>
                     </div>
                     <div className="flex justify-between">
-                      <span>大小:</span>
+                      <span>Size:</span>
                       <span>{formatFileSize(image.size)}</span>
                     </div>
                     <div className="text-xs text-blue-600 dark:text-blue-400 mt-2">
@@ -413,11 +413,11 @@ export default function ImageUpload({
         <Alert className="bg-yellow-50 border-yellow-200 dark:bg-yellow-900/20 dark:border-yellow-800">
           <AlertCircle className="h-4 w-4 text-yellow-600" />
           <AlertDescription className="text-yellow-800 dark:text-yellow-200">
-            <p className="font-medium mb-2">批量处理建议:</p>
+            <p className="font-medium mb-2">Batch Processing Suggestions:</p>
             <ul className="text-sm space-y-1">
-              <li>• 确保所有图像具有相似的风格和主题</li>
-              <li>• 建议使用相同的宽高比以获得一致的视频效果</li>
-              <li>• 图像将按上传顺序进行处理</li>
+              <li>• Ensure all images have similar style and theme</li>
+              <li>• Recommend using same aspect ratio for consistent video effects</li>
+              <li>• Images will be processed in upload order</li>
             </ul>
           </AlertDescription>
         </Alert>

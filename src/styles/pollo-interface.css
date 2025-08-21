@@ -1,0 +1,143 @@
+/* Custom styles for Pollo AI Interface */
+
+/* Smooth transitions for all interactive elements */
+.pollo-interface * {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Custom scrollbar styling */
+.pollo-interface .overflow-y-auto::-webkit-scrollbar {
+  width: 6px;
+}
+
+.pollo-interface .overflow-y-auto::-webkit-scrollbar-track {
+  background: #374151;
+  border-radius: 3px;
+}
+
+.pollo-interface .overflow-y-auto::-webkit-scrollbar-thumb {
+  background: #6B7280;
+  border-radius: 3px;
+}
+
+.pollo-interface .overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: #9CA3AF;
+}
+
+/* Custom gradient for create button */
+.create-button {
+  background: linear-gradient(135deg, #ef4444 0%, #ec4899 100%);
+}
+
+.create-button:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #db2777 100%);
+}
+
+/* Toggle switch animations */
+.toggle-switch {
+  transition: all 0.3s ease;
+}
+
+.toggle-switch .toggle-thumb {
+  transition: transform 0.3s ease;
+}
+
+/* Vintage TV styling enhancements */
+.vintage-tv {
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.vintage-tv::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+  border-radius: 0.5rem;
+  pointer-events: none;
+}
+
+/* Mode selection cards */
+.mode-card {
+  transition: all 0.2s ease;
+}
+
+.mode-card:hover {
+  transform: translateY(-1px);
+}
+
+.mode-card.active {
+  box-shadow: 0 0 0 2px #ef4444;
+}
+
+/* Upload area styling */
+.upload-area {
+  transition: all 0.2s ease;
+}
+
+.upload-area:hover {
+  background-color: rgba(75, 85, 99, 0.3);
+  border-color: #6B7280;
+}
+
+/* Button hover effects */
+.icon-button:hover {
+  transform: scale(1.05);
+}
+
+.resolution-button,
+.length-button,
+.number-button {
+  transition: all 0.2s ease;
+}
+
+.resolution-button:hover,
+.length-button:hover,
+.number-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Sidebar icon animations */
+.sidebar-icon {
+  transition: all 0.2s ease;
+}
+
+.sidebar-icon:hover {
+  transform: scale(1.1);
+}
+
+.sidebar-icon.active {
+  box-shadow: 0 0 0 2px #ef4444;
+}
+
+/* Input focus styles */
+input:focus,
+textarea:focus {
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+}
+
+/* Dropdown hover effects */
+.dropdown-item:hover {
+  background-color: #374151;
+}
+
+/* Loading animation for create button */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.create-button.loading {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

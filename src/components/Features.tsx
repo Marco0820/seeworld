@@ -26,12 +26,12 @@ export default function Features() {
               <div className="w-12 h-12 bg-blue-800 rounded-xl flex items-center justify-center">
                 <Video className="w-6 h-6 text-blue-200" />
               </div>
-              <h3 className="text-3xl font-bold text-white">免费AI视频生成器</h3>
+              <h3 className="text-3xl font-bold text-white">Free AI Video Generator</h3>
             </div>
             
             <p className="text-lg text-gray-300 leading-relaxed">
-              集成Kling AI、Runway、Hailuo AI、Vidu AI等多个顶级视频模型，
-              智能选择最佳模型组合，为您创作出色的视频内容。完全免费使用，无隐藏费用。
+              Integrating multiple top-tier video models including Kling AI, Runway, Hailuo AI, and Vidu AI,
+              intelligently selecting the best model combinations to create outstanding video content for you. Completely free to use with no hidden fees.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

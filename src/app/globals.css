@@ -64,12 +64,12 @@
   }
 }
 
-/* 页面主背景（在页面容器上使用 hero-gradient 类） */
+/* Main page background (use hero-gradient class on page container) */
 .hero-gradient {
   background: linear-gradient(180deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%);
 }
 
-/* 价格卡片渐变 */
+/* Pricing card gradients */
 .card-gradient-plus {
   background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
 }
@@ -85,7 +85,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* 浮动动画 */
+/* Floating animation */
 @keyframes float {
   0%, 100% { transform: translateY(0px) rotate(0deg); }
   50% { transform: translateY(-10px) rotate(1deg); }
@@ -95,7 +95,7 @@
   animation: float 6s ease-in-out infinite;
 }
 
-/* 自定义滚动条 */
+/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -113,7 +113,7 @@
   background: #94a3b8;
 }
 
-/* 视频背景相关样式 */
+/* Video background related styles */
 .video-background {
   position: absolute;
   top: 0;
@@ -122,7 +122,7 @@
   height: 100%;
   object-fit: cover;
   z-index: 1;
-  /* 提高视频清晰度的属性 */
+  /* Properties to improve video clarity */
   image-rendering: crisp-edges;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: optimize-contrast;
@@ -131,7 +131,7 @@
 
 .video-container {
   transition: opacity 0.3s ease-in-out;
-  /* 硬件加速 */
+  /* Hardware acceleration */
   transform: translateZ(0);
   backface-visibility: hidden;
   perspective: 1000px;
@@ -161,7 +161,7 @@
   animation: pulse 2s ease-in-out infinite;
 }
 
-/* 白色主题色 */
+/* White theme colors */
 .bg-klein-blue {
   background-color: rgb(255, 255, 255);
 }
@@ -182,7 +182,7 @@
   background-color: rgb(255, 255, 255);
 }
 
-/* 星空背景效果 */
+/* Starry sky background effect */
 .starry-sky {
   background: radial-gradient(ellipse at center, #1a1a2e 0%, #0f0f0f 50%, #000000 100%);
   position: relative;
@@ -228,5 +228,93 @@
 @keyframes sparkle {
   0% { transform: translateY(0px); }
   100% { transform: translateY(-200px); }
+}
+
+/* Brand scrolling animation */
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 30s linear infinite;
+}
+
+/* Gradient text effect */
+.gradient-text {
+  background: linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Card hover effect */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Button pulse effect */
+@keyframes button-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
+}
+
+.button-pulse:hover {
+  animation: button-pulse 1.5s infinite;
+}
+
+/* Typewriter text effect */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: white; }
+}
+
+.typing-effect {
+  overflow: hidden;
+  border-right: 2px solid white;
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+/* Custom scrollbar styles */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #374151 #1f2937;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #1f2937;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #374151;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #4b5563;
 }
 

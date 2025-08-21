@@ -75,7 +75,7 @@ export default function VideoPlayer({
     const handleCanPlay = () => setIsLoading(false);
     const handleError = () => {
       setIsLoading(false);
-      setError('视频加载失败');
+      setError('Video loading failed');
     };
     
     const handleTimeUpdate = () => {
@@ -120,7 +120,7 @@ export default function VideoPlayer({
       video.pause();
     } else {
       video.play().catch(() => {
-        setError('视频播放失败');
+        setError('Video playback failed');
       });
     }
   };
@@ -195,7 +195,7 @@ export default function VideoPlayer({
       video.requestFullscreen().then(() => {
         setIsFullscreen(true);
       }).catch(() => {
-        setError('无法进入全屏模式');
+        setError('Unable to enter fullscreen mode');
       });
     } else {
       document.exitFullscreen().then(() => {
@@ -254,7 +254,7 @@ export default function VideoPlayer({
             onMouseLeave={() => setShowControls(false)}
           >
             <source src={videoUrl} type="video/mp4" />
-            您的浏览器不支持视频播放。
+            Your browser does not support video playback.
           </video>
 
           {/* 隐藏的canvas用于截图 */}
@@ -265,7 +265,7 @@ export default function VideoPlayer({
             <div className="absolute inset-0 flex items-center justify-center bg-black/50">
               <div className="text-white text-center">
                 <div className="animate-spin rounded-full h-8 w-8 border-2 border-white border-t-transparent mx-auto mb-2"></div>
-                <p className="text-sm">加载中...</p>
+                <p className="text-sm">Loading...</p>
               </div>
             </div>
           )}
@@ -285,7 +285,7 @@ export default function VideoPlayer({
                   }}
                   className="mt-2 text-white border-white hover:bg-white hover:text-black"
                 >
-                  重试
+                  Retry
                 </Button>
               </div>
             </div>
@@ -426,7 +426,7 @@ export default function VideoPlayer({
                     size="sm"
                     variant="ghost"
                     className="text-white hover:bg-gray-700"
-                    title="截图"
+                    title="Screenshot"
                   >
                     <Camera className="w-4 h-4" />
                   </Button>
@@ -455,7 +455,7 @@ export default function VideoPlayer({
             className="bg-green-500 hover:bg-green-600 text-white"
           >
             <Download className="w-4 h-4 mr-2" />
-            下载视频
+            Download Video
           </Button>
         )}
         
@@ -466,7 +466,7 @@ export default function VideoPlayer({
             className="border-blue-300 text-blue-600 hover:bg-blue-50"
           >
             <Share className="w-4 h-4 mr-2" />
-            分享视频
+            Share Video
           </Button>
         )}
         
@@ -477,7 +477,7 @@ export default function VideoPlayer({
             className="border-purple-300 text-purple-600 hover:bg-purple-50"
           >
             <Camera className="w-4 h-4 mr-2" />
-            截图
+            Screenshot
           </Button>
         )}
       </div>
@@ -486,30 +486,30 @@ export default function VideoPlayer({
       <Card className="p-4 bg-gray-50 dark:bg-gray-800">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
           <div className="text-center">
-            <div className="text-gray-600 dark:text-gray-400">时长</div>
+            <div className="text-gray-600 dark:text-gray-400">Duration</div>
             <div className="font-medium text-gray-900 dark:text-white">
               {formatTime(videoDuration)}
             </div>
           </div>
           
           <div className="text-center">
-            <div className="text-gray-600 dark:text-gray-400">播放速度</div>
+            <div className="text-gray-600 dark:text-gray-400">Playback Speed</div>
             <div className="font-medium text-gray-900 dark:text-white">
               {playbackRate}x
             </div>
           </div>
           
           <div className="text-center">
-            <div className="text-gray-600 dark:text-gray-400">音量</div>
+            <div className="text-gray-600 dark:text-gray-400">Volume</div>
             <div className="font-medium text-gray-900 dark:text-white">
-              {isMuted ? '静音' : `${Math.round(volume * 100)}%`}
+              {isMuted ? 'Muted' : `${Math.round(volume * 100)}%`}
             </div>
           </div>
           
           <div className="text-center">
-            <div className="text-gray-600 dark:text-gray-400">状态</div>
+            <div className="text-gray-600 dark:text-gray-400">Status</div>
             <div className="font-medium text-gray-900 dark:text-white">
-              {isLoading ? '加载中' : error ? '错误' : isPlaying ? '播放中' : '已暂停'}
+              {isLoading ? 'Loading' : error ? 'Error' : isPlaying ? 'Playing' : 'Paused'}
             </div>
           </div>
         </div>
@@ -518,12 +518,12 @@ export default function VideoPlayer({
       {/* 播放快捷键提示 */}
       <Card className="p-3 bg-yellow-50 dark:bg-yellow-900/20 border-yellow-200 dark:border-yellow-800">
         <div className="text-sm text-yellow-800 dark:text-yellow-200">
-          <p className="font-medium mb-2">快捷键提示:</p>
+          <p className="font-medium mb-2">Keyboard Shortcuts:</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs">
-            <span>• 空格: 播放/暂停</span>
-            <span>• ←/→: 快退/快进10秒</span>
-            <span>• ↑/↓: 音量调节</span>
-            <span>• F: 全屏切换</span>
+            <span>• Space: Play/Pause</span>
+            <span>• ←/→: Rewind/Forward 10s</span>
+            <span>• ↑/↓: Volume Control</span>
+            <span>• F: Toggle Fullscreen</span>
           </div>
         </div>
       </Card>

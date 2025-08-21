@@ -86,21 +86,23 @@ export default function UpgradePlanModal({
         {/* Billing Toggle */}
         <div className="flex justify-center pb-8">
           <div className="bg-gray-900 rounded-full p-1 flex">
-            <button
+            <Button
               onClick={() => setBillingType('monthly')}
+              variant={billingType === 'monthly' ? 'default' : 'ghost'}
               className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
                 billingType === 'monthly'
-                  ? 'bg-blue-500 text-white'
+                  ? 'bg-blue-500 text-white hover:bg-blue-600'
                   : 'text-gray-300 hover:text-white'
               }`}
             >
               Monthly
-            </button>
-            <button
+            </Button>
+            <Button
               onClick={() => setBillingType('yearly')}
+              variant={billingType === 'yearly' ? 'default' : 'ghost'}
               className={`px-6 py-2 rounded-full text-sm font-medium transition-colors relative ${
                 billingType === 'yearly'
-                  ? 'bg-blue-500 text-white shadow-sm'
+                  ? 'bg-blue-500 text-white shadow-sm hover:bg-blue-600'
                   : 'text-gray-300 hover:text-white'
               }`}
             >
@@ -108,7 +110,7 @@ export default function UpgradePlanModal({
               <span className="absolute -top-2 -right-2 bg-blue-500 text-white text-xs px-2 py-1 rounded-full font-bold">
                 -17%
               </span>
-            </button>
+            </Button>
           </div>
         </div>
 
@@ -202,9 +204,9 @@ export default function UpgradePlanModal({
         <div className="px-8 pb-8">
           <div className="text-center text-sm text-gray-500">
             Need more features or credits for your business?{' '}
-            <button className="text-blue-600 hover:text-blue-700 font-medium underline">
+            <Button variant="link" className="text-blue-600 hover:text-blue-700 font-medium p-0">
               Contact us
-            </button>
+            </Button>
           </div>
         </div>
       </Card>

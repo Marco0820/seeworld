@@ -1,0 +1,39 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://seeworld.app/sitemap.xml
+
+# 优化爬虫访问
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 1
+
+# 禁止访问敏感目录
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /uploads/
+
+# 重要页面
+Allow: /
+Allow: /pricing
+Allow: /pollo-demo
+Allow: /generate
+Allow: /studio

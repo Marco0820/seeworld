@@ -61,49 +61,49 @@ export default function DurationSettings({
   const [showCustomInput, setShowCustomInput] = useState(false);
   const [suggestions, setSuggestions] = useState<DurationSuggestion | null>(null);
 
-  // 预设时长选项
+  // Duration preset options
   const durationPresets: DurationPreset[] = [
     {
       id: '3s',
       value: 3,
-      label: '3秒',
-      description: '快速预览',
+      label: '3s',
+      description: 'Quick Preview',
       icon: <Zap className="w-4 h-4" />,
-      useCase: '快速测试和预览效果'
+      useCase: 'Quick testing and preview effects'
     },
     {
       id: '5s',
       value: 5,
-      label: '5秒',
-      description: '短视频',
+      label: '5s',
+      description: 'Short Video',
       recommended: true,
       icon: <Clock className="w-4 h-4" />,
-      useCase: '短视频平台，快速传达信息'
+      useCase: 'Short video platforms, quick information delivery'
     },
     {
       id: '10s',
       value: 10,
-      label: '10秒',
-      description: '标准长度',
+      label: '10s',
+      description: 'Standard Length',
       recommended: true,
       icon: <Timer className="w-4 h-4" />,
-      useCase: '平衡内容丰富度和观看体验'
+      useCase: 'Balance content richness and viewing experience'
     },
     {
       id: '15s',
       value: 15,
-      label: '15秒',
-      description: '丰富内容',
+      label: '15s',
+      description: 'Rich Content',
       icon: <Star className="w-4 h-4" />,
-      useCase: '展示更多细节和变化'
+      useCase: 'Show more details and variations'
     },
     {
       id: '30s',
       value: 30,
-      label: '30秒',
-      description: '完整故事',
+      label: '30s',
+      description: 'Complete Story',
       icon: <TrendingUp className="w-4 h-4" />,
-      useCase: '完整叙述，适合复杂场景'
+      useCase: 'Complete narrative, suitable for complex scenes'
     }
   ];
 

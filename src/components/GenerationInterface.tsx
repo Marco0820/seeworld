@@ -111,8 +111,8 @@ export default function GenerationInterface({
       },
       {
         id: 'model_loading',
-        name: '模型加载',
-        description: '加载AI生成模型',
+        name: 'Model Loading',
+        description: 'Loading AI generation model',
         status: 'pending',
         progress: 0,
         estimatedTime: 20,
@@ -120,8 +120,8 @@ export default function GenerationInterface({
       },
       {
         id: 'generation',
-        name: '视频生成',
-        description: 'AI正在生成视频内容',
+        name: 'Video Generation',
+        description: 'AI is generating video content',
         status: 'pending',
         progress: 0,
         estimatedTime: 120,
@@ -129,8 +129,8 @@ export default function GenerationInterface({
       },
       {
         id: 'postprocessing',
-        name: '后期处理',
-        description: '优化和渲染最终视频',
+        name: 'Post Processing',
+        description: 'Optimizing and rendering final video',
         status: 'pending',
         progress: 0,
         estimatedTime: 30,
@@ -138,8 +138,8 @@ export default function GenerationInterface({
       },
       {
         id: 'finalization',
-        name: '完成处理',
-        description: '保存和准备视频文件',
+        name: 'Completion',
+        description: 'Saving and preparing video file',
         status: 'pending',
         progress: 0,
         estimatedTime: 15,
@@ -154,7 +154,7 @@ export default function GenerationInterface({
     }));
   }, []);
 
-  // 模拟生成过程
+  // Simulate generation process
   useEffect(() => {
     if (!isGenerating || isPaused) return;
 
@@ -174,7 +174,7 @@ export default function GenerationInterface({
           
           if (currentStep.status === 'pending') {
             currentStep.status = 'processing';
-            setLogs(prev => [...prev, `开始 ${currentStep.name}...`]);
+            setLogs(prev => [...prev, `Starting ${currentStep.name}...`]);
           }
 
           // 更新进度
@@ -183,7 +183,7 @@ export default function GenerationInterface({
           if (currentStep.progress >= 100) {
             currentStep.status = 'completed';
             currentStep.actualTime = currentStep.estimatedTime;
-            setLogs(prev => [...prev, `${currentStep.name} 完成`]);
+            setLogs(prev => [...prev, `${currentStep.name} completed`]);
           }
 
           // 更新总体统计
@@ -218,14 +218,14 @@ export default function GenerationInterface({
   const handlePause = () => {
     setIsPaused(!isPaused);
     onPause();
-    setLogs(prev => [...prev, isPaused ? '恢复生成...' : '暂停生成...']);
+    setLogs(prev => [...prev, isPaused ? 'Resuming generation...' : 'Pausing generation...']);
   };
 
   // 处理停止
   const handleStop = () => {
     setIsPaused(false);
     onStop();
-    setLogs(prev => [...prev, '停止生成']);
+    setLogs(prev => [...prev, 'Stopping generation']);
     
     // 重置步骤状态
     setSteps(prev => prev.map(step => ({
@@ -239,7 +239,7 @@ export default function GenerationInterface({
   // 处理重试
   const handleRetry = () => {
     setError(null);
-    setLogs(prev => [...prev, '重新开始生成...']);
+    setLogs(prev => [...prev, 'Restarting generation...']);
     handleStop();
     setTimeout(() => onRetry(), 1000);
   };
@@ -267,15 +267,15 @@ export default function GenerationInterface({
   // 计算剩余时间
   const getRemainingTime = (): string => {
     const remaining = stats.estimatedTimeRemaining;
-    if (remaining <= 0) return '即将完成';
+    if (remaining <= 0) return 'Almost complete';
     
     const minutes = Math.floor(remaining / 60);
     const seconds = remaining % 60;
     
     if (minutes > 0) {
-      return `${minutes}分${seconds}秒`;
+      return `${minutes}m ${seconds}s`;
     }
-    return `${seconds}秒`;
+    return `${seconds}s`;
   };
 
   return (
@@ -293,14 +293,14 @@ export default function GenerationInterface({
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                  视频生成
+                  Video Generation
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-300">
                   {isGenerating 
                     ? isPaused 
-                      ? '已暂停' 
-                      : `正在生成... (${stats.currentStep})`
-                    : '准备开始生成'
+                      ? 'Paused' 
+                      : `Generating... (${stats.currentStep})`
+                    : 'Ready to start generation'
                   }
                 </p>
               </div>
@@ -313,7 +313,7 @@ export default function GenerationInterface({
                 </Badge>
               )}
               <Badge variant="secondary" className="bg-orange-100 text-orange-800">
-                {stats.credits} 积分
+                {stats.credits} Credits
               </Badge>
             </div>
           </div>
@@ -322,17 +322,17 @@ export default function GenerationInterface({
           <div className="space-y-2">
             <div className="flex justify-between items-center">
               <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                总体进度
+                Overall Progress
               </span>
               <span className="text-sm text-gray-600 dark:text-gray-400">
-                {Math.round(stats.overallProgress)}% • {stats.completedSteps}/{stats.totalSteps} 步骤
+                {Math.round(stats.overallProgress)}% • {stats.completedSteps}/{stats.totalSteps} steps
               </span>
             </div>
             <Progress value={stats.overallProgress} className="w-full h-2" />
             {isGenerating && (
               <div className="flex justify-between text-xs text-gray-500">
-                <span>预计剩余时间: {getRemainingTime()}</span>
-                <span>已用时: {Math.floor((Date.now() - stats.startTime.getTime()) / 1000)}秒</span>
+                <span>Estimated remaining: {getRemainingTime()}</span>
+                <span>Elapsed: {Math.floor((Date.now() - stats.startTime.getTime()) / 1000)}s</span>
               </div>
             )}
           </div>
@@ -346,7 +346,7 @@ export default function GenerationInterface({
                 disabled={stats.credits <= 0}
               >
                 <Play className="w-4 h-4 mr-2" />
-                开始生成
+                Start Generation
               </Button>
             ) : (
               <>
@@ -356,7 +356,7 @@ export default function GenerationInterface({
                   className="border-orange-300 text-orange-600 hover:bg-orange-50"
                 >
                   {isPaused ? <Play className="w-4 h-4 mr-2" /> : <Pause className="w-4 h-4 mr-2" />}
-                  {isPaused ? '继续' : '暂停'}
+                  {isPaused ? 'Resume' : 'Pause'}
                 </Button>
                 <Button
                   onClick={handleStop}
@@ -364,7 +364,7 @@ export default function GenerationInterface({
                   className="border-red-300 text-red-600 hover:bg-red-50"
                 >
                   <Square className="w-4 h-4 mr-2" />
-                  停止
+                  Stop
                 </Button>
               </>
             )}
@@ -376,7 +376,7 @@ export default function GenerationInterface({
                 className="border-blue-300 text-blue-600 hover:bg-blue-50"
               >
                 <RefreshCw className="w-4 h-4 mr-2" />
-                重试
+                Retry
               </Button>
             )}
             
@@ -387,7 +387,7 @@ export default function GenerationInterface({
               className="text-gray-600 hover:text-gray-800"
             >
               <Settings className="w-4 h-4 mr-1" />
-              {showDetails ? '隐藏详情' : '显示详情'}
+              {showDetails ? 'Hide Details' : 'Show Details'}
             </Button>
           </div>
         </div>
@@ -398,7 +398,7 @@ export default function GenerationInterface({
         <Alert className="bg-red-50 border-red-200">
           <AlertCircle className="h-4 w-4 text-red-600" />
           <AlertDescription className="text-red-800">
-            <strong>生成失败:</strong> {error}
+            <strong>Generation Failed:</strong> {error}
           </AlertDescription>
         </Alert>
       )}
@@ -406,7 +406,7 @@ export default function GenerationInterface({
       {/* 生成步骤详情 */}
       <Card className="p-6">
         <div className="space-y-4">
-          <h4 className="font-medium text-gray-900 dark:text-white">生成步骤</h4>
+          <h4 className="font-medium text-gray-900 dark:text-white">Generation Steps</h4>
           
           <div className="space-y-3">
             {steps.map((step, index) => (
@@ -423,7 +423,7 @@ export default function GenerationInterface({
                       </h5>
                       <span className="text-sm text-gray-600 dark:text-gray-400">
                         {step.status === 'processing' ? `${Math.round(step.progress)}%` : 
-                         step.status === 'completed' ? '完成' : '等待中'}
+                         step.status === 'completed' ? 'Completed' : 'Waiting'}
                       </span>
                     </div>
                     
@@ -455,33 +455,33 @@ export default function GenerationInterface({
             <div className="space-y-4">
               <h4 className="font-medium text-gray-900 dark:text-white flex items-center gap-2">
                 <Cpu className="w-4 h-4" />
-                系统状态
+                System Status
               </h4>
               
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-600">CPU使用率</span>
+                  <span className="text-sm text-gray-600">CPU Usage</span>
                   <span className="text-sm font-medium">{systemStatus.cpu}%</span>
                 </div>
                 <Progress value={systemStatus.cpu} className="w-full h-2" />
                 
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-600">内存使用率</span>
+                  <span className="text-sm text-gray-600">Memory Usage</span>
                   <span className="text-sm font-medium">{systemStatus.memory}%</span>
                 </div>
                 <Progress value={systemStatus.memory} className="w-full h-2" />
                 
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-600">GPU使用率</span>
+                  <span className="text-sm text-gray-600">GPU Usage</span>
                   <span className="text-sm font-medium">{systemStatus.gpu}%</span>
                 </div>
                 <Progress value={systemStatus.gpu} className="w-full h-2" />
                 
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-600">网络状态</span>
+                  <span className="text-sm text-gray-600">Network Status</span>
                   <Badge variant={systemStatus.network === 'stable' ? 'secondary' : 'destructive'} className="text-xs">
                     <Wifi className="w-3 h-3 mr-1" />
-                    {systemStatus.network === 'stable' ? '稳定' : '不稳定'}
+                    {systemStatus.network === 'stable' ? 'Stable' : 'Unstable'}
                   </Badge>
                 </div>
               </div>
@@ -491,11 +491,11 @@ export default function GenerationInterface({
           {/* 生成日志 */}
           <Card className="p-4">
             <div className="space-y-4">
-              <h4 className="font-medium text-gray-900 dark:text-white">生成日志</h4>
+              <h4 className="font-medium text-gray-900 dark:text-white">Generation Log</h4>
               
               <div className="bg-gray-900 text-green-400 p-3 rounded-lg font-mono text-xs max-h-48 overflow-y-auto">
                 {logs.length === 0 ? (
-                  <div className="text-gray-500">等待开始生成...</div>
+                  <div className="text-gray-500">Waiting to start generation...</div>
                 ) : (
                   logs.map((log, index) => (
                     <div key={index} className="mb-1">
@@ -516,9 +516,9 @@ export default function GenerationInterface({
         <Alert className="bg-yellow-50 border-yellow-200">
           <AlertCircle className="h-4 w-4 text-yellow-600" />
           <AlertDescription className="text-yellow-800">
-            <strong>积分不足:</strong> 您需要更多积分来开始生成视频。
+            <strong>Insufficient Credits:</strong> You need more credits to start video generation.
             <Button size="sm" className="ml-2 bg-yellow-600 hover:bg-yellow-700 text-white">
-              购买积分
+              Buy Credits
             </Button>
           </AlertDescription>
         </Alert>
