@@ -31,6 +31,30 @@ const PolloAIInterface = () => {
   const [addEndFrame, setAddEndFrame] = useState(false);
   const [translatePrompt, setTranslatePrompt] = useState(false);
   const [advancedExpanded, setAdvancedExpanded] = useState(true);
+  const [uploadedImage, setUploadedImage] = useState<string | null>(null);
+  const [uploadedEndImage, setUploadedEndImage] = useState<string | null>(null);
+
+  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setUploadedImage(e.target?.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleEndImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setUploadedEndImage(e.target?.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
@@ -185,14 +209,86 @@ const PolloAIInterface = () => {
                 </div>
               </div>
               
-              <div className="border-2 border-dashed border-gray-600 rounded-lg p-8 text-center hover:border-gray-500 transition-colors cursor-pointer">
-                <Upload className="mx-auto mb-4 text-gray-500" size={48} />
-                <div className="text-sm text-gray-400 mb-2">Click to upload an image</div>
-                <div className="text-xs text-gray-500">
-                  Upload JPG/PNG/WEBP image up to 10MB, with a minimum<br />
-                  width/height of 320px.
+              {addEndFrame ? (
+                /* Dual Image Upload */
+                <div className="flex gap-3">
+                  {/* Start Frame */}
+                  <div className="flex-1">
+                    <div className="text-xs text-gray-400 mb-2 text-center">Upload the start frame image</div>
+                    <div 
+                      className="border-2 border-dashed border-gray-600 rounded-lg p-4 text-center hover:border-gray-500 transition-colors cursor-pointer h-40 flex flex-col items-center justify-center"
+                      onClick={() => document.getElementById('startImageInput')?.click()}
+                    >
+                      <input
+                        type="file"
+                        id="startImageInput"
+                        accept="image/*"
+                        className="hidden"
+                        onChange={handleImageUpload}
+                      />
+                      {uploadedImage ? (
+                        <img src={uploadedImage} className="w-full h-full object-cover rounded" alt="Start frame" />
+                      ) : (
+                        <>
+                          <Upload className="mb-2 text-gray-500" size={32} />
+                          <div className="text-xs text-gray-400">Start frame</div>
+                        </>
+                      )}
+                    </div>
+                  </div>
+                  
+                  {/* End Frame */}
+                  <div className="flex-1">
+                    <div className="text-xs text-gray-400 mb-2 text-center">Upload the end frame image</div>
+                    <div 
+                      className="border-2 border-dashed border-gray-600 rounded-lg p-4 text-center hover:border-gray-500 transition-colors cursor-pointer h-40 flex flex-col items-center justify-center"
+                      onClick={() => document.getElementById('endImageInput')?.click()}
+                    >
+                      <input
+                        type="file"
+                        id="endImageInput"
+                        accept="image/*"
+                        className="hidden"
+                        onChange={handleEndImageUpload}
+                      />
+                      {uploadedEndImage ? (
+                        <img src={uploadedEndImage} className="w-full h-full object-cover rounded" alt="End frame" />
+                      ) : (
+                        <>
+                          <Upload className="mb-2 text-gray-500" size={32} />
+                          <div className="text-xs text-gray-400">End frame</div>
+                        </>
+                      )}
+                    </div>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                /* Single Image Upload */
+                <div 
+                  className="border-2 border-dashed border-gray-600 rounded-lg p-8 text-center hover:border-gray-500 transition-colors cursor-pointer"
+                  onClick={() => document.getElementById('imageInput')?.click()}
+                >
+                  <input
+                    type="file"
+                    id="imageInput"
+                    accept="image/*"
+                    className="hidden"
+                    onChange={handleImageUpload}
+                  />
+                  {uploadedImage ? (
+                    <img src={uploadedImage} className="w-full h-48 object-cover rounded" alt="Uploaded image" />
+                  ) : (
+                    <>
+                      <Upload className="mx-auto mb-4 text-gray-500" size={48} />
+                      <div className="text-sm text-gray-400 mb-2">Click to upload an image</div>
+                      <div className="text-xs text-gray-500">
+                        Upload JPG/PNG/WEBP image up to 10MB, with a minimum<br />
+                        width/height of 320px.
+                      </div>
+                    </>
+                  )}
+                </div>
+              )}
             </div>
 
             {/* Prompt */}
@@ -209,6 +305,14 @@ const PolloAIInterface = () => {
                   </div>
                 </div>
               </div>
+              
+              {/* Translation Hint */}
+              {translatePrompt && (
+                <div className="bg-green-900/50 border border-green-500 rounded-lg p-3 mb-3 text-xs text-green-400 flex items-center gap-2">
+                  <Info size={14} />
+                  For better results, enable this option to translate your prompt to English.
+                </div>
+              )}
               
               <textarea 
                 className="w-full bg-gray-700 rounded-lg p-3 text-sm resize-none border border-gray-600 focus:border-red-500 focus:outline-none transition-colors"

@@ -1,0 +1,2060 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pollo.ai - 图像转视频</title>
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 14px;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .app-container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* 头部样式 */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background-color: #2d2d2d;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 100;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .menu-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .project-selector {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #404040;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            border: none;
+            color: white;
+            font-size: 13px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .credit-counter {
+            background-color: #e74c3c;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        /* 侧边栏样式 */
+        .sidebar {
+            width: 60px;
+            background-color: #2d2d2d;
+            padding-top: 60px;
+            border-right: 1px solid #404040;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .sidebar-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 12px 8px;
+            cursor: pointer;
+            border-radius: 8px;
+            margin: 0 6px;
+            transition: background-color 0.2s;
+            text-decoration: none;
+            color: #888;
+            position: relative;
+        }
+
+        .sidebar-item:hover {
+            background-color: #404040;
+            color: white;
+        }
+
+        .sidebar-item.active {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .sidebar-icon {
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+
+        .sidebar-label {
+            font-size: 9px;
+            text-align: center;
+            line-height: 1.1;
+            font-weight: 500;
+        }
+
+        /* 主内容样式 */
+        .main-content {
+            display: flex;
+            flex: 1;
+            padding-top: 60px;
+        }
+
+        /* 左侧面板样式 */
+        .left-panel {
+            width: 380px;
+            background-color: #2d2d2d;
+            padding: 20px;
+            overflow-y: auto;
+            border-right: 1px solid #404040;
+        }
+
+        .panel-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .form-section {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #ccc;
+        }
+
+        /* 模型选择器样式 */
+        .model-selector {
+            background-color: #404040;
+            border: 1px solid #555;
+            border-radius: 8px;
+            padding: 12px;
+            color: white;
+            width: 100%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: border-color 0.2s;
+        }
+
+        .model-selector:hover {
+            border-color: #666;
+        }
+
+        .model-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .model-avatar {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 12px;
+            color: white;
+        }
+
+        .model-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .model-name {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 1px;
+        }
+
+        .model-description {
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* 图片上传区域样式 */
+        .image-upload-area {
+            background-color: #404040;
+            border: 2px dashed #666;
+            border-radius: 8px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .image-upload-area:hover {
+            border-color: #888;
+            background-color: #4a4a4a;
+        }
+
+        .image-upload-area.drag-over {
+            border-color: #e74c3c;
+            background-color: #4a2d2d;
+        }
+
+        .upload-icon {
+            font-size: 48px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .upload-text {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .upload-info {
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+            max-width: 280px;
+            line-height: 1.3;
+        }
+
+        .frame-toggle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: #ccc;
+        }
+
+        /* 开关切换样式 */
+        .toggle-switch {
+            width: 36px;
+            height: 20px;
+            background-color: #555;
+            border-radius: 10px;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .toggle-switch.active {
+            background-color: #e74c3c;
+        }
+
+        .toggle-knob {
+            width: 16px;
+            height: 16px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.3s;
+        }
+
+        .toggle-switch.active .toggle-knob {
+            transform: translateX(16px);
+        }
+
+        /* 提示词文本区域样式 */
+        .prompt-textarea {
+            background-color: #404040;
+            border: 1px solid #555;
+            border-radius: 8px;
+            padding: 12px;
+            color: white;
+            width: 100%;
+            min-height: 80px;
+            resize: vertical;
+            font-family: inherit;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .prompt-textarea::placeholder {
+            color: #888;
+        }
+
+        .prompt-textarea:focus {
+            outline: none;
+            border-color: #666;
+        }
+
+        .prompt-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 8px;
+        }
+
+        .ai-generate-btn {
+            background: none;
+            border: none;
+            color: #888;
+            cursor: pointer;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 0;
+        }
+
+        .ai-generate-btn:hover {
+            color: #ccc;
+        }
+
+        .char-counter {
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* 高级设置部分样式 */
+        .advanced-section {
+            border-top: 1px solid #404040;
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+
+        .advanced-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            padding: 8px 0;
+            margin-bottom: 16px;
+        }
+
+        .advanced-title {
+            font-size: 16px;
+            font-weight: 500;
+            color: white;
+        }
+
+        .advanced-arrow {
+            font-size: 12px;
+            color: #888;
+            transition: transform 0.3s;
+        }
+
+        .advanced-content {
+            display: block;
+        }
+
+        .advanced-content.collapsed {
+            display: none;
+        }
+
+        .advanced-header.collapsed .advanced-arrow {
+            transform: rotate(-90deg);
+        }
+
+        /* 模式选项样式 */
+        .mode-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .mode-option {
+            background-color: #404040;
+            border: 2px solid #555;
+            border-radius: 8px;
+            padding: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .mode-option.selected {
+            border-color: #e74c3c;
+            background-color: #4a2d2d;
+        }
+
+        .mode-option-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .mode-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .mode-thumbnail {
+            width: 40px;
+            height: 30px;
+            border-radius: 4px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .mode-details h4 {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 2px;
+            color: white;
+        }
+
+        .mode-details p {
+            font-size: 12px;
+            color: #888;
+        }
+
+        .mode-select {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #666;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .mode-option.selected .mode-select {
+            border-color: #e74c3c;
+            background-color: #e74c3c;
+        }
+
+        .mode-option.selected .mode-select::after {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .credits-info {
+            font-size: 12px;
+            color: #e74c3c;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* 设置组样式 */
+        .setting-group {
+            margin-bottom: 18px;
+        }
+
+        .setting-label {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #ccc;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .info-icon {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: #666;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8px;
+            cursor: help;
+            color: white;
+        }
+
+        .toggle-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* 按钮组样式 */
+        .button-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: 1px solid #555;
+            background-color: #404040;
+            color: white;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn.active {
+            background-color: #e74c3c;
+            border-color: #e74c3c;
+        }
+
+        .btn:hover:not(.active) {
+            background-color: #4a4a4a;
+            border-color: #666;
+        }
+
+        /* 分辨率按钮样式 */
+        .resolution-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .resolution-btn {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            border-radius: 6px;
+            border: 1px solid #555;
+            background-color: #404040;
+            color: white;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .resolution-btn.active {
+            background-color: #e74c3c;
+            border-color: #e74c3c;
+        }
+
+        .resolution-btn:hover:not(.active) {
+            background-color: #4a4a4a;
+            border-color: #666;
+        }
+
+        /* 种子输入样式 */
+        .seed-input {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .seed-field-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #404040;
+            border: 1px solid #555;
+            border-radius: 6px;
+            padding: 8px 12px;
+        }
+
+        .seed-field {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 12px;
+            width: 100%;
+            outline: none;
+        }
+
+        .lock-icon {
+            color: #888;
+            font-size: 14px;
+        }
+
+        .refresh-btn {
+            background: none;
+            border: none;
+            color: #888;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 4px;
+            transition: color 0.3s;
+        }
+
+        .refresh-btn:hover {
+            color: white;
+        }
+
+        /* 数量选择器样式 */
+        .number-selector {
+            display: flex;
+            gap: 8px;
+        }
+
+        .number-btn {
+            width: 40px;
+            height: 32px;
+            border-radius: 6px;
+            border: 1px solid #555;
+            background-color: #404040;
+            color: white;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .number-btn.active {
+            background-color: #e74c3c;
+            border-color: #e74c3c;
+        }
+
+        .number-btn:hover:not(.active) {
+            background-color: #4a4a4a;
+            border-color: #666;
+        }
+
+        /* 创建按钮样式 */
+        .create-btn {
+            width: 100%;
+            background-color: #404040;
+            color: #666;
+            border: none;
+            border-radius: 8px;
+            padding: 15px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: not-allowed;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .create-btn.enabled {
+            background-color: #e74c3c;
+            color: white;
+            cursor: pointer;
+        }
+
+        .create-btn:hover.enabled {
+            background-color: #c0392b;
+        }
+
+        /* 右侧面板样式 */
+        .right-panel {
+            flex: 1;
+            background-color: #1a1a1a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .empty-state {
+            text-align: center;
+            max-width: 400px;
+        }
+
+        /* 电视机插图样式 */
+        .tv-illustration {
+            width: 200px;
+            height: 140px;
+            background: linear-gradient(145deg, #2d4a22 0%, #4a5a3a 50%, #3d4a2a 100%);
+            border-radius: 20px;
+            margin: 0 auto 30px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 3px solid #5a6a4a;
+        }
+
+        .tv-screen {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 40px;
+            bottom: 25px;
+            background-color: #0a0a0a;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 2px solid #333;
+        }
+
+        .raccoon-image {
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle at 30% 30%, #666 0%, #444 50%, #222 100%);
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .raccoon-face {
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(ellipse at center, #888 0%, #555 70%);
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .raccoon-face::before {
+            content: '';
+            position: absolute;
+            top: 25%;
+            left: 20%;
+            width: 15%;
+            height: 15%;
+            background: #333;
+            border-radius: 50%;
+        }
+
+        .raccoon-face::after {
+            content: '';
+            position: absolute;
+            top: 25%;
+            right: 20%;
+            width: 15%;
+            height: 15%;
+            background: #333;
+            border-radius: 50%;
+        }
+
+        .tv-controls {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .tv-button {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #888 0%, #555 100%);
+            border: 2px solid #444;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tv-button:hover {
+            background: radial-gradient(circle at 30% 30%, #aaa 0%, #777 100%);
+        }
+
+        .empty-message {
+            font-size: 16px;
+            color: #888;
+            margin-top: 10px;
+        }
+
+        /* 模型下拉菜单样式 */
+        .model-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: #404040;
+            border: 1px solid #555;
+            border-radius: 8px;
+            margin-top: 4px;
+            z-index: 200;
+            max-height: 300px;
+            overflow-y: auto;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            display: none;
+        }
+
+        .model-dropdown.show {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+
+        .model-option {
+            padding: 12px;
+            cursor: pointer;
+            border-bottom: 1px solid #555;
+            transition: background-color 0.2s;
+        }
+
+        .model-option:last-child {
+            border-bottom: none;
+        }
+
+        .model-option:hover {
+            background-color: #4a4a4a;
+        }
+
+        .model-option-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .model-option-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 10px;
+            color: white;
+            object-fit: cover;
+        }
+
+        .model-option-details {
+            flex: 1;
+        }
+
+        .model-option-name {
+            font-size: 13px;
+            font-weight: 500;
+            color: white;
+            margin-bottom: 2px;
+        }
+
+        .model-option-description {
+            font-size: 11px;
+            color: #888;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1200px) {
+            .left-panel {
+                width: 340px;
+            }
+        }
+
+        @media (max-width: 968px) {
+            .left-panel {
+                width: 320px;
+            }
+            
+            .tv-illustration {
+                width: 160px;
+                height: 112px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+            
+            .left-panel {
+                width: 100%;
+                max-width: none;
+            }
+            
+            .right-panel {
+                display: none;
+            }
+            
+            .header-left .logo {
+                font-size: 16px;
+            }
+            
+            .project-selector {
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+        }
+
+        /* 加载状态样式 */
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin: -10px 0 0 -10px;
+            border: 2px solid #e74c3c;
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* 工具提示样式 */
+        .tooltip {
+            position: relative;
+        }
+
+        .tooltip:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            white-space: nowrap;
+            z-index: 1000;
+            margin-bottom: 5px;
+        }
+
+        .tooltip:hover::before {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: #333;
+        }
+
+        /* 隐藏滚动条但保持功能 */
+        .left-panel::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .left-panel::-webkit-scrollbar-track {
+            background: #2d2d2d;
+        }
+
+        .left-panel::-webkit-scrollbar-thumb {
+            background: #555;
+            border-radius: 3px;
+        }
+
+        .left-panel::-webkit-scrollbar-thumb:hover {
+            background: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- 头部导航 -->
+        <header class="header">
+            <div class="header-left">
+                <button class="menu-btn" onclick="toggleMenu()">☰</button>
+                <div class="logo">Pollo.ai</div>
+                <button class="project-selector" onclick="toggleProjectSelector()">
+                    Default Project
+                    <span>▼</span>
+                </button>
+            </div>
+            <div class="header-right">
+                <div class="credit-counter" onclick="showCreditInfo()">2 🔥</div>
+                <div class="user-avatar" onclick="toggleUserMenu()">S</div>
+            </div>
+        </header>
+
+        <!-- 侧边栏导航 -->
+        <nav class="sidebar">
+            <a href="#" class="sidebar-item active" data-target="image-to-video">
+                <div class="sidebar-icon">🏠</div>
+                <div class="sidebar-label">Img2Vid</div>
+            </a>
+            <a href="#" class="sidebar-item" data-target="text-to-video">
+                <div class="sidebar-icon">🎬</div>
+                <div class="sidebar-label">Txt2Vid</div>
+            </a>
+            <a href="#" class="sidebar-item" data-target="ai-avatar">
+                <div class="sidebar-icon">👤</div>
+                <div class="sidebar-label">AI Avatar</div>
+            </a>
+            <a href="#" class="sidebar-item" data-target="motion">
+                <div class="sidebar-icon">🎭</div>
+                <div class="sidebar-label">Motion</div>
+            </a>
+            <a href="#" class="sidebar-item" data-target="consistent">
+                <div class="sidebar-icon">🎯</div>
+                <div class="sidebar-label">Consistent</div>
+            </a>
+            <a href="#" class="sidebar-item" data-target="video-to-video">
+                <div class="sidebar-icon">📹</div>
+                <div class="sidebar-label">Vid2Vid</div>
+            </a>
+            <a href="#" class="sidebar-item" data-target="animation">
+                <div class="sidebar-icon">✨</div>
+                <div class="sidebar-label">Animation</div>
+            </a>
+            <a href="#" class="sidebar-item" data-target="inspiration">
+                <div class="sidebar-icon">💡</div>
+                <div class="sidebar-label">Inspiration</div>
+            </a>
+            <a href="#" class="sidebar-item" data-target="effects">
+                <div class="sidebar-icon">⚡</div>
+                <div class="sidebar-label">Effects</div>
+            </a>
+            <a href="#" class="sidebar-item" data-target="ai-tools">
+                <div class="sidebar-icon">🛠</div>
+                <div class="sidebar-label">AI Tools</div>
+            </a>
+        </nav>
+
+        <!-- 主内容区域 -->
+        <main class="main-content">
+            <!-- 左侧控制面板 -->
+            <div class="left-panel">
+                <h1 class="panel-title">Image to Video</h1>
+                
+                <!-- 模型选择 -->
+                <div class="form-section">
+                    <label class="form-label">Model</label>
+                    <div class="model-selector-container" style="position: relative;">
+                        <div class="model-selector" id="modelSelector">
+                            <div class="model-info">
+                                <img src="icons/com_logo_runway_ad6a460300.png" alt="Pollo 1.5" class="model-avatar" style="width: 24px; height: 24px; border-radius: 4px;">
+                                <div class="model-details">
+                                    <div class="model-name">Pollo 1.5</div>
+                                    <div class="model-description">better, faster and cheaper</div>
+                                </div>
+                            </div>
+                            <span class="dropdown-arrow">▼</span>
+                        </div>
+                        
+                        <!-- 模型下拉菜单 -->
+                        <div class="model-dropdown" id="modelDropdown" style="display: none;">
+                            <div class="model-option" onclick="selectModel('pollo', 'Pollo 1.5', 'better, faster and cheaper', 'icons/com_logo_runway_ad6a460300.png')">
+                                <div class="model-option-info">
+                                    <img src="icons/com_logo_runway_ad6a460300.png" alt="Pollo 1.5" class="model-option-avatar" style="width: 24px; height: 24px; border-radius: 4px;">
+                                    <div class="model-option-details">
+                                        <div class="model-option-name">Pollo 1.5</div>
+                                        <div class="model-option-description">better, faster and cheaper</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="model-option" onclick="selectModel('runway', 'Runway AI Video Generator', 'Professional video generation', 'icons/com_logo_runway_ad6a460300.png')">
+                                <div class="model-option-info">
+                                    <img src="icons/com_logo_runway_ad6a460300.png" alt="Runway AI" class="model-option-avatar" style="width: 24px; height: 24px; border-radius: 4px;">
+                                    <div class="model-option-details">
+                                        <div class="model-option-name">Runway AI Video Generator</div>
+                                        <div class="model-option-description">Professional video generation</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="model-option" onclick="selectModel('hailuo', 'Hailuo AI Video Generator (MiniMax)', 'High-quality Chinese AI model', 'icons/com_logo_hailuo_3bc9b31a8a.png')">
+                                <div class="model-option-info">
+                                    <img src="icons/com_logo_hailuo_3bc9b31a8a.png" alt="Hailuo AI" class="model-option-avatar" style="width: 24px; height: 24px; border-radius: 4px;">
+                                    <div class="model-option-details">
+                                        <div class="model-option-name">Hailuo AI Video Generator (MiniMax)</div>
+                                        <div class="model-option-description">High-quality Chinese AI model</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="model-option" onclick="selectModel('kling', 'Kling AI Video Generator', 'Advanced video synthesis', 'icons/com_logo_kling_1b6878741b.png')">
+                                <div class="model-option-info">
+                                    <img src="icons/com_logo_kling_1b6878741b.png" alt="Kling AI" class="model-option-avatar" style="width: 24px; height: 24px; border-radius: 4px;">
+                                    <div class="model-option-details">
+                                        <div class="model-option-name">Kling AI Video Generator</div>
+                                        <div class="model-option-description">Advanced video synthesis</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="model-option" onclick="selectModel('luma', 'Luma AI Video Generator (Luma Dream Machine)', 'Realistic video generation', 'icons/com_logo_luma_8542d55fb5.png')">
+                                <div class="model-option-info">
+                                    <img src="icons/com_logo_luma_8542d55fb5.png" alt="Luma AI" class="model-option-avatar" style="width: 24px; height: 24px; border-radius: 4px;">
+                                    <div class="model-option-details">
+                                        <div class="model-option-name">Luma AI Video Generator (Luma Dream Machine)</div>
+                                        <div class="model-option-description">Realistic video generation</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="model-option" onclick="selectModel('pika', 'Pika Art AI Video Generator (Pika Labs)', 'Creative video effects', 'icons/com_logo_pika_13fbdc24b9.png')">
+                                <div class="model-option-info">
+                                    <img src="icons/com_logo_pika_13fbdc24b9.png" alt="Pika Labs" class="model-option-avatar" style="width: 24px; height: 24px; border-radius: 4px;">
+                                    <div class="model-option-details">
+                                        <div class="model-option-name">Pika Art AI Video Generator (Pika Labs)</div>
+                                        <div class="model-option-description">Creative video effects</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="model-option" onclick="selectModel('haiper', 'Haiper AI Video Generator', 'Fast video processing', 'icons/Haiper_d822de7449.png')">
+                                <div class="model-option-info">
+                                    <img src="icons/Haiper_d822de7449.png" alt="Haiper AI" class="model-option-avatar" style="width: 24px; height: 24px; border-radius: 4px;">
+                                    <div class="model-option-details">
+                                        <div class="model-option-name">Haiper AI Video Generator</div>
+                                        <div class="model-option-description">Fast video processing</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="model-option" onclick="selectModel('vidu', 'Vidu AI Video Generator (Vidu Studio)', 'Professional editing suite', 'icons/com_logo_vidu_9166e0cac9.png')">
+                                <div class="model-option-info">
+                                    <img src="icons/com_logo_vidu_9166e0cac9.png" alt="Vidu Studio" class="model-option-avatar" style="width: 24px; height: 24px; border-radius: 4px;">
+                                    <div class="model-option-details">
+                                        <div class="model-option-name">Vidu AI Video Generator (Vidu Studio)</div>
+                                        <div class="model-option-description">Professional editing suite</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="model-option" onclick="selectModel('sora', 'Sora AI Video Generator', 'OpenAI video model', 'icons/com_logo_chatgpt_color_038b183785.png')">
+                                <div class="model-option-info">
+                                    <img src="icons/com_logo_chatgpt_color_038b183785.png" alt="Sora AI" class="model-option-avatar" style="width: 24px; height: 24px; border-radius: 4px;">
+                                    <div class="model-option-details">
+                                        <div class="model-option-name">Sora AI Video Generator</div>
+                                        <div class="model-option-description">OpenAI video model</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="model-option" onclick="selectModel('pixverse', 'PixVerse AI Video Generator', 'Anime and cartoon style', 'icons/com_logo_pixverse_a93e08c3ac.png')">
+                                <div class="model-option-info">
+                                    <img src="icons/com_logo_pixverse_a93e08c3ac.png" alt="PixVerse AI" class="model-option-avatar" style="width: 24px; height: 24px; border-radius: 4px;">
+                                    <div class="model-option-details">
+                                        <div class="model-option-name">PixVerse AI Video Generator</div>
+                                        <div class="model-option-description">Anime and cartoon style</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="model-option" onclick="selectModel('krea', 'Krea AI Video Generator', 'Real-time generation', 'icons/Krea_32ae82db6b.png')">
+                                <div class="model-option-info">
+                                    <img src="icons/Krea_32ae82db6b.png" alt="Krea AI" class="model-option-avatar" style="width: 24px; height: 24px; border-radius: 4px;">
+                                    <div class="model-option-details">
+                                        <div class="model-option-name">Krea AI Video Generator</div>
+                                        <div class="model-option-description">Real-time generation</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="model-option" onclick="selectModel('veo', 'Veo AI Video Generator', 'Google AI video model', 'icons/com_logo_google_09_48f9ff99e2.png')">
+                                <div class="model-option-info">
+                                    <img src="icons/com_logo_google_09_48f9ff99e2.png" alt="Veo AI" class="model-option-avatar" style="width: 24px; height: 24px; border-radius: 4px;">
+                                    <div class="model-option-details">
+                                        <div class="model-option-name">Veo AI Video Generator</div>
+                                        <div class="model-option-description">Google AI video model</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="model-option" onclick="selectModel('seedance', 'Seedance AI Video Generator (ByteDance)', 'ByteDance video AI', 'icons/Pixel_Dance_c5db323079.png')">
+                                <div class="model-option-info">
+                                    <img src="icons/Pixel_Dance_c5db323079.png" alt="Seedance AI" class="model-option-avatar" style="width: 24px; height: 24px; border-radius: 4px;">
+                                    <div class="model-option-details">
+                                        <div class="model-option-name">Seedance AI Video Generator (ByteDance)</div>
+                                        <div class="model-option-description">ByteDance video AI</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="model-option" onclick="selectModel('video-ocean', 'Video Ocean', 'Advanced video synthesis', 'icons/Video_Ocean_07bb9b5867.png')">
+                                <div class="model-option-info">
+                                    <img src="icons/Video_Ocean_07bb9b5867.png" alt="Video Ocean" class="model-option-avatar" style="width: 24px; height: 24px; border-radius: 4px;">
+                                    <div class="model-option-details">
+                                        <div class="model-option-name">Video Ocean</div>
+                                        <div class="model-option-description">Advanced video synthesis</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="model-option" onclick="selectModel('stable-video', 'Stable Video Diffusion AI Video Generator', 'Stability AI video model', 'icons/com_logo_stable_d43e452756.png')">
+                                <div class="model-option-info">
+                                    <img src="icons/com_logo_stable_d43e452756.png" alt="Stable Video Diffusion" class="model-option-avatar" style="width: 24px; height: 24px; border-radius: 4px;">
+                                    <div class="model-option-details">
+                                        <div class="model-option-name">Stable Video Diffusion AI Video Generator</div>
+                                        <div class="model-option-description">Stability AI video model</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="model-option" onclick="selectModel('hunyuan', 'Hunyuan AI Video Generator (Tencent)', 'Tencent video AI', 'icons/com_logo_hunyuan_d9096a0de1.png')">
+                                <div class="model-option-info">
+                                    <img src="icons/com_logo_hunyuan_d9096a0de1.png" alt="Hunyuan AI" class="model-option-avatar" style="width: 24px; height: 24px; border-radius: 4px;">
+                                    <div class="model-option-details">
+                                        <div class="model-option-name">Hunyuan AI Video Generator (Tencent)</div>
+                                        <div class="model-option-description">Tencent video AI</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="model-option" onclick="selectModel('wanx', 'Wanx AI Video Generator (Wan 2.1)', 'Alibaba video AI', 'icons/Wanx_AI_a03a7dcbf4.png')">
+                                <div class="model-option-info">
+                                    <img src="icons/Wanx_AI_a03a7dcbf4.png" alt="Wanx AI" class="model-option-avatar" style="width: 24px; height: 24px; border-radius: 4px;">
+                                    <div class="model-option-details">
+                                        <div class="model-option-name">Wanx AI Video Generator (Wan 2.1)</div>
+                                        <div class="model-option-description">Alibaba video AI</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="model-option" onclick="selectModel('midjourney', 'Midjourney AI Video Generator', 'Creative video generation', 'icons/midjourney_icon_9a2abffe0b.png')">
+                                <div class="model-option-info">
+                                    <img src="icons/midjourney_icon_9a2abffe0b.png" alt="Midjourney AI" class="model-option-avatar" style="width: 24px; height: 24px; border-radius: 4px;">
+                                    <div class="model-option-details">
+                                        <div class="model-option-name">Midjourney AI Video Generator</div>
+                                        <div class="model-option-description">Creative video generation</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 图片上传 -->
+                <div class="form-section">
+                    <label class="form-label">
+                        Image
+                        <div class="frame-toggle">
+                            Add end frame
+                            <div class="toggle-switch" onclick="toggleSwitch(this)">
+                                <div class="toggle-knob"></div>
+                            </div>
+                        </div>
+                    </label>
+                    <div class="image-upload-area" onclick="document.getElementById('imageInput').click()" id="uploadArea">
+                        <input type="file" id="imageInput" accept="image/*" style="display: none;" onchange="handleImageUpload(event)">
+                        <div class="upload-icon">📷</div>
+                        <div class="upload-text">Click to upload an image</div>
+                        <div class="upload-info">Upload JPG/PNG/WEBP images up to 10MB, with a minimum width/height of 300px.</div>
+                    </div>
+                </div>
+
+                <!-- 提示词输入 -->
+                <div class="form-section">
+                    <label class="form-label">
+                        Prompt <span style="color: #666;">(Optional)</span>
+                        <div class="frame-toggle">
+                            Translate Prompt
+                            <div class="toggle-switch" onclick="toggleSwitch(this)">
+                                <div class="toggle-knob"></div>
+                            </div>
+                        </div>
+                    </label>
+                    <textarea class="prompt-textarea" id="promptTextarea" placeholder="What do you want to create with this image?" maxlength="1000" oninput="updateCharCounter()"></textarea>
+                    <div class="prompt-footer">
+                        <button class="ai-generate-btn" onclick="generateAIPrompt()">
+                            ✨ Generate with AI
+                        </button>
+                        <span class="char-counter" id="charCounter">0 / 1000</span>
+                    </div>
+                </div>
+
+                <!-- 高级设置 -->
+                <div class="advanced-section">
+                    <div class="advanced-header" onclick="toggleAdvanced()">
+                        <span class="advanced-title">Advanced</span>
+                        <span class="advanced-arrow">▼</span>
+                    </div>
+                    <div class="advanced-content" id="advancedContent">
+                        <!-- 模式选择 -->
+                        <div class="setting-group">
+                            <div class="setting-label">Mode</div>
+                            <div class="mode-options">
+                                <div class="mode-option selected" onclick="selectMode(this, 'basic')">
+                                    <div class="mode-option-header">
+                                        <div class="mode-info">
+                                            <div class="mode-thumbnail" style="background: linear-gradient(45deg, #f4a261 0%, #e76f51 100%); color: white;">📽️</div>
+                                            <div class="mode-details">
+                                                <h4>Basic</h4>
+                                                <p>Fast generation with standard quality</p>
+                                            </div>
+                                        </div>
+                                        <div class="mode-select"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mode-option" onclick="selectMode(this, 'pro')">
+                                    <div class="mode-option-header">
+                                        <div class="mode-info">
+                                            <div class="mode-thumbnail" style="background: linear-gradient(45deg, #64b5f6 0%, #42a5f5 100%); color: white;">🎬</div>
+                                            <div class="mode-details">
+                                                <h4>Pro</h4>
+                                                <p>Professional, cinema-quality output</p>
+                                            </div>
+                                        </div>
+                                        <div class="mode-select"></div>
+                                    </div>
+                                    <div class="credits-info">
+                                        <span>🔥 Credits required: 5</span>
+                                        <span class="info-icon tooltip" data-tooltip="Pro mode uses more advanced AI models">ℹ️</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 音频生成 -->
+                        <div class="setting-group">
+                            <div class="toggle-group">
+                                <div class="setting-label">
+                                    Generate Audio
+                                    <div class="info-icon tooltip" data-tooltip="Add AI-generated audio to your video">ℹ️</div>
+                                </div>
+                                <div class="toggle-switch active" onclick="toggleSwitch(this)">
+                                    <div class="toggle-knob"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 视频长度 -->
+                        <div class="setting-group">
+                            <div class="setting-label">Video Length</div>
+                            <div class="button-group">
+                                <button class="btn active" onclick="selectDuration(this, '5s')">5s</button>
+                                <button class="btn" onclick="selectDuration(this, '10s')">10s</button>
+                            </div>
+                        </div>
+
+                        <!-- 分辨率 -->
+                        <div class="setting-group">
+                            <div class="setting-label">
+                                Resolution
+                                <div class="info-icon tooltip" data-tooltip="Higher resolution requires more credits">ℹ️</div>
+                            </div>
+                            <div class="resolution-buttons">
+                                <button class="resolution-btn active" onclick="selectResolution(this, '480p')">480P</button>
+                                <button class="resolution-btn" onclick="selectResolution(this, '720p')">720P</button>
+                                <button class="resolution-btn" onclick="selectResolution(this, '1080p')">1080P</button>
+                            </div>
+                        </div>
+
+                        <!-- 种子值 -->
+                        <div class="setting-group">
+                            <div class="setting-label">
+                                Seed
+                                <div class="info-icon tooltip" data-tooltip="Use the same seed for consistent results">ℹ️</div>
+                            </div>
+                            <div class="seed-input">
+                                <div class="seed-field-container">
+                                    <span class="lock-icon">🔒</span>
+                                    <input type="text" class="seed-field" id="seedField" value="2094375205" readonly>
+                                </div>
+                                <button class="refresh-btn" onclick="generateNewSeed()">🔄</button>
+                            </div>
+                        </div>
+
+                        <!-- 输出视频数量 -->
+                        <div class="setting-group">
+                            <div class="setting-label">Output Video Number</div>
+                            <div class="number-selector">
+                                <button class="number-btn active" onclick="selectNumber(this, 1)">1</button>
+                                <button class="number-btn" onclick="selectNumber(this, 2)">2</button>
+                                <button class="number-btn" onclick="selectNumber(this, 3)">3</button>
+                                <button class="number-btn" onclick="selectNumber(this, 4)">4</button>
+                            </div>
+                        </div>
+
+                        <!-- 公开可见性 -->
+                        <div class="setting-group">
+                            <div class="toggle-group">
+                                <div class="setting-label">
+                                    Public Visibility
+                                    <div class="info-icon tooltip" data-tooltip="Make your creation visible to other users">ℹ️</div>
+                                </div>
+                                <div class="toggle-switch active" onclick="toggleSwitch(this)">
+                                    <div class="toggle-knob"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 版权保护 -->
+                        <div class="setting-group">
+                            <div class="toggle-group">
+                                <div class="setting-label">
+                                    Copy Protection
+                                    <div class="info-icon tooltip" data-tooltip="Add watermark to protect your content">ℹ️</div>
+                                </div>
+                                <div class="toggle-switch" onclick="toggleSwitch(this)">
+                                    <div class="toggle-knob"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="credits-info" style="margin-top: 20px;">
+                            <span>🔥 Credits required: <span id="creditsRequired">1</span></span>
+                            <span class="info-icon tooltip" data-tooltip="Credits are consumed when generating videos">ℹ️</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 创建按钮 -->
+                <button class="create-btn" id="createBtn" onclick="handleCreate()">
+                    <span>🎬</span>
+                    <span>Create</span>
+                </button>
+            </div>
+
+            <!-- 右侧预览面板 -->
+            <div class="right-panel" id="rightPanel">
+                <div class="empty-state">
+                    <div class="tv-illustration">
+                        <div class="tv-screen">
+                            <div class="raccoon-image">
+                                <div class="raccoon-face"></div>
+                            </div>
+                        </div>
+                        <div class="tv-controls">
+                            <div class="tv-button" onclick="animateTV()"></div>
+                            <div class="tv-button" onclick="animateTV()"></div>
+                        </div>
+                    </div>
+                    <div class="empty-message">Oops! It looks like you haven't created anything yet.</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // 全局变量
+        let uploadedImage = false;
+        let currentModel = 'pollo';
+        let currentMode = 'basic';
+        let currentDuration = '5s';
+        let currentResolution = '480p';
+        let currentNumberOutputs = 1;
+
+        // AI 提示词库
+        const aiPrompts = [
+            "一只威严的老鹰在黄金时分穿越山云翱翔",
+            "海浪在暴风雨天空下拍打着岩石峭壁",
+            "一片向日葵在夏日微风中轻柔摇摆",
+            "雨后夜晚城市灯光在湿润街道上的倒影",
+            "一只蝴蝶慢动作地从茧中破出",
+            "北极光在星光闪烁的冬日景观中舞动",
+            "古老森林中阳光透过树叶洒下斑驳光影",
+            "火焰在黑暗中燃烧，橙色和红色的舞蹈",
+            "雪花在冬日阳光下缓缓飘落",
+            "彩虹在雨后天空中绚烂绽放"
+        ];
+
+        // 初始化函数
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCreateButton();
+            setupDragAndDrop();
+            console.log('🎬 Pollo.ai 完美克隆已成功初始化！');
+            
+            // 添加调试信息
+            const modelSelector = document.querySelector('.model-selector');
+            const modelDropdown = document.getElementById('modelDropdown');
+            console.log('模型选择器元素:', modelSelector);
+            console.log('模型下拉菜单元素:', modelDropdown);
+            
+            // 测试点击事件
+            if (modelSelector) {
+                console.log('模型选择器找到，onclick属性:', modelSelector.onclick);
+                
+                // 添加备用事件监听器
+                modelSelector.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('备用点击事件被触发');
+                    toggleModelDropdown();
+                });
+                
+                // 测试手动触发
+                setTimeout(() => {
+                    console.log('5秒后自动测试下拉菜单...');
+                    toggleModelDropdown();
+                }, 5000);
+            }
+        });
+
+        // 切换开关功能
+        function toggleSwitch(element) {
+            element.classList.toggle('active');
+            updateCreditsRequired();
+        }
+
+        // 模型下拉菜单 - 全新简化版本
+        function toggleModelDropdown() {
+            console.log('🔥 toggleModelDropdown 被调用');
+            const dropdown = document.getElementById('modelDropdown');
+            
+            if (dropdown) {
+                const isVisible = dropdown.style.display === 'block';
+                dropdown.style.display = isVisible ? 'none' : 'block';
+                console.log('🔥 下拉菜单状态:', dropdown.style.display);
+                
+                // 更新箭头方向
+                const arrow = document.querySelector('.dropdown-arrow');
+                if (arrow) {
+                    arrow.textContent = isVisible ? '▼' : '▲';
+                }
+                
+                // 点击外部关闭
+                if (!isVisible) {
+                    setTimeout(() => {
+                        document.addEventListener('click', function closeDropdown(e) {
+                            if (!e.target.closest('.model-selector-container')) {
+                                dropdown.style.display = 'none';
+                                if (arrow) arrow.textContent = '▼';
+                                document.removeEventListener('click', closeDropdown);
+                            }
+                        });
+                    }, 100);
+                }
+            } else {
+                console.error('❌ 找不到下拉菜单元素');
+            }
+        }
+
+        // 选择模型
+        function selectModel(id, name, description, iconPath) {
+            console.log('🔥 选择模型:', name);
+            currentModel = id;
+            
+            // 更新显示的模型信息
+            const modelInfo = document.querySelector('.model-info');
+            if (iconPath && iconPath.startsWith('icons/')) {
+                modelInfo.innerHTML = `
+                    <img src="${iconPath}" alt="${name}" class="model-avatar" style="width: 24px; height: 24px; border-radius: 4px;">
+                    <div class="model-details">
+                        <div class="model-name">${name}</div>
+                        <div class="model-description">${description}</div>
+                    </div>
+                `;
+            } else {
+                // 兼容旧版本的渐变背景
+                modelInfo.innerHTML = `
+                    <div class="model-avatar" style="background: ${iconPath};">${name.charAt(0)}</div>
+                    <div class="model-details">
+                        <div class="model-name">${name}</div>
+                        <div class="model-description">${description}</div>
+                    </div>
+                `;
+            }
+            
+            // 关闭下拉菜单
+            const dropdown = document.getElementById('modelDropdown');
+            if (dropdown) {
+                dropdown.style.display = 'none';
+            }
+            
+            // 重置箭头
+            const arrow = document.querySelector('.dropdown-arrow');
+            if (arrow) {
+                arrow.textContent = '▼';
+            }
+            
+            // 显示选择反馈
+            showNotification(`已选择模型: ${name}`);
+        }
+
+        // 图片上传处理
+        function handleImageUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                // 验证文件类型
+                if (!file.type.startsWith('image/')) {
+                    showNotification('请上传有效的图片文件 (JPG, PNG, WEBP)', 'error');
+                    return;
+                }
+                
+                // 验证文件大小
+                if (file.size > 10 * 1024 * 1024) {
+                    showNotification('图片文件大小不能超过 10MB', 'error');
+                    return;
+                }
+                
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const uploadArea = document.getElementById('uploadArea');
+                    uploadArea.innerHTML = `
+                        <img src="${e.target.result}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;" alt="上传的图片">
+                        <div class="frame-toggle">
+                            Add end frame
+                            <div class="toggle-switch" onclick="toggleSwitch(this)">
+                                <div class="toggle-knob"></div>
+                            </div>
+                        </div>
+                    `;
+                    uploadedImage = true;
+                    updateCreateButton();
+                    showNotification('图片上传成功！');
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // 设置拖拽上传
+        function setupDragAndDrop() {
+            const uploadArea = document.getElementById('uploadArea');
+            
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                uploadArea.addEventListener(eventName, preventDefaults, false);
+                document.body.addEventListener(eventName, preventDefaults, false);
+            });
+
+            ['dragenter', 'dragover'].forEach(eventName => {
+                uploadArea.addEventListener(eventName, highlight, false);
+            });
+
+            ['dragleave', 'drop'].forEach(eventName => {
+                uploadArea.addEventListener(eventName, unhighlight, false);
+            });
+
+            uploadArea.addEventListener('drop', handleDrop, false);
+
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            function highlight(e) {
+                uploadArea.classList.add('drag-over');
+            }
+
+            function unhighlight(e) {
+                uploadArea.classList.remove('drag-over');
+            }
+
+            function handleDrop(e) {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+                
+                if (files.length > 0) {
+                    const file = files[0];
+                    if (file.type.startsWith('image/')) {
+                        const event = { target: { files: [file] } };
+                        handleImageUpload(event);
+                    } else {
+                        showNotification('请拖拽图片文件 (JPG, PNG, WEBP)', 'error');
+                    }
+                }
+            }
+        }
+
+        // 更新字符计数器
+        function updateCharCounter() {
+            const textarea = document.getElementById('promptTextarea');
+            const counter = document.getElementById('charCounter');
+            const charCount = textarea.value.length;
+            counter.textContent = `${charCount} / 1000`;
+            
+            if (charCount > 900) {
+                counter.style.color = '#e74c3c';
+            } else if (charCount > 800) {
+                counter.style.color = '#f39c12';
+            } else {
+                counter.style.color = '#666';
+            }
+        }
+
+        // AI 生成提示词
+        function generateAIPrompt() {
+            const textarea = document.getElementById('promptTextarea');
+            const randomPrompt = aiPrompts[Math.floor(Math.random() * aiPrompts.length)];
+            
+            // 打字机效果
+            textarea.value = '';
+            let i = 0;
+            const typeWriter = setInterval(() => {
+                if (i < randomPrompt.length) {
+                    textarea.value += randomPrompt.charAt(i);
+                    i++;
+                    updateCharCounter();
+                } else {
+                    clearInterval(typeWriter);
+                }
+            }, 30);
+            
+            showNotification('AI 提示词已生成！');
+        }
+
+        // 切换高级设置
+        function toggleAdvanced() {
+            const header = document.querySelector('.advanced-header');
+            const content = document.getElementById('advancedContent');
+            const arrow = document.querySelector('.advanced-arrow');
+            
+            header.classList.toggle('collapsed');
+            content.classList.toggle('collapsed');
+            
+            if (content.classList.contains('collapsed')) {
+                arrow.textContent = '▶';
+            } else {
+                arrow.textContent = '▼';
+            }
+        }
+
+        // 选择模式
+        function selectMode(element, mode) {
+            document.querySelectorAll('.mode-option').forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+            currentMode = mode;
+            updateCreditsRequired();
+            showNotification(`已选择 ${mode.toUpperCase()} 模式`);
+        }
+
+        // 选择时长
+        function selectDuration(element, duration) {
+            element.parentElement.querySelectorAll('.btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+            currentDuration = duration;
+            updateCreditsRequired();
+        }
+
+        // 选择分辨率
+        function selectResolution(element, resolution) {
+            element.parentElement.querySelectorAll('.resolution-btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+            currentResolution = resolution;
+            updateCreditsRequired();
+        }
+
+        // 选择输出数量
+        function selectNumber(element, number) {
+            element.parentElement.querySelectorAll('.number-btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+            currentNumberOutputs = number;
+            updateCreditsRequired();
+        }
+
+        // 生成新种子
+        function generateNewSeed() {
+            const seedField = document.getElementById('seedField');
+            const newSeed = Math.floor(Math.random() * 10000000000);
+            seedField.value = newSeed;
+            showNotification('新种子已生成');
+        }
+
+        // 更新所需积分
+        function updateCreditsRequired() {
+            let credits = 1; // 基础积分
+            
+            if (currentMode === 'pro') credits += 4;
+            if (currentResolution === '720p') credits += 1;
+            if (currentResolution === '1080p') credits += 3;
+            if (currentDuration === '10s') credits += 2;
+            credits *= currentNumberOutputs;
+            
+            document.getElementById('creditsRequired').textContent = credits;
+        }
+
+        // 更新创建按钮状态
+        function updateCreateButton() {
+            const createBtn = document.getElementById('createBtn');
+            if (uploadedImage) {
+                createBtn.classList.add('enabled');
+            } else {
+                createBtn.classList.remove('enabled');
+            }
+        }
+
+        // 处理创建视频
+        function handleCreate() {
+            if (!uploadedImage) {
+                showNotification('请先上传图片', 'error');
+                return;
+            }
+
+            const createBtn = document.getElementById('createBtn');
+            const originalContent = createBtn.innerHTML;
+            
+            // 显示加载状态
+            createBtn.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <div style="width: 16px; height: 16px; border: 2px solid #fff; border-top: 2px solid transparent; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                    <span>Creating...</span>
+                </div>
+            `;
+            createBtn.classList.remove('enabled');
+            createBtn.style.cursor = 'not-allowed';
+
+            // 模拟视频生成过程
+            setTimeout(() => {
+                showVideoGenerated();
+                
+                // 重置按钮
+                createBtn.innerHTML = originalContent;
+                createBtn.classList.add('enabled');
+                createBtn.style.cursor = 'pointer';
+                
+                showNotification('视频生成完成！', 'success');
+            }, 3000);
+        }
+
+        // 显示生成的视频
+        function showVideoGenerated() {
+            const rightPanel = document.getElementById('rightPanel');
+            rightPanel.innerHTML = `
+                <div style="text-align: center; max-width: 600px;">
+                    <h2 style="margin-bottom: 20px; color: white; font-size: 24px;">🎉 视频生成成功！</h2>
+                    <div style="width: 400px; height: 300px; background: linear-gradient(45deg, #667eea 0%, #764ba2 100%); border-radius: 12px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 48px; position: relative; overflow: hidden;">
+                        <div style="position: absolute; inset: 0; background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%); animation: shimmer 2s infinite;"></div>
+                        🎬
+                    </div>
+                    <p style="color: #888; margin-bottom: 20px; font-size: 16px;">您的图像转视频转换已完成！</p>
+                    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                        <button style="background-color: #e74c3c; color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-weight: 500; display: flex; align-items: center; gap: 8px;" onclick="downloadVideo()">
+                            📥 Download
+                        </button>
+                        <button style="background-color: #404040; color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-weight: 500; display: flex; align-items: center; gap: 8px;" onclick="shareVideo()">
+                            📤 Share
+                        </button>
+                        <button style="background-color: #404040; color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-weight: 500; display: flex; align-items: center; gap: 8px;" onclick="resetInterface()">
+                            🔄 Create New
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // 下载视频
+        function downloadVideo() {
+            showNotification('视频下载已开始 📥', 'success');
+        }
+
+        // 分享视频
+        function shareVideo() {
+            showNotification('分享选项已打开 📤', 'success');
+        }
+
+        // 重置界面
+        function resetInterface() {
+            location.reload();
+        }
+
+        // 侧边栏导航
+        document.querySelectorAll('.sidebar-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+                
+                const target = this.getAttribute('data-target');
+                showNotification(`切换到 ${this.querySelector('.sidebar-label').textContent}`);
+            });
+        });
+
+        // 头部功能
+        function toggleMenu() {
+            showNotification('主菜单已打开');
+        }
+
+        function toggleProjectSelector() {
+            showNotification('项目选择器已打开');
+        }
+
+        function showCreditInfo() {
+            showNotification('积分购买选项已打开');
+        }
+
+        function toggleUserMenu() {
+            showNotification('用户菜单已打开');
+        }
+
+        // 电视机动画
+        function animateTV() {
+            const tv = document.querySelector('.tv-illustration');
+            tv.style.transform = 'scale(1.05)';
+            setTimeout(() => {
+                tv.style.transform = 'scale(1)';
+            }, 200);
+        }
+
+        // 通知系统
+        function showNotification(message, type = 'info') {
+            // 移除已存在的通知
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.style.cssText = `
+                position: fixed;
+                top: 80px;
+                right: 20px;
+                background-color: ${type === 'error' ? '#e74c3c' : type === 'success' ? '#27ae60' : '#3498db'};
+                color: white;
+                padding: 12px 20px;
+                border-radius: 8px;
+                font-size: 14px;
+                font-weight: 500;
+                z-index: 1000;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            `;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            // 显示动画
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+            
+            // 自动隐藏
+            setTimeout(() => {
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.remove();
+                    }
+                }, 300);
+            }, 3000);
+        }
+
+        // 快捷键支持
+        document.addEventListener('keydown', function(e) {
+            // Ctrl/Cmd + Enter 创建视频
+            if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                e.preventDefault();
+                if (uploadedImage) {
+                    handleCreate();
+                } else {
+                    showNotification('请先上传图片', 'error');
+                }
+            }
+            
+            // Escape 关闭模态框
+            if (e.key === 'Escape') {
+                const dropdown = document.getElementById('modelDropdown');
+                if (dropdown.classList.contains('show')) {
+                    dropdown.classList.remove('show');
+                }
+            }
+            
+            // Space 暂停/播放（如果有视频）
+            if (e.key === ' ' && e.target.tagName !== 'TEXTAREA' && e.target.tagName !== 'INPUT') {
+                e.preventDefault();
+                // 这里可以添加视频播放/暂停逻辑
+            }
+        });
+
+        // 添加 CSS 动画
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shimmer {
+                0% { transform: translateX(-100%); }
+                100% { transform: translateX(100%); }
+            }
+            
+            .tv-illustration {
+                transition: transform 0.2s ease;
+            }
+            
+            .model-dropdown {
+                animation: slideDown 0.3s ease;
+            }
+            
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // 性能优化：防抖函数
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // 使用防抖优化字符计数器更新
+        const debouncedUpdateCharCounter = debounce(updateCharCounter, 100);
+        document.getElementById('promptTextarea').addEventListener('input', debouncedUpdateCharCounter);
+
+        console.log('🎬 Pollo.ai 完美克隆版本 v1.0');
+        console.log('✅ 所有功能已实现：');
+        console.log('  🖼️  图片上传（点击/拖拽）');
+        console.log('  🤖 AI 提示词生成');
+        console.log('  🔧 完整高级设置');
+        console.log('  📱 响应式设计');
+        console.log('  ⚡ 快捷键支持');
+        console.log('  🎨 像素级 UI 复制');
+        console.log('  🔔 通知系统');
+        console.log('  🎯 多模型支持');
+        console.log('🚀 准备就绪！');
+    </script>
+</body>
+</html>

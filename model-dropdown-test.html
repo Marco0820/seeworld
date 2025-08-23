@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模型下拉菜单测试</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 50px;
+        }
+
+        .model-selector {
+            background-color: #404040;
+            border: 1px solid #555;
+            border-radius: 8px;
+            padding: 12px;
+            color: white;
+            width: 300px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .model-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .model-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+        }
+
+        .model-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .model-name {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .model-description {
+            font-size: 12px;
+            color: #888;
+        }
+
+        .model-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: #404040;
+            border: 1px solid #555;
+            border-radius: 8px;
+            margin-top: 4px;
+            z-index: 200;
+            max-height: 300px;
+            overflow-y: auto;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            display: none;
+        }
+
+        .model-dropdown.show {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+
+        .model-option {
+            padding: 12px;
+            cursor: pointer;
+            border-bottom: 1px solid #555;
+            transition: background-color 0.2s;
+        }
+
+        .model-option:last-child {
+            border-bottom: none;
+        }
+
+        .model-option:hover {
+            background-color: #4a4a4a;
+        }
+
+        .model-option-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .model-option-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            object-fit: cover;
+        }
+
+        .model-option-details {
+            flex: 1;
+        }
+
+        .model-option-name {
+            font-size: 13px;
+            font-weight: 500;
+            color: white;
+            margin-bottom: 2px;
+        }
+
+        .model-option-description {
+            font-size: 11px;
+            color: #888;
+        }
+
+        .debug-info {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 8px;
+        }
+
+        .test-button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>模型下拉菜单测试页面</h1>
+    
+    <div class="model-selector" onclick="toggleModelDropdown()" id="modelSelector">
+        <div class="model-info">
+            <img src="icons/com_logo_runway_ad6a460300.png" alt="Pollo 1.5" class="model-avatar">
+            <div class="model-details">
+                <div class="model-name">Pollo 1.5</div>
+                <div class="model-description">better, faster and cheaper</div>
+            </div>
+        </div>
+        <span>▼</span>
+        
+        <!-- 模型下拉菜单 -->
+        <div class="model-dropdown" id="modelDropdown">
+            <div class="model-option" onclick="selectModel('pollo', 'Pollo 1.5', 'better, faster and cheaper', 'icons/com_logo_runway_ad6a460300.png')">
+                <div class="model-option-info">
+                    <img src="icons/com_logo_runway_ad6a460300.png" alt="Pollo 1.5" class="model-option-avatar">
+                    <div class="model-option-details">
+                        <div class="model-option-name">Pollo 1.5</div>
+                        <div class="model-option-description">better, faster and cheaper</div>
+                    </div>
+                </div>
+            </div>
+            <div class="model-option" onclick="selectModel('runway', 'Runway AI Video Generator', 'Professional video generation', 'icons/com_logo_runway_ad6a460300.png')">
+                <div class="model-option-info">
+                    <img src="icons/com_logo_runway_ad6a460300.png" alt="Runway AI" class="model-option-avatar">
+                    <div class="model-option-details">
+                        <div class="model-option-name">Runway AI Video Generator</div>
+                        <div class="model-option-description">Professional video generation</div>
+                    </div>
+                </div>
+            </div>
+            <div class="model-option" onclick="selectModel('hailuo', 'Hailuo AI Video Generator (MiniMax)', 'High-quality Chinese AI model', 'icons/com_logo_hailuo_3bc9b31a8a.png')">
+                <div class="model-option-info">
+                    <img src="icons/com_logo_hailuo_3bc9b31a8a.png" alt="Hailuo AI" class="model-option-avatar">
+                    <div class="model-option-details">
+                        <div class="model-option-name">Hailuo AI Video Generator (MiniMax)</div>
+                        <div class="model-option-description">High-quality Chinese AI model</div>
+                    </div>
+                </div>
+            </div>
+            <div class="model-option" onclick="selectModel('kling', 'Kling AI Video Generator', 'Advanced video synthesis', 'icons/com_logo_kling_1b6878741b.png')">
+                <div class="model-option-info">
+                    <img src="icons/com_logo_kling_1b6878741b.png" alt="Kling AI" class="model-option-avatar">
+                    <div class="model-option-details">
+                        <div class="model-option-name">Kling AI Video Generator</div>
+                        <div class="model-option-description">Advanced video synthesis</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="debug-info">
+        <h3>调试信息</h3>
+        <button class="test-button" onclick="testDropdown()">手动测试下拉菜单</button>
+        <button class="test-button" onclick="showDropdown()">强制显示下拉菜单</button>
+        <button class="test-button" onclick="hideDropdown()">隐藏下拉菜单</button>
+        <div id="debugOutput"></div>
+    </div>
+
+    <script>
+        let currentModel = 'pollo';
+
+        // 模型下拉菜单
+        function toggleModelDropdown() {
+            console.log('toggleModelDropdown 函数被调用');
+            const dropdown = document.getElementById('modelDropdown');
+            console.log('dropdown 元素:', dropdown);
+            
+            if (dropdown) {
+                dropdown.classList.toggle('show');
+                const isShown = dropdown.classList.contains('show');
+                console.log('下拉菜单状态:', isShown);
+                updateDebugInfo('下拉菜单状态: ' + (isShown ? '显示' : '隐藏'));
+                
+                // 点击外部关闭下拉菜单
+                if (isShown) {
+                    document.addEventListener('click', function closeDropdown(e) {
+                        if (!e.target.closest('.model-selector')) {
+                            dropdown.classList.remove('show');
+                            updateDebugInfo('点击外部，关闭下拉菜单');
+                            document.removeEventListener('click', closeDropdown);
+                        }
+                    });
+                }
+            } else {
+                console.error('找不到 modelDropdown 元素');
+                updateDebugInfo('错误: 找不到 modelDropdown 元素');
+            }
+        }
+
+        // 选择模型
+        function selectModel(id, name, description, iconPath) {
+            currentModel = id;
+            console.log('选择模型:', name);
+            updateDebugInfo('已选择模型: ' + name);
+            
+            // 更新显示的模型信息
+            const modelInfo = document.querySelector('.model-info');
+            if (iconPath && iconPath.startsWith('icons/')) {
+                modelInfo.innerHTML = `
+                    <img src="${iconPath}" alt="${name}" class="model-avatar">
+                    <div class="model-details">
+                        <div class="model-name">${name}</div>
+                        <div class="model-description">${description}</div>
+                    </div>
+                `;
+            }
+            
+            // 关闭下拉菜单
+            document.getElementById('modelDropdown').classList.remove('show');
+        }
+
+        // 测试函数
+        function testDropdown() {
+            console.log('手动测试下拉菜单');
+            updateDebugInfo('手动测试下拉菜单');
+            toggleModelDropdown();
+        }
+
+        function showDropdown() {
+            const dropdown = document.getElementById('modelDropdown');
+            dropdown.classList.add('show');
+            updateDebugInfo('强制显示下拉菜单');
+        }
+
+        function hideDropdown() {
+            const dropdown = document.getElementById('modelDropdown');
+            dropdown.classList.remove('show');
+            updateDebugInfo('隐藏下拉菜单');
+        }
+
+        function updateDebugInfo(message) {
+            const debugOutput = document.getElementById('debugOutput');
+            const timestamp = new Date().toLocaleTimeString();
+            debugOutput.innerHTML += `<div>${timestamp}: ${message}</div>`;
+        }
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('页面加载完成');
+            updateDebugInfo('页面加载完成');
+            
+            const modelSelector = document.querySelector('.model-selector');
+            const modelDropdown = document.getElementById('modelDropdown');
+            
+            updateDebugInfo('模型选择器元素: ' + (modelSelector ? '找到' : '未找到'));
+            updateDebugInfo('模型下拉菜单元素: ' + (modelDropdown ? '找到' : '未找到'));
+            
+            // 添加备用事件监听器
+            if (modelSelector) {
+                modelSelector.addEventListener('click', function(e) {
+                    console.log('备用点击事件被触发');
+                    updateDebugInfo('备用点击事件被触发');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
