@@ -20,10 +20,10 @@ export default function StudioPage() {
   const [seed, setSeed] = useState('2094375205');
   const [isModelDropdownOpen, setIsModelDropdownOpen] = useState(false);
   const [selectedModel, setSelectedModel] = useState({
-    id: 'pollo-1.5',
-    name: 'Pollo 1.5',
-    description: 'better, faster and cheaper',
-    icon: '/icons/com_logo_runway_ad6a460300.png'
+    id: 'wan-2.2-flash',
+    name: 'Wan 2.2 Flash',
+    description: 'Fast generation and better reliability',
+    icon: '/icons/Group.svg'
   });
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -57,12 +57,142 @@ export default function StudioPage() {
 
     setIsGenerating(true);
     
-    // Simulate video generation
-    console.log('🎬 生成视频使用模型:', selectedModel);
-    setTimeout(() => {
-      setGeneratedContent('video-generated');
+    try {
+      // Use the model ID directly as they are now consistent
+      // No mapping needed since we've unified the model IDs
+
+      const apiModelId = selectedModel.id;
+      
+      const requestData = {
+        modelId: apiModelId,
+        prompt: prompt || 'Convert this image to video',
+        imageUrl: uploadedImage,
+        duration: videoLength === '5s' ? 5 : 10,
+        resolution: resolution === '1080P' ? '1080p' : resolution === '720P' ? '720p' : '480p',
+        aspectRatio: '16:9',
+        motionStrength: 5,
+        seed: parseInt(seed) || undefined,
+      };
+
+      console.log('🎬 生成视频请求:', requestData);
+
+      const response = await fetch('/api/video/generate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to generate video');
+      }
+
+      console.log('🎬 视频生成响应:', data);
+      
+      if (data.status === 'completed' && data.videoUrl) {
+        setGeneratedContent(data.videoUrl);
+      } else if (data.status === 'processing' || data.status === 'pending') {
+        setGeneratedContent('processing');
+        // Poll for completion
+        pollForCompletion(data.id, getProviderForModel(apiModelId));
+      } else {
+        throw new Error(data.error || 'Video generation failed');
+      }
+    } catch (error) {
+      console.error('视频生成错误:', error);
+      alert(`Video generation failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      setGeneratedContent(null);
+    } finally {
       setIsGenerating(false);
-    }, 3000);
+    }
+  };
+
+  const getProviderForModel = (modelId: string): string => {
+    const modelToProvider: Record<string, string> = {
+      // Alibaba models
+      'wan-2.2-flash': 'alibaba',
+      'wan-2.2-plus': 'alibaba',
+      'wanx-2.1': 'alibaba',
+      
+      // MiniMax models
+      'hailuo-02': 'minimax',
+      'hailuo': 'minimax',
+      'hailuo-live2d': 'minimax',
+      
+      // Kling AI models
+      'kling-2.1': 'kling',
+      'kling-2.1-master': 'kling',
+      'kling-2.0': 'kling',
+      'kling-1.6': 'kling',
+      'kling-1.5': 'kling',
+      'kling-1.0': 'kling',
+      
+      // Google models
+      'google-veo-3-fast': 'google',
+      'google-veo-3': 'google',
+      'google-veo-2': 'google_vertex',
+      
+      // ByteDance models
+      'seedance-1.0-lite': 'volcengine',
+      'seedance-1.0-pro': 'volcengine',
+      
+      // PixVerse models
+      'pixverse-v4.5': 'pixverse',
+      'pixverse-v4': 'pixverse',
+      'pixverse-v3.5': 'pixverse',
+      
+      // Vidu models
+      'vidu-q1': 'vidu',
+      'vidu-2.0': 'vidu',
+      
+      // Runway models
+      'runway-gen-4-turbo': 'runway',
+      'runway-gen-3': 'runway',
+      
+      // Luma AI models
+      'luma-ray-2': 'luma',
+      'luma-ray-2-flash': 'luma',
+      'luma-ray-1.6': 'luma',
+      
+      // Pika models
+      'pika-2.2': 'pika',
+      'pika-2.1': 'pika',
+      
+      // Tencent models
+      'hunyuan': 'hunyuan',
+    };
+    
+    return modelToProvider[modelId] || 'alibaba';
+  };
+
+  const pollForCompletion = async (id: string, provider: string) => {
+    const pollInterval = setInterval(async () => {
+      try {
+        const response = await fetch(`/api/video/generate?id=${id}&provider=${provider}`);
+        const data = await response.json();
+
+        if (response.ok) {
+          if (data.status === 'completed' && data.videoUrl) {
+            setGeneratedContent(data.videoUrl);
+            clearInterval(pollInterval);
+          } else if (data.status === 'failed') {
+            setGeneratedContent(null);
+            alert('Video generation failed');
+            clearInterval(pollInterval);
+          }
+        }
+      } catch (error) {
+        console.error('Polling error:', error);
+      }
+    }, 5000); // Poll every 5 seconds
+
+    // Stop polling after 10 minutes
+    setTimeout(() => {
+      clearInterval(pollInterval);
+    }, 600000);
   };
 
   const refreshSeed = () => {
@@ -71,24 +201,38 @@ export default function StudioPage() {
 
   // 模型数据
   const availableModels = [
-    { id: 'pollo-1.5', name: 'Pollo 1.5', description: 'better, faster and cheaper', icon: '/icons/com_logo_runway_ad6a460300.png', credits: 1 },
-    { id: 'runway-gen2', name: 'Runway AI', description: 'Professional video generation', icon: '/icons/com_logo_runway_ad6a460300.png', credits: 5 },
-    { id: 'hailuo-minimax', name: 'Hailuo AI (MiniMax)', description: 'High-quality Chinese AI model', icon: '/icons/com_logo_hailuo_3bc9b31a8a.png', credits: 3 },
-    { id: 'kling-ai', name: 'Kling AI', description: 'Advanced video synthesis', icon: '/icons/com_logo_kling_1b6878741b.png', credits: 4 },
-    { id: 'luma-dream', name: 'Luma AI (Dream Machine)', description: 'Realistic video generation', icon: '/icons/com_logo_luma_8542d55fb5.png', credits: 6 },
-    { id: 'pika-labs', name: 'Pika Art (Pika Labs)', description: 'Creative video effects', icon: '/icons/com_logo_pika_13fbdc24b9.png', credits: 4 },
-    { id: 'haiper-ai', name: 'Haiper AI', description: 'Fast video processing', icon: '/icons/Haiper_d822de7449.png', credits: 3 },
-    { id: 'vidu-studio', name: 'Vidu AI (Vidu Studio)', description: 'Professional editing suite', icon: '/icons/com_logo_vidu_9166e0cac9.png', credits: 5 },
-    { id: 'sora-ai', name: 'Sora AI', description: 'OpenAI video model', icon: '/icons/com_logo_chatgpt_color_038b183785.png', credits: 8 },
-    { id: 'pixverse-ai', name: 'PixVerse AI', description: 'Anime and cartoon style', icon: '/icons/com_logo_pixverse_a93e08c3ac.png', credits: 3 },
-    { id: 'krea-ai', name: 'Krea AI', description: 'Real-time generation', icon: '/icons/Krea_32ae82db6b.png', credits: 4 },
-    { id: 'veo-ai', name: 'Veo AI', description: 'Google AI video model', icon: '/icons/com_logo_google_09_48f9ff99e2.png', credits: 7 },
-    { id: 'seedance-ai', name: 'Seedance AI (ByteDance)', description: 'ByteDance video AI', icon: '/icons/Pixel_Dance_c5db323079.png', credits: 5 },
-    { id: 'video-ocean', name: 'Video Ocean', description: 'Advanced video synthesis', icon: '/icons/Video_Ocean_07bb9b5867.png', credits: 4 },
-    { id: 'stable-video', name: 'Stable Video Diffusion', description: 'Stability AI video model', icon: '/icons/com_logo_stable_d43e452756.png', credits: 6 },
-    { id: 'hunyuan-ai', name: 'Hunyuan AI (Tencent)', description: 'Tencent video AI', icon: '/icons/com_logo_hunyuan_d9096a0de1.png', credits: 4 },
-    { id: 'wanx-ai', name: 'Wanx AI (Wan 2.1)', description: 'Alibaba video AI', icon: '/icons/Group.svg', credits: 3 },
-    { id: 'midjourney-ai', name: 'Midjourney AI', description: 'Creative video generation', icon: '/icons/midjourney_icon_9a2abffe0b.png', credits: 7 }
+
+    { id: 'wan-2.2-flash', name: 'Wan 2.2 Flash', description: 'Fast generation and better reliability', icon: '/icons/Group.svg', credits: 4 },
+    { id: 'wan-2.2-plus', name: 'Wan 2.2 Plus', description: 'Stable fluid motion and lifelike dynamics', icon: '/icons/Group.svg', credits: 5 },
+    { id: 'hailuo-02', name: 'Hailuo 02', description: 'Extreme physics simulations', icon: '/icons/com_logo_hailuo_3bc9b31a8a.png', credits: 5 },
+    { id: 'kling-2.1', name: 'Kling 2.1', description: 'Enhanced visual realism and motion fluidity', icon: '/icons/com_logo_kling_1b6878741b.png', credits: 20 },
+    { id: 'kling-2.1-master', name: 'Kling 2.1 Master', description: 'Enhanced visual realism and motion fluidity', icon: '/icons/com_logo_kling_1b6878741b.png', credits: 100 },
+    { id: 'google-veo-3-fast', name: 'Google Veo 3 Fast', description: '30% Faster than standard Veo 3 model', icon: '/icons/com_logo_google_09_48f9ff99e2.png', credits: 150 },
+    { id: 'google-veo-3', name: 'Google Veo 3', description: 'Realistic outputs with natural audio', icon: '/icons/com_logo_google_09_48f9ff99e2.png', credits: 280 },
+    { id: 'seedance-1.0-lite', name: 'Seedance 1.0 Lite', description: 'Accurate motion and camera control', icon: '/icons/Pixel_Dance_c5db323079.png', credits: 5 },
+    { id: 'seedance-1.0-pro', name: 'Seedance 1.0 Pro', description: 'Fluid, cohesive multi-shot video outputs', icon: '/icons/Pixel_Dance_c5db323079.png', credits: 15 },
+    { id: 'pixverse-v4.5', name: 'Pixverse V4.5', description: 'Enhanced realism and camera motions', icon: '/icons/com_logo_pixverse_a93e08c3ac.png', credits: 10 },
+    { id: 'vidu-q1', name: 'Vidu Q1', description: 'Precise control over video motion', icon: '/icons/com_logo_vidu_9166e0cac9.png', credits: 25 },
+    { id: 'runway-gen-4-turbo', name: 'Runway Gen-4 Turbo', description: 'Efficient, consistent video creation', icon: '/icons/com_logo_runway_ad6a460300.png', credits: 40 },
+    { id: 'luma-ray-2', name: 'Luma Ray 2', description: 'Large scale model for realistic visuals', icon: '/icons/com_logo_luma_8542d55fb5.png', credits: 60 },
+    { id: 'luma-ray-2-flash', name: 'Luma Ray 2 Flash', description: 'Faster outputs with coherent motion', icon: '/icons/com_logo_luma_8542d55fb5.png', credits: 20 },
+    { id: 'pika-2.2', name: 'Pika 2.2', description: 'Better transition and transformation', icon: '/icons/com_logo_pika_13fbdc24b9.png', credits: 30 },
+    { id: 'kling-2.0', name: 'Kling 2.0', description: 'Better motion dynamics and aesthetics', icon: '/icons/com_logo_kling_1b6878741b.png', credits: 100 },
+    { id: 'kling-1.6', name: 'Kling 1.6', description: 'More realistic motions', icon: '/icons/com_logo_kling_1b6878741b.png', credits: 20 },
+    { id: 'pixverse-v4', name: 'Pixverse V4', description: 'Improved motion and coherence', icon: '/icons/com_logo_pixverse_a93e08c3ac.png', credits: 10 },
+    { id: 'pixverse-v3.5', name: 'Pixverse V3.5', description: 'Improved motion and coherence', icon: '/icons/com_logo_pixverse_a93e08c3ac.png', credits: 10 },
+    { id: 'google-veo-2', name: 'Google Veo 2', description: 'HD outputs with visually rich content', icon: '/icons/com_logo_google_09_48f9ff99e2.png', credits: 180 },
+    { id: 'runway-gen-3', name: 'Runway Gen-3', description: 'Multimodal, professional model', icon: '/icons/com_logo_runway_ad6a460300.png', credits: 40 },
+    { id: 'vidu-2.0', name: 'Vidu 2.0', description: 'Enhanced quality and speed', icon: '/icons/com_logo_vidu_9166e0cac9.png', credits: 10 },
+    { id: 'hailuo', name: 'Hailuo', description: 'Highest video quality', icon: '/icons/com_logo_hailuo_3bc9b31a8a.png', credits: 35 },
+    { id: 'luma-ray-1.6', name: 'Luma Ray 1.6', description: 'Realistic and detailed videos', icon: '/icons/com_logo_luma_8542d55fb5.png', credits: 60 },
+    { id: 'wanx-2.1', name: 'Wanx 2.1', description: 'Alibaba\'s model with realistic outputs', icon: '/icons/Group.svg', credits: 20 },
+    { id: 'hunyuan', name: 'Hunyuan', description: 'Tencent\'s 13B-parameter video model', icon: '/icons/com_logo_hunyuan_d9096a0de1.png', credits: 20 },
+    { id: 'hailuo-live2d', name: 'Hailuo Live2D', description: 'Good for 2D animation', icon: '/icons/com_logo_hailuo_3bc9b31a8a.png', credits: 35 },
+    { id: 'pika-2.1', name: 'Pika 2.1', description: 'Crystal-clear and immersive outputs', icon: '/icons/com_logo_pika_13fbdc24b9.png', credits: 60 },
+    { id: 'kling-1.5', name: 'Kling 1.5', description: 'Suitable for complex scenes', icon: '/icons/com_logo_kling_1b6878741b.png', credits: 20 },
+    { id: 'kling-1.0', name: 'Kling 1.0', description: 'Suitable for short videos', icon: '/icons/com_logo_kling_1b6878741b.png', credits: 10 },
+
   ];
 
   // 模型选择处理函数
@@ -1028,45 +1172,88 @@ export default function StudioPage() {
             justifyContent: 'center',
             padding: '40px'
           }}>
-            {generatedContent ? (
+            {generatedContent === 'processing' ? (
+              <div style={{ textAlign: 'center' }}>
+                <div style={{
+                  width: '60px',
+                  height: '60px',
+                  border: '4px solid #e74c3c',
+                  borderTop: '4px solid transparent',
+                  borderRadius: '50%',
+                  animation: 'spin 1s linear infinite',
+                  margin: '0 auto 20px'
+                }}></div>
+                <p style={{ color: 'white', fontWeight: 500, marginBottom: '10px' }}>Processing your video...</p>
+                <p style={{ color: '#888', fontSize: '14px' }}>This may take several minutes depending on the model</p>
+              </div>
+            ) : generatedContent && generatedContent !== 'processing' ? (
               <div style={{ textAlign: 'center', maxWidth: '600px' }}>
                 <h2 style={{ marginBottom: '20px', color: 'white' }}>🎉 Video Generated Successfully!</h2>
-                <div style={{
-                  width: '400px',
-                  height: '300px',
-                  background: 'linear-gradient(45deg, #667eea 0%, #764ba2 100%)',
-                  borderRadius: '12px',
-                  margin: '0 auto 20px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '48px'
-                }}>
-                  🎬
-                </div>
+                {generatedContent.startsWith('http') || generatedContent.startsWith('data:') ? (
+                  <video 
+                    controls 
+                    style={{
+                      width: '100%',
+                      maxWidth: '500px',
+                      height: 'auto',
+                      borderRadius: '12px',
+                      marginBottom: '20px'
+                    }}
+                    src={generatedContent}
+                  />
+                ) : (
+                  <div style={{
+                    width: '400px',
+                    height: '300px',
+                    background: 'linear-gradient(45deg, #667eea 0%, #764ba2 100%)',
+                    borderRadius: '12px',
+                    margin: '0 auto 20px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '48px'
+                  }}>
+                    🎬
+                  </div>
+                )}
                 <p style={{ color: '#888', marginBottom: '20px' }}>Your image-to-video conversion is complete!</p>
                 <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
-                  <button style={{
-                    backgroundColor: '#e74c3c',
-                    color: 'white',
-                    border: 'none',
-                    padding: '12px 24px',
-                    borderRadius: '6px',
-                    cursor: 'pointer',
-                    fontWeight: 500
-                  }}>
+                  <button 
+                    onClick={() => {
+                      if (generatedContent.startsWith('http')) {
+                        const link = document.createElement('a');
+                        link.href = generatedContent;
+                        link.download = 'generated-video.mp4';
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                      }
+                    }}
+                    style={{
+                      backgroundColor: '#e74c3c',
+                      color: 'white',
+                      border: 'none',
+                      padding: '12px 24px',
+                      borderRadius: '6px',
+                      cursor: 'pointer',
+                      fontWeight: 500
+                    }}
+                  >
                     📥 Download
                   </button>
-                  <button style={{
-                    backgroundColor: '#404040',
-                    color: 'white',
-                    border: 'none',
-                    padding: '12px 24px',
-                    borderRadius: '6px',
-                    cursor: 'pointer',
-                    fontWeight: 500
-                  }}>
-                    📤 Share
+                  <button 
+                    onClick={() => setGeneratedContent(null)}
+                    style={{
+                      backgroundColor: '#404040',
+                      color: 'white',
+                      border: 'none',
+                      padding: '12px 24px',
+                      borderRadius: '6px',
+                      cursor: 'pointer',
+                      fontWeight: 500
+                    }}
+                  >
+                    🔄 Generate New
                   </button>
                 </div>
               </div>

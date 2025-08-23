@@ -12,153 +12,257 @@ export interface AIModel {
   icon: string;
   provider: string;
   credits: number;
+  badge?: 'New' | 'Hot' | '';
 }
 
 export const AI_MODELS: AIModel[] = [
+
   {
-    id: 'pollo-1.5',
-    name: 'Pollo 1.5',
-    description: 'better, faster and cheaper',
-    icon: '/icons/com_logo_runway_ad6a460300.png',
-    provider: 'Pollo AI',
-    credits: 1,
+    id: 'wan-2.2-flash',
+    name: 'Wan 2.2 Flash',
+    description: 'Fast generation and better reliability',
+    icon: '/icons/Group.svg',
+    provider: 'Alibaba',
+    credits: 4,
+    badge: 'New',
   },
   {
-    id: 'runway-gen2',
-    name: 'Runway AI Video Generator',
-    description: 'Professional video generation',
-    icon: '/icons/com_logo_runway_ad6a460300.png',
-    provider: 'Runway',
+    id: 'wan-2.2-plus',
+    name: 'Wan 2.2 Plus',
+    description: 'Stable fluid motion and lifelike dynamics',
+    icon: '/icons/Group.svg',
+    provider: 'Alibaba',
     credits: 5,
+    badge: 'New',
   },
   {
-    id: 'hailuo-minimax',
-    name: 'Hailuo AI Video Generator (MiniMax)',
-    description: 'High-quality Chinese AI model',
+    id: 'hailuo-02',
+    name: 'Hailuo 02',
+    description: 'Extreme physics simulations',
     icon: '/icons/com_logo_hailuo_3bc9b31a8a.png',
     provider: 'MiniMax',
-    credits: 3,
+    credits: 5,
+    badge: 'Hot',
   },
   {
-    id: 'kling-ai',
-    name: 'Kling AI Video Generator',
-    description: 'Advanced video synthesis',
+    id: 'kling-2.1',
+    name: 'Kling 2.1',
+    description: 'Enhanced visual realism and motion fluidity',
     icon: '/icons/com_logo_kling_1b6878741b.png',
     provider: 'Kling AI',
-    credits: 4,
+    credits: 20,
   },
   {
-    id: 'luma-dream',
-    name: 'Luma AI Video Generator (Luma Dream Machine)',
-    description: 'Realistic video generation',
-    icon: '/icons/com_logo_luma_8542d55fb5.png',
-    provider: 'Luma AI',
-    credits: 6,
+    id: 'kling-2.1-master',
+    name: 'Kling 2.1 Master',
+    description: 'Enhanced visual realism and motion fluidity',
+    icon: '/icons/com_logo_kling_1b6878741b.png',
+    provider: 'Kling AI',
+    credits: 100,
   },
   {
-    id: 'pika-labs',
-    name: 'Pika Art AI Video Generator (Pika Labs)',
-    description: 'Creative video effects',
-    icon: '/icons/com_logo_pika_13fbdc24b9.png',
-    provider: 'Pika Labs',
-    credits: 4,
-  },
-  {
-    id: 'haiper-ai',
-    name: 'Haiper AI Video Generator',
-    description: 'Fast video processing',
-    icon: '/icons/Haiper_d822de7449.png',
-    provider: 'Haiper AI',
-    credits: 3,
-  },
-  {
-    id: 'vidu-studio',
-    name: 'Vidu AI Video Generator (Vidu Studio)',
-    description: 'Professional editing suite',
-    icon: '/icons/com_logo_vidu_9166e0cac9.png',
-    provider: 'Vidu Studio',
-    credits: 5,
-  },
-  {
-    id: 'sora-ai',
-    name: 'Sora AI Video Generator',
-    description: 'OpenAI video model',
-    icon: '/icons/com_logo_chatgpt_color_038b183785.png',
-    provider: 'OpenAI',
-    credits: 8,
-  },
-  {
-    id: 'pixverse-ai',
-    name: 'PixVerse AI Video Generator',
-    description: 'Anime and cartoon style',
-    icon: '/icons/com_logo_pixverse_a93e08c3ac.png',
-    provider: 'PixVerse',
-    credits: 3,
-  },
-  {
-    id: 'krea-ai',
-    name: 'Krea AI Video Generator',
-    description: 'Real-time generation',
-    icon: '/icons/Krea_32ae82db6b.png',
-    provider: 'Krea AI',
-    credits: 4,
-  },
-  {
-    id: 'veo-ai',
-    name: 'Veo AI Video Generator',
-    description: 'Google AI video model',
+    id: 'google-veo-3-fast',
+    name: 'Google Veo 3 Fast',
+    description: '30% Faster than standard Veo 3 model',
     icon: '/icons/com_logo_google_09_48f9ff99e2.png',
     provider: 'Google',
-    credits: 7,
+    credits: 150,
+    badge: 'New',
   },
   {
-    id: 'seedance-ai',
-    name: 'Seedance AI Video Generator (ByteDance)',
-    description: 'ByteDance video AI',
+    id: 'google-veo-3',
+    name: 'Google Veo 3',
+    description: 'Realistic outputs with natural audio',
+    icon: '/icons/com_logo_google_09_48f9ff99e2.png',
+    provider: 'Google',
+    credits: 280,
+    badge: 'New',
+  },
+  {
+    id: 'seedance-1.0-lite',
+    name: 'Seedance 1.0 Lite',
+    description: 'Accurate motion and camera control',
     icon: '/icons/Pixel_Dance_c5db323079.png',
     provider: 'ByteDance',
     credits: 5,
   },
   {
-    id: 'video-ocean',
-    name: 'Video Ocean',
-    description: 'Advanced video synthesis',
-    icon: '/icons/Video_Ocean_07bb9b5867.png',
-    provider: 'Video Ocean',
-    credits: 4,
+    id: 'seedance-1.0-pro',
+    name: 'Seedance 1.0 Pro',
+    description: 'Fluid, cohesive multi-shot video outputs',
+    icon: '/icons/Pixel_Dance_c5db323079.png',
+    provider: 'ByteDance',
+    credits: 15,
   },
   {
-    id: 'stable-video',
-    name: 'Stable Video Diffusion AI Video Generator',
-    description: 'Stability AI video model',
-    icon: '/icons/com_logo_stable_d43e452756.png',
-    provider: 'Stability AI',
-    credits: 6,
+    id: 'pixverse-v4.5',
+    name: 'Pixverse V4.5',
+    description: 'Enhanced realism and camera motions',
+    icon: '/icons/com_logo_pixverse_a93e08c3ac.png',
+    provider: 'PixVerse',
+    credits: 10,
   },
   {
-    id: 'hunyuan-ai',
-    name: 'Hunyuan AI Video Generator (Tencent)',
-    description: 'Tencent video AI',
+    id: 'vidu-q1',
+    name: 'Vidu Q1',
+    description: 'Precise control over video motion',
+    icon: '/icons/com_logo_vidu_9166e0cac9.png',
+    provider: 'Vidu Studio',
+    credits: 25,
+  },
+  {
+    id: 'runway-gen-4-turbo',
+    name: 'Runway Gen-4 Turbo',
+    description: 'Efficient, consistent video creation',
+    icon: '/icons/com_logo_runway_ad6a460300.png',
+    provider: 'Runway',
+    credits: 40,
+  },
+  {
+    id: 'luma-ray-2',
+    name: 'Luma Ray 2',
+    description: 'Large scale model for realistic visuals',
+    icon: '/icons/com_logo_luma_8542d55fb5.png',
+    provider: 'Luma AI',
+    credits: 60,
+  },
+  {
+    id: 'luma-ray-2-flash',
+    name: 'Luma Ray 2 Flash',
+    description: 'Faster outputs with coherent motion',
+    icon: '/icons/com_logo_luma_8542d55fb5.png',
+    provider: 'Luma AI',
+    credits: 20,
+  },
+  {
+    id: 'pika-2.2',
+    name: 'Pika 2.2',
+    description: 'Better transition and transformation',
+    icon: '/icons/com_logo_pika_13fbdc24b9.png',
+    provider: 'Pika Labs',
+    credits: 30,
+  },
+  {
+    id: 'kling-2.0',
+    name: 'Kling 2.0',
+    description: 'Better motion dynamics and aesthetics',
+    icon: '/icons/com_logo_kling_1b6878741b.png',
+    provider: 'Kling AI',
+    credits: 100,
+  },
+  {
+    id: 'kling-1.6',
+    name: 'Kling 1.6',
+    description: 'More realistic motions',
+    icon: '/icons/com_logo_kling_1b6878741b.png',
+    provider: 'Kling AI',
+    credits: 20,
+  },
+  {
+    id: 'pixverse-v4',
+    name: 'Pixverse V4',
+    description: 'Improved motion and coherence',
+    icon: '/icons/com_logo_pixverse_a93e08c3ac.png',
+    provider: 'PixVerse',
+    credits: 10,
+  },
+  {
+    id: 'pixverse-v3.5',
+    name: 'Pixverse V3.5',
+    description: 'Improved motion and coherence',
+    icon: '/icons/com_logo_pixverse_a93e08c3ac.png',
+    provider: 'PixVerse',
+    credits: 10,
+  },
+  {
+    id: 'google-veo-2',
+    name: 'Google Veo 2',
+    description: 'HD outputs with visually rich content',
+    icon: '/icons/com_logo_google_09_48f9ff99e2.png',
+    provider: 'Google',
+    credits: 180,
+  },
+  {
+    id: 'runway-gen-3',
+    name: 'Runway Gen-3',
+    description: 'Multimodal, professional model',
+    icon: '/icons/com_logo_runway_ad6a460300.png',
+    provider: 'Runway',
+    credits: 40,
+  },
+  {
+    id: 'vidu-2.0',
+    name: 'Vidu 2.0',
+    description: 'Enhanced quality and speed',
+    icon: '/icons/com_logo_vidu_9166e0cac9.png',
+    provider: 'Vidu Studio',
+    credits: 10,
+  },
+  {
+    id: 'hailuo',
+    name: 'Hailuo',
+    description: 'Highest video quality',
+    icon: '/icons/com_logo_hailuo_3bc9b31a8a.png',
+    provider: 'MiniMax',
+    credits: 35,
+  },
+  {
+    id: 'luma-ray-1.6',
+    name: 'Luma Ray 1.6',
+    description: 'Realistic and detailed videos',
+    icon: '/icons/com_logo_luma_8542d55fb5.png',
+    provider: 'Luma AI',
+    credits: 60,
+  },
+  {
+    id: 'wanx-2.1',
+    name: 'Wanx 2.1',
+    description: 'Alibaba\'s model with realistic outputs',
+    icon: '/icons/Group.svg',
+    provider: 'Alibaba',
+    credits: 20,
+  },
+  {
+    id: 'hunyuan',
+    name: 'Hunyuan',
+    description: 'Tencent\'s 13B-parameter video model',
     icon: '/icons/com_logo_hunyuan_d9096a0de1.png',
     provider: 'Tencent',
-    credits: 4,
+    credits: 20,
   },
   {
-    id: 'wanx-ai',
-    name: 'Wanx AI Video Generator (Wan 2.1)',
-    description: 'Alibaba video AI',
-    icon: '/icons/Wanx_AI_a03a7dcbf4.png',
-    provider: 'Alibaba',
-    credits: 3,
+    id: 'hailuo-live2d',
+    name: 'Hailuo Live2D',
+    description: 'Good for 2D animation',
+    icon: '/icons/com_logo_hailuo_3bc9b31a8a.png',
+    provider: 'MiniMax',
+    credits: 35,
   },
   {
-    id: 'midjourney-ai',
-    name: 'Midjourney AI Video Generator',
-    description: 'Creative video generation',
-    icon: '/icons/midjourney_icon_9a2abffe0b.png',
-    provider: 'Midjourney',
-    credits: 7,
-  }
+    id: 'pika-2.1',
+    name: 'Pika 2.1',
+    description: 'Crystal-clear and immersive outputs',
+    icon: '/icons/com_logo_pika_13fbdc24b9.png',
+    provider: 'Pika Labs',
+    credits: 60,
+  },
+  {
+    id: 'kling-1.5',
+    name: 'Kling 1.5',
+    description: 'Suitable for complex scenes',
+    icon: '/icons/com_logo_kling_1b6878741b.png',
+    provider: 'Kling AI',
+    credits: 20,
+  },
+  {
+    id: 'kling-1.0',
+    name: 'Kling 1.0',
+    description: 'Suitable for short videos',
+    icon: '/icons/com_logo_kling_1b6878741b.png',
+    provider: 'Kling AI',
+    credits: 10,
+  },
+
 ];
 
 interface ModelSelectorProps {
@@ -227,8 +331,21 @@ export default function ModelSelector({
             />
           </div>
           <div className="text-left">
-            <div className="font-medium text-white text-sm truncate max-w-[200px]">
-              {selectedModel.name}
+            <div className="flex items-center gap-2 mb-1">
+              <div className="font-medium text-white text-sm truncate max-w-[150px]">
+                {selectedModel.name}
+              </div>
+              {selectedModel.badge && (
+                <span className={`text-xs px-1.5 py-0.5 rounded-full font-medium ${
+                  selectedModel.badge === 'New' 
+                    ? 'bg-green-500 text-white' 
+                    : selectedModel.badge === 'Hot'
+                    ? 'bg-red-500 text-white'
+                    : ''
+                }`}>
+                  {selectedModel.badge}
+                </span>
+              )}
             </div>
             <div className="text-xs text-gray-400 truncate max-w-[200px]">
               {selectedModel.description}
@@ -271,8 +388,21 @@ export default function ModelSelector({
                 />
               </div>
               <div className="text-left flex-1 min-w-0">
-                <div className="font-medium text-white text-sm truncate">
-                  {model.name}
+                <div className="flex items-center gap-2 mb-1">
+                  <div className="font-medium text-white text-sm truncate">
+                    {model.name}
+                  </div>
+                  {model.badge && (
+                    <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${
+                      model.badge === 'New' 
+                        ? 'bg-green-500 text-white' 
+                        : model.badge === 'Hot'
+                        ? 'bg-red-500 text-white'
+                        : ''
+                    }`}>
+                      {model.badge}
+                    </span>
+                  )}
                 </div>
                 <div className="text-xs text-gray-400 truncate">
                   {model.description}

@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { 
   ChevronDown, 
@@ -98,7 +100,7 @@ const PricingPage = () => {
           
           {/* Billing Toggle */}
           <div className="flex items-center justify-center gap-4 mb-8">
-            <span className="text-white text-sm">USD $</span>
+            <span className="text-white text-sm">JPY ¥</span>
             
             <div className="flex items-center gap-4">
               <button 
@@ -136,8 +138,8 @@ const PricingPage = () => {
           <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8 text-center">
             <h3 className="text-2xl font-bold text-white mb-4">Free</h3>
             <div className="mb-6">
-              <span className="text-4xl font-bold text-white">$0</span>
-              <span className="text-gray-400 ml-1">USD /mo</span>
+              <span className="text-4xl font-bold text-white">¥0</span>
+              <span className="text-gray-400 ml-1">JPY /mo</span>
             </div>
             
             <button className="w-full bg-gray-700 hover:bg-gray-600 text-white py-3 rounded-lg font-medium transition-colors mb-8">
@@ -172,10 +174,6 @@ const PricingPage = () => {
               <li className="flex items-start gap-2">
                 <Check size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-300">Image to video</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <Check size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-300">Video to video</span>
               </li>
               <li className="flex items-start gap-2">
                 <Check size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
@@ -218,8 +216,8 @@ const PricingPage = () => {
             
             <h3 className="text-2xl font-bold text-white mb-4">Pro</h3>
             <div className="mb-6">
-              <span className="text-4xl font-bold text-white">$14.5</span>
-              <span className="text-gray-400 ml-1">USD /mo</span>
+              <span className="text-4xl font-bold text-white">¥2,171</span>
+              <span className="text-gray-400 ml-1">JPY /mo</span>
             </div>
             
             <button className="w-full bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white py-3 rounded-lg font-medium transition-all mb-8">
@@ -314,8 +312,8 @@ const PricingPage = () => {
           <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8 text-center">
             <h3 className="text-2xl font-bold text-white mb-4">Lite</h3>
             <div className="mb-6">
-              <span className="text-4xl font-bold text-white">$10</span>
-              <span className="text-gray-400 ml-1">USD /mo</span>
+              <span className="text-4xl font-bold text-white">¥1,498</span>
+              <span className="text-gray-400 ml-1">JPY /mo</span>
             </div>
             
             <button className="w-full bg-gray-700 hover:bg-gray-600 text-white py-3 rounded-lg font-medium transition-colors mb-8">
@@ -439,7 +437,7 @@ const PricingPage = () => {
             <div className="bg-white rounded px-3 py-2">
               <span className="text-black font-bold">Click to Pay</span>
             </div>
-            <span className="text-gray-400">More ></span>
+            <span className="text-gray-400">More &gt;</span>
           </div>
         </div>
       </div>
